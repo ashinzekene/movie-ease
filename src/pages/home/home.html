@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MOVIE EASE</ion-title>
+    <ion-buttons end (click)="search()">
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content overflow-scroll="true">
+  <div>
+    <ion-fab right middle>
+      <button ion-fab (click)="changeSlide('+')" color="half-transparent"><ion-icon name="arrow-forward"></ion-icon></button>
+    </ion-fab>
+    <ion-fab left middle>
+      <button ion-fab (click)="changeSlide('-')" color="half-transparent"><ion-icon name="arrow-back"></ion-icon></button>
+    </ion-fab>
+    <ion-slides class="slider" slidesPerView="{{ slidesPerPage }}" speed="800" (ionSlideWillChange)="slideChange($event)" >
+
+      <ion-slide *ngFor="let movie of upcomingMovies" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w500"+ movie.poster_path +")"}' (ionSlideWillChange)="slideCheck()">
+        <div class="wrapper">
+          <div text-capitalize text-underline class="movie-text">{{ movie.title }}</div>
+        </div>
+      </ion-slide>
+      
+    </ion-slides>
+  </div>
+ 
+</ion-content>

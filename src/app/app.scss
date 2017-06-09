@@ -1,0 +1,92 @@
+// http://ionicframework.com/docs/v2/theming/
+
+* {
+  color: #fafafa !important;
+}
+.toolbar-title {
+  font-weight: 100;
+}
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+  border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: rgba(225, 225, 225, 0.6); 
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+  box-shadow: 0 0 6px rgba(0,0,0,0.5); 
+}
+.listings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+}
+.listings .card{
+  position: relative;
+  text-align: center;
+  background-color: black;
+  width: 200px;
+  margin: 0;
+  height: 300px;
+  background-color: transparent;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .wrapper {
+    display: absolute;
+    width: 100%;
+    height: 100%;
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: transparent;
+    }
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      font-style: italic;
+      top: 52%;
+      width: 100%;
+      color: transparent;
+    }
+    &:hover {
+      background-color : rgba(0,0,0,0.8); 
+      .card-title, .card-subtitle {
+        color: #fff            
+      }
+    }
+  }
+}
+
+
+// scrollbar-face-color:
+// scrollbar-highligh-color:
+// scrollbar-shadow-color:
+// scrollbar-3dlight-color:
+// scrollbar-arrow-color:
+// scrollbar-track-color:
+// scrollbar-darkshadow-color:
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.

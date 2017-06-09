@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MOVIES</ion-title>
+    <ion-buttons end (click)="search()">
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header> : Object
+
+<ion-content padding>
+  <div class="listings">
+    <ion-card *ngFor="let movie of upcoming" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}'>
+      <div class="wrapper">
+        <div text-capitalize text-underline class="card-subtitle">{{ movie.title }}</div>
+      </div>
+    </ion-card>
+  </div>
+  <div class="listings">
+    <ion-card *ngFor="let movie of popular" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}'>
+      <div class="wrapper">
+        <div text-capitalize text-underline class="card-subtitle">{{ movie.title }}</div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
