@@ -20,8 +20,8 @@
       <ion-segment-button value="info">
         Info
       </ion-segment-button>
-      <ion-segment-button value="cast">
-        Cast
+      <ion-segment-button value="movies">
+        Movies
       </ion-segment-button>
       <ion-segment-button value="similar">
         Similar
@@ -38,9 +38,9 @@
     </ion-item>
     
     <ion-list *ngSwitchCase="'info'">
-      <ion-item text-wrap>Release Date: {{ data.release_date }}</ion-item>
-      <ion-item text-wrap>Status: {{ data.status }}</ion-item>
-      <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>
+      <ion-item text-wrap>Also known as  {{ data.also_know_as }}</ion-item>
+      <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>
+      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>
       <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>
       <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
       <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
@@ -55,10 +55,15 @@
       </ion-item>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'similar'">
-      <p>{{ data | json }}</p>
-      <h3 *ngIf="!data.similar">No similar avialble yet</h3>
-      <ion-item text-wrap *ngFor="let similar of data.similar" >{{ similar }}</ion-item>
+    <ion-list *ngSwitchCase="'movies'">
+      <ion-item text-wrap *ngFor="let movie of data.combined_credits?.cast" >
+          <ion-thumbnail item-left>
+            <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">
+          </ion-thumbnail>
+          <h2>{{ movie.title }}</h2>
+          <p>Acted as {{ movie.character }}</p>
+          <p>Release Date: {{ movie.release_date }}</p>
+        </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'cast'">
