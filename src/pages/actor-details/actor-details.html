@@ -14,17 +14,14 @@
   </div>
   <ion-toolbar no-border>
     <ion-segment color="light" [(ngModel)]="actorDetail">
-      <ion-segment-button value="reviews">
-        Reviews
+      <ion-segment-button value="series">
+        Series
       </ion-segment-button>
       <ion-segment-button value="info">
         Info
       </ion-segment-button>
       <ion-segment-button value="movies">
         Movies
-      </ion-segment-button>
-      <ion-segment-button value="similar">
-        Similar
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -47,16 +44,19 @@
       <ion-item text-wrap>{{ data | json }}</ion-item>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'reviews'">
-      <h3 *ngIf="!data.review">No review avialble yet</h3>
-      <ion-item text-wrap *ngFor="let review of data.reviews?.results" >
-        <h3>{{ review.author }}</h3>
-        <p>{{ review.content }}</p>
+    <ion-list *ngSwitchCase="'series'">
+      <ion-item text-wrap *ngFor="let serie of data.tv_credits?.cast" >
+        <ion-thumbnail item-left>
+          <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">
+        </ion-thumbnail>
+        <h2>{{ serie.name }}</h2>
+        <p>Acted as {{ serie.character }}</p>
+        <p>Release Date: {{ serie.release_date }}</p>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'movies'">
-      <ion-item text-wrap *ngFor="let movie of data.combined_credits?.cast" >
+      <ion-item text-wrap *ngFor="let movie of data.movie_credits?.cast" >
           <ion-thumbnail item-left>
             <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">
           </ion-thumbnail>
@@ -66,14 +66,5 @@
         </ion-item>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'cast'">
-      <ion-item>
-        <ion-avatar item-left>
-          <img src="/image.tmdb/p/">
-        </ion-avatar>
-        <h2>onoe</h2>
-        <p>Acted as character</p>
-      </ion-item>
-    </ion-list>
   </div>
 </ion-content>

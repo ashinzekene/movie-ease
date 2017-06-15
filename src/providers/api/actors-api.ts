@@ -13,18 +13,18 @@ export class ActorsApi {
     console.log('Hello ActorsApi Provider');
   }
   one(id) {
-    return this.http.get(`http://localhost:4400/actors/one/${id}`).map((res)=> {
+    return this.http.get(`http://movie-ease.herokuapp.com:5000/actors/one/${id}`).map((res)=> {
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`http://localhost:4400/actors/search/${query}`).map((res)=> {
+    return this.http.get(`http://movie-ease.herokuapp.com:5000/actors/search/${query}`).map((res)=> {
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   popular(n=1) {
     console.log("Getting popular")
-    return this.http.get('http://localhost:4400/actors/popular/'+n).map((res)=> {
+    return this.http.get('http://movie-ease.herokuapp.com:5000/actors/popular/'+n).map((res)=> {
       if(n === 1) this.store.setPopular(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)

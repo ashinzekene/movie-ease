@@ -13,15 +13,15 @@ app.listen(port, function(err){
   if(err) console.log(err)
   console.log('It is happening at port ', port)
 })
+app.get('/', function(req, res){
+  res.status(200).sendFile("www/index.html")
+})
 app.use('/movies', moviesRoute)
 app.use('/actors', actorsRoute)
 app.use('/series', seriesRoute)
 app.use('/a2r', appendResponseRoute)
 app.use('/images', imagesRoute)
 
-app.get('/', function(req, res){
-  res.status(200).sendFile("www/index.html")
-})
 app.get('*', function(req, res){
   res.status(400).json({result: 'Bad url '+ req.url})
 })

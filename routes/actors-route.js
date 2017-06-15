@@ -13,7 +13,7 @@ route.get('/', function(req, res) {
 })
 route.get('/one/:id', function(req, res, next) {
   let id = req.params.id
-  rq.get(api.getPerson + id + "?"+ api.imdb.apiKey+ api.imdb.aToR+'combined_credits').then((resp)=> {
+  rq.get(api.getPerson + id + "?"+ api.imdb.apiKey+ api.imdb.aToR+'movie_credits,tv_credits').then((resp)=> {
     res.status(200).json(resp)
   }).catch((err)=>{
     console.log('err', req.originalUrl)
