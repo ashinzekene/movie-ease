@@ -6,7 +6,7 @@ var actorsRoute = require('./routes/actors-route')
 var seriesRoute = require('./routes/series-route')
 var imagesRoute = require('./routes/images-route')
 var appendResponseRoute = require('./routes/append-response-route')
-var port = process.env.port || 4400
+var port = process.env.PORT || 4400
 
 
 app.listen(port, function(err){
