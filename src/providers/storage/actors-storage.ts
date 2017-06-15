@@ -6,7 +6,7 @@ import { Storage } from "@ionic/storage";
 @Injectable()
 export class ActorsStorage {
 
-  constructor(public http: Http, public store: Storage) {
+  constructor(public https: Http, public store: Storage) {
     console.log('Hello ActorsStorage Provider');
   }
   setUpcoming(res) {

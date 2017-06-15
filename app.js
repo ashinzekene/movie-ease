@@ -1,4 +1,5 @@
 var express = require('express')
+var path = require("path")
 var app = express()
 
 var moviesRoute = require('./routes/movies-route')
@@ -8,14 +9,15 @@ var imagesRoute = require('./routes/images-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
-
+app.use(express.static("www"))
 app.listen(port, function(err){
   if(err) console.log(err)
   console.log('It is happening at port ', port)
 })
 app.get('/', function(req, res){
-  res.status(200).sendFile("www/index.html")
+  res.status(200).sendFile(__dirname+"/www/index.html")
 })
+
 app.use('/movies', moviesRoute)
 app.use('/actors', actorsRoute)
 app.use('/series', seriesRoute)

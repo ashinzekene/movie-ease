@@ -6,7 +6,7 @@ import { Storage } from "@ionic/storage";
 @Injectable()
 export class MoviesStorage {
 
-  constructor(public http: Http, public store: Storage) {
+  constructor(public https: Http, public store: Storage) {
     console.log('Hello MoviesStorage Provider');
   }
   setUpcoming(res) {

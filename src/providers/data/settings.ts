@@ -11,7 +11,7 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class Settings {
 
-  constructor(public http: Http) {
+  constructor(public https: Http) {
     console.log('Hello Settings Provider');
   }
 
