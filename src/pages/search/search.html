@@ -25,9 +25,9 @@
 
 <ion-content padding>
   <div class="listings">
-    <ion-card *ngFor="let movie of result" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path || movie.profile_path +")"}'>
+    <ion-card (click)="nav(data)"  *ngFor="let data of result" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ data.poster_path || data.profile_path +")"}'>
       <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">{{ movie.title || movie.name}}</div>
+        <div text-capitalize text-underlineclass="card-subtitle">{{ data.title || data.name}}</div>
       </div>
     </ion-card>
   </div>

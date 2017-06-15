@@ -28,9 +28,34 @@ export class Search {
   search() {
     clearTimeout(this._req)
     this._req = setTimeout(()=> {
-      this._api.search(this.queryText, this._type).subscribe(res => this.result = res.results)
+      this._api.search(this.queryText, this._type).subscribe(res => {
+        console.log(res)
+        this.result = res.results
+      })
       console.info("Sending request")
-    }, 1500)
+    }, 1000)
+  }
+  nav(data) {
+    console.log(data)
+    if(data.first_air_date) {
+      console.log("series")
+      this.navSerie(data)
+    } else if (data.title) {
+      console.log("movies")
+      this.navSerie(data)
+    } else if (data.name) {
+      console.log("actors")
+      this.navActor(data)
+    }
+  }
+  navActor(actor) {
+    this.navCtrl.push("ActorDetails", {data: actor, id: actor.id})
+  }
+  navMovie(movie) {
+    this.navCtrl.push("MovieDetails", {data: movie, id: movie.id})
+  }
+  navSerie(serie) {
+    this.navCtrl.push("SerieDetails", {data: serie, id: serie.id})
   }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Search');

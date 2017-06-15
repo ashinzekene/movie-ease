@@ -37,26 +37,24 @@
     <ion-list *ngSwitchCase="'info'">
       <ion-item text-wrap>Also known as  {{ data.also_know_as }}</ion-item>
       <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>
-      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>
-      <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>
       <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
-      <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
-      <ion-item text-wrap>{{ data | json }}</ion-item>
+      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>
+      <!--<ion-item text-wrap>{{ data | json }}</ion-item>-->
     </ion-list>
 
     <ion-list *ngSwitchCase="'series'">
-      <ion-item text-wrap *ngFor="let serie of data.tv_credits?.cast" >
+      <ion-item (click)="navSerie(serie)" text-wrap *ngFor="let serie of data.tv_credits?.cast" >
         <ion-thumbnail item-left>
           <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">
         </ion-thumbnail>
         <h2>{{ serie.name }}</h2>
         <p>Acted as {{ serie.character }}</p>
-        <p>Release Date: {{ serie.release_date }}</p>
+        <p>First Air Date: {{ serie.first_air_date }}</p>
       </ion-item>
     </ion-list>
 
     <ion-list *ngSwitchCase="'movies'">
-      <ion-item text-wrap *ngFor="let movie of data.movie_credits?.cast" >
+      <ion-item (click)="navMovie(movie)" text-wrap *ngFor="let movie of data.movie_credits?.cast" >
           <ion-thumbnail item-left>
             <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">
           </ion-thumbnail>

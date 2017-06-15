@@ -80,9 +80,36 @@ var Search = (function () {
         var _this = this;
         clearTimeout(this._req);
         this._req = setTimeout(function () {
-            _this._api.search(_this.queryText, _this._type).subscribe(function (res) { return _this.result = res.results; });
+            _this._api.search(_this.queryText, _this._type).subscribe(function (res) {
+                console.log(res);
+                _this.result = res.results;
+            });
             console.info("Sending request");
-        }, 1500);
+        }, 1000);
+    };
+    Search.prototype.nav = function (data) {
+        console.log(data);
+        if (data.first_air_date) {
+            console.log("series");
+            this.navSerie(data);
+        }
+        else if (data.title) {
+            console.log("movies");
+            this.navSerie(data);
+        }
+        else if (data.name) {
+            console.log("actors");
+            this.navActor(data);
+        }
+    };
+    Search.prototype.navActor = function (actor) {
+        this.navCtrl.push("ActorDetails", { data: actor, id: actor.id });
+    };
+    Search.prototype.navMovie = function (movie) {
+        this.navCtrl.push("MovieDetails", { data: movie, id: movie.id });
+    };
+    Search.prototype.navSerie = function (serie) {
+        this.navCtrl.push("SerieDetails", { data: serie, id: serie.id });
     };
     Search.prototype.ionViewDidLoad = function () {
         console.log('ionViewDidLoad Search');
@@ -94,11 +121,12 @@ Search = __decorate([
         defaultHistory: ["Home"]
     }),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-search',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\search\search.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-searchbar color="primary"\n                   [(ngModel)]="queryText"\n                   (ionInput)="search()"\n                   placeholder="Search">\n    </ion-searchbar>\n  </ion-navbar>\n  \n    <ion-item>\n      <ion-label>Type</ion-label>\n      <ion-select [(ngModel)]="_type" interface="popover" cancelText="Nah" okText="Yeah!">\n        <ion-option value="movies">Movies</ion-option>\n        <ion-option value="series">Series</ion-option>\n        <ion-option value="actors">Actors</ion-option>\n      </ion-select>\n    </ion-item>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div class="listings">\n    <ion-card *ngFor="let movie of result" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path || movie.profile_path +")"}\'>\n      <div class="wrapper">\n        <div text-capitalize text-underline class="card-subtitle">{{ movie.title || movie.name}}</div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\search\search.html"*/,
+        selector: 'page-search',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\search\search.html"*/'<ion-header>\n\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-searchbar color="primary"\n                   [(ngModel)]="queryText"\n                   (ionInput)="search()"\n                   placeholder="Search">\n    </ion-searchbar>\n  </ion-navbar>\n  \n    <ion-item>\n      <ion-label>Type</ion-label>\n      <ion-select [(ngModel)]="_type" interface="popover" cancelText="Nah" okText="Yeah!">\n        <ion-option value="movies">Movies</ion-option>\n        <ion-option value="series">Series</ion-option>\n        <ion-option value="actors">Actors</ion-option>\n      </ion-select>\n    </ion-item>\n\n</ion-header>\n\n\n<ion-content padding>\n  <div class="listings">\n    <ion-card (click)="nav(data)"  *ngFor="let data of result" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ data.poster_path || data.profile_path +")"}\'>\n      <div class="wrapper">\n        <div text-capitalize text-underlineclass="card-subtitle">{{ data.title || data.name}}</div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\search\search.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* PopoverController */], __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* PopoverController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* PopoverController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_api__["a" /* Api */]) === "function" && _d || Object])
 ], Search);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=search.js.map
 
 /***/ })

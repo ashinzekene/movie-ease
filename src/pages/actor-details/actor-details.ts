@@ -24,6 +24,12 @@ export class ActorDetails {
       this.data = res;
     });
   }
+  navMovie(movie) {
+    this.navCtrl.push("MovieDetails", {data: movie, id: movie.id})
+  }
+  navSerie(serie) {
+    this.navCtrl.push("SerieDetails", {data: serie, id: serie.id})
+  }
   ionViewCanEnter() {}
   ionViewDidLoad() {
     console.log('ionViewDidLoad ActorsDetails');
