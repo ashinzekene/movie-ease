@@ -6,10 +6,15 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from "@ionic/storage";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 
-import { MoviesApi } from "../providers/movies-api";
-import { SeriesApi } from "../providers/series-api";
-import { ActorsApi } from "../providers/actors-api";
-import { Api } from "../providers/api";
+
+import { MoviesApi } from "../providers/api/movies-api";
+import { SeriesApi } from "../providers/api/series-api";
+import { ActorsApi } from "../providers/api/actors-api";
+import { Api } from "../providers/api/api";
+
+import { MoviesStorage } from "../providers/storage/movies-storage";
+import { SeriesStorage } from "../providers/storage/series-storage";
+import { ActorsStorage } from "../providers/storage/actors-storage";
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -33,7 +38,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     SplashScreen,
     PhotoViewer,
     MoviesApi,
+    ActorsApi,
     SeriesApi,
+    MoviesStorage,
+    ActorsStorage,
+    SeriesStorage,
     Api,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]

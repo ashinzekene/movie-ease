@@ -1,57 +1,93 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MoviesApi } from "../../providers/movies-api";
-/**
- * Generated class for the Movies page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { MoviesApi } from "../../providers/api/movies-api";
+import { MoviesStorage } from "../../providers/storage/movies-storage";
+
+
 @IonicPage()
 @Component({
   selector: 'page-movies',
   templateUrl: 'movies.html',
 })
 export class Movies {
+  @ViewChild(Content) content: Content;
   public popular;
   public topRated;
   public latest;
   public upcoming
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: MoviesApi) {}
+  public smallScreen:boolean
+  private _pageNo: number = 1;
+  constructor(public navCtrl: NavController, public navParams: NavParams, public api: MoviesApi, public store: MoviesStorage) {}
 
+  goToDetailsPage(movie) {
+    this.navCtrl.push("MovieDetails", {id: movie.id, data: movie})
+  }
   ionViewDidLoad() {
     console.log('ionViewDidLoad Movies');
     this.getPopular();
     this.getTopRated();
     this.getLatest();
     this.getUpcoming();
+     if(this.content.getContentDimensions().contentWidth < 415) {
+      this.smallScreen = true
+      console.log(this.content.getContentDimensions().contentWidth)
+    } else {
+      this.smallScreen=false
+      console.log(this.content.getContentDimensions().contentWidth)
+    }
   }
   search() {
-    this.navCtrl.push("Search")
+    this.navCtrl.push("Search", {type: "movies"})
   }
   getTopRated(){
-    this.api.topRated(2).subscribe(res => {
-      console.log(res)
-      this.topRated = res.results
+    this.store.getTopRated().then(res=> {
+      this.topRated = res.results;
     })
+    this.api.topRated(this._pageNo).subscribe(res => {
+      this.topRated = res.results;
+      //else this.topRated = this.topRated.concat(res.results)
+      // this._pageNo++
+    });
   }
   getPopular(){
-    this.api.popular(2).subscribe(res => {
-      console.log(res)
-      this.popular = res.results
+    console.log("getting popular")
+    this.store.getPopular().then(res=> {
+      this.popular = res.results;
     })
+    this.api.popular(this._pageNo).subscribe(res => {
+      this.popular = res.results;
+      //else this.popular = this.popular.concat(res.results)
+      // this._pageNo++
+    });
   }
   getLatest(){
-    this.api.latest(2).subscribe(res => {
-      console.log(res)
-      this.latest = res.results
+    this.store.getLatest().then(res=> {
+      this.latest = res.results;
     })
+    this.api.latest(this._pageNo).subscribe(res => {
+      this.latest = res.results;
+      //else this.latest = this.latest.concat(res.results)
+      // this._pageNo++
+    });
   }
   getUpcoming(){
-    this.api.upcoming(2).subscribe(res => {
-      console.log(res)
-      this.upcoming = res.results
+    this.store.getUpcoming().then(res=> {
+      this.upcoming = res.results;
     })
+    this.api.upcoming(this._pageNo).subscribe(res => {
+      this.upcoming = res.results;
+      //else this.upcoming = this.upcoming.concat(res.results)
+      // this._pageNo++
+    });
+  }
+  loadMore() {
+    let dimension = this.content.getContentDimensions()
+    let scrollTop = dimension.scrollTop
+    let scrollHeight = dimension.scrollHeight
+    let contentHeight = dimension.contentHeight
+    if(scrollHeight < (scrollTop + 2*contentHeight)) {
+      console.log(this.content.getContentDimensions())
+    }
   }
 
 }

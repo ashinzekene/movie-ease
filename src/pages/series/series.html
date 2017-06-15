@@ -21,34 +21,9 @@
 
 <ion-content padding>
   <div class="listings">
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
+    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ serie.poster_path +")"}'>
       <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
-      </div>
-    </ion-card>
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
-      </div>
-    </ion-card>
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
-      </div>
-    </ion-card>
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
-      </div>
-    </ion-card>
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
-      </div>
-    </ion-card>
-    <ion-card [ngStyle]= '{"background-image": "url(assets/img/wolverine.jpg)"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">genus</div>
+        <div text-capitalize text-underline class="title">{{ serie.name }}</div>
       </div>
     </ion-card>
   </div>

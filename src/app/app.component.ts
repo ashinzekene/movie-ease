@@ -2,8 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, Nav } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { Storage } from "../providers/storage";
-import { Api } from "../providers/api";
+import { Api } from "../providers/api/api";
 
 
 @Component({

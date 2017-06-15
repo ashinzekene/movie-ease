@@ -10,20 +10,17 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header> : Object
+</ion-header>
 
-<ion-content padding>
-  <div class="listings">
-    <ion-card *ngFor="let movie of upcoming" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}'>
+<ion-content padding (ionScrollEnd)="loadMore()">
+  <div class="full">
+    <ion-card (click)="goToDetailsPage(movie)" *ngFor="let movie of popular">
       <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">{{ movie.title }}</div>
-      </div>
-    </ion-card>
-  </div>
-  <div class="listings">
-    <ion-card *ngFor="let movie of popular" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="card-subtitle">{{ movie.title }}</div>
+        <img [src]="'https://image.tmdb.org/t/p/w342'+ movie.poster_path" alt="{{movie.title }}">
+        <div class="text">
+          <div text-capitalize text-underline class="title">{{ movie.title }}</div>
+          <div text-capitalize text-underline class="subtitle">{{ movie.release_date }}</div>
+        </div>
       </div>
     </ion-card>
   </div>

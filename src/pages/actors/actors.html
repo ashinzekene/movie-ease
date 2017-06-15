@@ -1,9 +1,3 @@
-<!--
-  Generated template for the Actors page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle icon-only>
@@ -20,5 +14,11 @@
 
 
 <ion-content padding>
-
+  <div class="listings">
+    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ actor.profile_path +")"}'>
+      <div class="wrapper">
+        <div text-capitalize text-underline class="title">{{ actor.name }}</div>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>

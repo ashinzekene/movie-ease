@@ -1,0 +1,74 @@
+<ion-header>
+
+  <ion-navbar class="gradient-header">
+    <ion-title>{{ data.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="details" [ngStyle]="obj">
+  <div class="wrapper">
+    <div>
+      <h1 class="title">{{ data.name }}</h1>
+    </div>
+  </div>
+  <ion-toolbar no-border>
+    <ion-segment color="light" [(ngModel)]="actorDetail">
+      <ion-segment-button value="reviews">
+        Reviews
+      </ion-segment-button>
+      <ion-segment-button value="info">
+        Info
+      </ion-segment-button>
+      <ion-segment-button value="cast">
+        Cast
+      </ion-segment-button>
+      <ion-segment-button value="similar">
+        Similar
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div [ngSwitch]="actorDetail">
+    <ion-item>
+      <ion-chip *ngFor="let genre of data.genre_ids" item-end color="danger">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>{{ genre }}</ion-label>
+      </ion-chip>
+    </ion-item>
+    
+    <ion-list *ngSwitchCase="'info'">
+      <ion-item text-wrap>Release Date: {{ data.release_date }}</ion-item>
+      <ion-item text-wrap>Status: {{ data.status }}</ion-item>
+      <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>
+      <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>
+      <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
+      <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
+      <ion-item text-wrap>{{ data | json }}</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'reviews'">
+      <h3 *ngIf="!data.review">No review avialble yet</h3>
+      <ion-item text-wrap *ngFor="let review of data.reviews?.results" >
+        <h3>{{ review.author }}</h3>
+        <p>{{ review.content }}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'similar'">
+      <p>{{ data | json }}</p>
+      <h3 *ngIf="!data.similar">No similar avialble yet</h3>
+      <ion-item text-wrap *ngFor="let similar of data.similar" >{{ similar }}</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'cast'">
+      <ion-item>
+        <ion-avatar item-left>
+          <img src="/image.tmdb/p/">
+        </ion-avatar>
+        <h2>onoe</h2>
+        <p>Acted as character</p>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

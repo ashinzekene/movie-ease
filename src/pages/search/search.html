@@ -1,18 +1,34 @@
-<!--
-  Generated template for the Search page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
   <ion-navbar>
-    <ion-title>search</ion-title>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-searchbar color="primary"
+                   [(ngModel)]="queryText"
+                   (ionInput)="search()"
+                   placeholder="Search">
+    </ion-searchbar>
   </ion-navbar>
+  
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select [(ngModel)]="_type" interface="popover" cancelText="Nah" okText="Yeah!">
+        <ion-option value="movies">Movies</ion-option>
+        <ion-option value="series">Series</ion-option>
+        <ion-option value="actors">Actors</ion-option>
+      </ion-select>
+    </ion-item>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <div class="listings">
+    <ion-card *ngFor="let movie of result" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path || movie.profile_path +")"}'>
+      <div class="wrapper">
+        <div text-capitalize text-underline class="card-subtitle">{{ movie.title || movie.name}}</div>
+      </div>
+    </ion-card>
+  </div>
 </ion-content>

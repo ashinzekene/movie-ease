@@ -1,18 +1,81 @@
-<!--
-  Generated template for the MovieDetails page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
 
-  <ion-navbar>
-    <ion-title>movie-details</ion-title>
+  <ion-navbar class="gradient-header">
+    <ion-title>{{ data.title }}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.poster_path + ')' }">
+    <div class="wrapper">
+      <div>
+        <h1 class="title">{{ data.title }}</h1>
+        <p class="tagline">{{ data.tagline }}</p>
+      </div>
+    </div>
 
-<ion-content padding>
+    <ion-toolbar no-border>
+      <ion-segment color="light" [(ngModel)]="movieDetail">
+        <ion-segment-button value="reviews">
+          Reviews
+        </ion-segment-button>
+        <ion-segment-button value="info">
+          Info
+        </ion-segment-button>
+        <ion-segment-button value="cast">
+          Cast
+        </ion-segment-button>
+        <ion-segment-button value="similar">
+          Similar
+        </ion-segment-button>
+      </ion-segment>
+    </ion-toolbar>
 
+    <div [ngSwitch]="movieDetail">
+      <ion-item text-wrap>
+        <ion-chip *ngFor="let genre of data.genres">
+          <ion-icon name="information-circle"></ion-icon>
+          <ion-label color="light">{{ genre.name }}</ion-label>
+        </ion-chip>
+      </ion-item>
+      <ion-list *ngSwitchCase="'info'">
+        <ion-item text-wrap>Release Date: {{ data.release_date }}</ion-item>
+        <ion-item text-wrap>Status: {{ data.status }}</ion-item>
+        <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>
+        <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>
+        <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
+        <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
+        <ion-item text-wrap>{{ data | json }}</ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'reviews'">
+        <ion-item *ngFor="let review of data.reviews?.results">
+          <h2>{{ review.author }}</h2>
+          <p ion-text text-wrap>{{ review.content }}</p>
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'similar'">
+        <ion-item text-wrap (click)="navMovie(similar)" *ngFor="let similar of data.similar?.results" >
+          <ion-thumbnail item-left>
+            <img src="https://image.tmdb.org/t/p/w92{{similar.poster_path}}">
+          </ion-thumbnail>
+          <h2>{{ similar.title }}</h2>
+          <p>Release Date {{ similar.release_date }}</p>
+          
+        </ion-item>
+      </ion-list>
+
+      <ion-list *ngSwitchCase="'cast'">
+        <!--<ion-item text-wrap *ngFor="let cast of data.credits?.cast" (click)="showPerson(cast.id)" >{{ cast.name + " as " + cast.character }}</ion-item>-->
+        <ion-item *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">
+          <ion-avatar item-left>
+            <img src="https://image.tmdb.org/t/p/w92{{cast.profile_path}}">
+          </ion-avatar>
+          <h2>{{ cast.name }}</h2>
+          <p>Acted as {{ cast.character }}</p>
+        </ion-item>
+        
+      </ion-list>
+    </div>
 </ion-content>

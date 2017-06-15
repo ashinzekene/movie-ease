@@ -22,7 +22,7 @@
     </ion-fab>
     <ion-slides class="slider" slidesPerView="{{ slidesPerPage }}" speed="800" (ionSlideWillChange)="slideChange($event)" >
 
-      <ion-slide *ngFor="let movie of upcomingMovies" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w500"+ movie.poster_path +")"}' (ionSlideWillChange)="slideCheck()">
+      <ion-slide (click)="goToDetailsPage(movie)" *ngFor="let movie of upcomingMovies" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}' (ionSlideWillChange)="slideCheck()">
         <div class="wrapper">
           <div text-capitalize text-underline class="movie-text">{{ movie.title }}</div>
         </div>
