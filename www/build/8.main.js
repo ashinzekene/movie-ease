@@ -64,13 +64,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 var ActorDetails = (function () {
-    function ActorDetails(navCtrl, navParams, _api, _storage, _loadingCtrl) {
+    function ActorDetails(navCtrl, navParams, _api, _storage) {
         var _this = this;
         this.navCtrl = navCtrl;
         this.navParams = navParams;
         this._api = _api;
         this._storage = _storage;
-        this._loadingCtrl = _loadingCtrl;
         this.data = { profile_path: "" };
         this.actorDetail = "info";
         this.obj = {};
@@ -78,7 +77,6 @@ var ActorDetails = (function () {
             this.data = this.navParams.data.data;
         }
         this._api.one(this.navParams.data.id).subscribe(function (res) {
-            _this.loading().dismiss();
             _this.data = res;
         });
     }
@@ -88,22 +86,8 @@ var ActorDetails = (function () {
     ActorDetails.prototype.navSerie = function (serie) {
         this.navCtrl.push("SerieDetails", { data: serie, id: serie.id });
     };
-    ActorDetails.prototype.loading = function () {
-        var loader = this._loadingCtrl.create({
-            content: "Loading"
-        });
-        return {
-            create: function () {
-                loader.present();
-            },
-            dismiss: function () {
-                loader.dismissAll();
-            },
-        };
-    };
     ActorDetails.prototype.ionViewCanEnter = function () { };
     ActorDetails.prototype.ionViewDidLoad = function () {
-        this.loading().create();
         console.log('ionViewDidLoad ActorsDetails');
     };
     return ActorDetails;
@@ -116,9 +100,10 @@ ActorDetails = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
         selector: 'page-actor-details',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actor-details\actor-details.html"*/'<ion-header>\n\n  <ion-navbar class="gradient-header">\n    <ion-title>{{ data.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="details" [ngStyle]="{\'background-image\': \'url(https://image.tmdb.org/t/p/w500\' + data.profile_path + \')\'}">\n  <div class="wrapper">\n    <div>\n      <h1 class="title">{{ data.name }}</h1>\n    </div>\n  </div>\n  <ion-toolbar no-border>\n    <ion-segment color="light" [(ngModel)]="actorDetail">\n      <ion-segment-button value="series">\n        Series\n      </ion-segment-button>\n      <ion-segment-button value="info">\n        Info\n      </ion-segment-button>\n      <ion-segment-button value="movies">\n        Movies\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n  <div [ngSwitch]="actorDetail">\n    <ion-item>\n      <ion-chip *ngFor="let genre of data.genre_ids" item-end color="danger">\n        <ion-icon name="information-circle"></ion-icon>\n        <ion-label>{{ genre }}</ion-label>\n      </ion-chip>\n    </ion-item>\n    \n    <ion-list *ngSwitchCase="\'info\'">\n\n      <ion-item text-wrap>Also known as  <p *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>\n      <ion-item text-wrap>Birthday:  {{ data.birthday }}</ion-item>\n      <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>\n      <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>\n      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'series\'">\n      <ion-item (click)="navSerie(serie)" text-wrap *ngFor="let serie of data.tv_credits?.cast" >\n        <ion-thumbnail item-left>\n          <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">\n        </ion-thumbnail>\n        <h2>{{ serie.name }}</h2>\n        <p>Acted as {{ serie.character }}</p>\n        <p>First Air Date: {{ serie.first_air_date }}</p>\n      </ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'movies\'">\n      <ion-item (click)="navMovie(movie)" text-wrap *ngFor="let movie of data.movie_credits?.cast" >\n          <ion-thumbnail item-left>\n            <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">\n          </ion-thumbnail>\n          <h2>{{ movie.title }}</h2>\n          <p>Acted as {{ movie.character }}</p>\n          <p>Release Date: {{ movie.release_date }}</p>\n        </ion-item>\n    </ion-list>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actor-details\actor-details.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_actors_api__["a" /* ActorsApi */], __WEBPACK_IMPORTED_MODULE_3__providers_storage_actors_storage__["a" /* ActorsStorage */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* LoadingController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_actors_api__["a" /* ActorsApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_actors_api__["a" /* ActorsApi */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_storage_actors_storage__["a" /* ActorsStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_storage_actors_storage__["a" /* ActorsStorage */]) === "function" && _d || Object])
 ], ActorDetails);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=actor-details.js.map
 
 /***/ })
