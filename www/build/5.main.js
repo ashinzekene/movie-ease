@@ -75,12 +75,8 @@ var Home = (function () {
     Home.prototype.goToDetailsPage = function (movie) {
         this.navCtrl.push('MovieDetails', { id: movie.id, data: movie });
     };
-    Home.prototype.getUpcomingMovies = function () {
+    Home.prototype.loadUpcoming = function () {
         var _this = this;
-        this.store.getUpcoming().then(function (res) {
-            _this.upcomingMovies = res.results;
-            console.log("On page", res);
-        });
         this.movies.upcoming(this._pageNo).subscribe(function (res) {
             if (_this._pageNo === 1)
                 _this.upcomingMovies = res.results;
@@ -89,20 +85,32 @@ var Home = (function () {
             _this._pageNo++;
         });
     };
+    Home.prototype.getUpcomingMovies = function () {
+        var _this = this;
+        this.store.getUpcoming().then(function (res) {
+            _this.upcomingMovies = res.results;
+            console.log("On page", res);
+        });
+    };
     Home.prototype.changeSlide = function (sym) {
         sym === "+" ? this.slides.slideNext() : this.slides.slidePrev();
     };
     Home.prototype.search = function () {
         this.navCtrl.push("Search");
     };
+    Home.prototype.doRefresh = function (refresher) {
+        //this.ionViewDidLoad()
+    };
     Home.prototype.slideChange = function (e) {
+        // this.slideIndex = this.slides.getActiveIndex()
         var slidesRemaining = this.slides.length() - this.slides.getActiveIndex();
         var scrollForward = this.slides.getActiveIndex() > this.slides.getPreviousIndex();
         if (slidesRemaining === 3 && scrollForward) {
-            this.getUpcomingMovies();
+            this.loadUpcoming();
         }
     };
     Home.prototype.ionViewDidLoad = function () {
+        // this.slides.slideTo(this.slideIndex || 0)
         var width = this.content.getContentDimensions().contentWidth;
         if (width <= 420) {
             console.log("Small screen");
@@ -129,22 +137,23 @@ var Home = (function () {
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */])
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]) === "function" && _a || Object)
 ], Home.prototype, "content", void 0);
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */])
+    __metadata("design:type", typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Slides */]) === "function" && _b || Object)
 ], Home.prototype, "slides", void 0);
 Home = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])({
         segment: "/"
     }),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIE EASE</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content overflow-scroll="true">\n  <div>\n    <ion-fab right middle>\n      <button ion-fab (click)="changeSlide(\'+\')" color="half-transparent"><ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-fab>\n    <ion-fab left middle>\n      <button ion-fab (click)="changeSlide(\'-\')" color="half-transparent"><ion-icon name="arrow-back"></ion-icon></button>\n    </ion-fab>\n    <ion-slides class="slider" slidesPerView="{{ slidesPerPage }}" speed="800" (ionSlideWillChange)="slideChange($event)" >\n\n      <ion-slide (click)="goToDetailsPage(movie)" *ngFor="let movie of upcomingMovies" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}\' (ionSlideWillChange)="slideCheck()">\n        <div class="wrapper">\n          <div text-capitalize text-underline class="movie-text">{{ movie.title }}</div>\n        </div>\n      </ion-slide>\n      \n    </ion-slides>\n  </div>\n \n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIE EASE</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content overflow-scroll="true">\n  <ion-refresher (ionRefresh)="doRefresh($event)">\n    <ion-refresher-content refreshingText="Fetching new movies"></ion-refresher-content>\n  </ion-refresher>\n  <div>\n    <ion-fab right middle>\n      <button ion-fab (click)="changeSlide(\'+\')" color="half-transparent"><ion-icon name="arrow-forward"></ion-icon></button>\n    </ion-fab>\n    <ion-fab left middle>\n      <button ion-fab (click)="changeSlide(\'-\')" color="half-transparent"><ion-icon name="arrow-back"></ion-icon></button>\n    </ion-fab>\n    <ion-slides class="slider" slidesPerView="{{ slidesPerPage }}" speed="800" (ionSlideWillChange)="slideChange($event)" >\n\n      <ion-slide (click)="goToDetailsPage(movie)" *ngFor="let movie of upcomingMovies" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ movie.poster_path +")"}\' (ionSlideWillChange)="slideCheck()">\n        <div class="wrapper">\n          <div text-capitalize text-underline class="movie-text">{{ movie.title }}</div>\n        </div>\n      </ion-slide>\n      \n    </ion-slides>\n  </div>\n \n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */], __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */]])
+    __metadata("design:paramtypes", [typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */]) === "function" && _e || Object])
 ], Home);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=home.js.map
 
 /***/ })

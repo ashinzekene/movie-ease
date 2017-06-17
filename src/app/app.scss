@@ -97,7 +97,7 @@
 
 
 @media screen and (max-width: 1024px) {
-  $width-screen-xl : calc(99.99% / 4);
+  $width-screen-xl : calc(99.99% / 3);
   .full .card {
     width: $width-screen-xl;
   }
@@ -121,13 +121,13 @@
   }
 }
 @media screen and (max-width: 520px) {
-  $width-screen-ls : calc(99.99% / 2);
+  $width-screen-ls : calc(99.99%);
   .full .card {
     width: $width-screen-ls;
   }
 }
 @media screen and (max-width: 300px) {
-  $width-screen-xs : calc(99.99% / 2);
+  $width-screen-xs : calc(99.99%);
   .full .card {
     width: $width-screen-xs;
   }

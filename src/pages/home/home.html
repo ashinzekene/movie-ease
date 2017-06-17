@@ -13,6 +13,9 @@
 </ion-header>
 
 <ion-content overflow-scroll="true">
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content refreshingText="Fetching new movies"></ion-refresher-content>
+  </ion-refresher>
   <div>
     <ion-fab right middle>
       <button ion-fab (click)="changeSlide('+')" color="half-transparent"><ion-icon name="arrow-forward"></ion-icon></button>

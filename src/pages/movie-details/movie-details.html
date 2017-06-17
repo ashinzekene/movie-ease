@@ -48,6 +48,7 @@
       </ion-list>
 
       <ion-list *ngSwitchCase="'reviews'">
+        <ion-item *ngIf="!data.reviews"><h3>No Reviews available yet</h3></ion-item>
         <ion-item *ngFor="let review of data.reviews?.results">
           <h2>{{ review.author }}</h2>
           <p ion-text text-wrap>{{ review.content }}</p>

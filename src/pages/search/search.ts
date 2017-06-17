@@ -36,15 +36,11 @@ export class Search {
     }, 1000)
   }
   nav(data) {
-    console.log(data)
     if(data.first_air_date) {
-      console.log("series")
       this.navSerie(data)
     } else if (data.title) {
-      console.log("movies")
       this.navSerie(data)
     } else if (data.name) {
-      console.log("actors")
       this.navActor(data)
     }
   }

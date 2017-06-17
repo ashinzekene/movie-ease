@@ -6,7 +6,7 @@
 
 </ion-header>
 
-<ion-content class="details" [ngStyle]="obj">
+<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.profile_path + ')'}">
   <div class="wrapper">
     <div>
       <h1 class="title">{{ data.name }}</h1>
@@ -35,11 +35,12 @@
     </ion-item>
     
     <ion-list *ngSwitchCase="'info'">
-      <ion-item text-wrap>Also known as  {{ data.also_know_as }}</ion-item>
+
+      <ion-item text-wrap>Also known as  <p *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>
+      <ion-item text-wrap>Birthday:  {{ data.birthday }}</ion-item>
       <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>
       <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
       <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>
-      <!--<ion-item text-wrap>{{ data | json }}</ion-item>-->
     </ion-list>
 
     <ion-list *ngSwitchCase="'series'">

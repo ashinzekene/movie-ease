@@ -15,6 +15,7 @@ export class Home {
   @ViewChild(Slides) slides: Slides;
   public contentWidth;
   private _pageNo: number = 1;
+  // private slideIndex=0;
   public slidesPerPage;
   public upcomingMovies= [];
   
@@ -24,16 +25,19 @@ export class Home {
   goToDetailsPage(movie) {
     this.navCtrl.push('MovieDetails', {id: movie.id, data: movie})
   }
-  getUpcomingMovies() {
-    this.store.getUpcoming().then(res=> {
-      this.upcomingMovies = res.results;
-      console.log("On page", res)
-    })
+  loadUpcoming() {
     this.movies.upcoming(this._pageNo).subscribe(res => {
       if (this._pageNo === 1) this.upcomingMovies = res.results;
       else this.upcomingMovies = this.upcomingMovies.concat(res.results)
       this._pageNo++
     });
+
+  }
+  getUpcomingMovies() {
+    this.store.getUpcoming().then(res=> {
+      this.upcomingMovies = res.results;
+      console.log("On page", res)
+    })
   }
   changeSlide(sym) {
     sym === "+"? this.slides.slideNext(): this.slides.slidePrev();
@@ -41,14 +45,19 @@ export class Home {
   search() {
     this.navCtrl.push("Search")
   }
+  doRefresh(refresher) {
+    //this.ionViewDidLoad()
+  }
   slideChange(e) {
+    // this.slideIndex = this.slides.getActiveIndex()
     let slidesRemaining = this.slides.length() - this.slides.getActiveIndex()
     let scrollForward = this.slides.getActiveIndex() > this.slides.getPreviousIndex()
     if(slidesRemaining === 3 && scrollForward) {
-      this.getUpcomingMovies()
-    }      
+      this.loadUpcoming()
+    }
   }
   ionViewDidLoad() {
+    // this.slides.slideTo(this.slideIndex || 0)
     let width = this.content.getContentDimensions().contentWidth;
     if (width <= 420) {
       console.log("Small screen")
@@ -66,6 +75,5 @@ export class Home {
       console.log("Cannot get Screen size")
       this.slidesPerPage=2
     }
-
   }
 }
