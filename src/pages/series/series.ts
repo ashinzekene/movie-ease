@@ -70,12 +70,12 @@ export class Series {
       // this._pageNo++
     });
   }
-  // loadMore() {
-  //   let dimension = this.content.getContentDimensions()
-  //   let scrollTop = dimension.scrollTop
-  //   let scrollHeight = dimension.scrollHeight
-  //   let contentHeight = dimension.contentHeight
-  //   if(scrollHeight < (scrollTop + 2*contentHeight)) {
-  //     console.log(this.content.getContentDimensions())
-  //   }
+  loadMore() {
+    // let dimension = this.content.getContentDimensions()
+    // let scrollTop = dimension.scrollTop
+    // let scrollHeight = dimension.scrollHeight
+    // let contentHeight = dimension.contentHeight
+    // if(scrollHeight < (scrollTop + 2*contentHeight)) {
+    //   console.log(this.content.getContentDimensions())
+    }
   }

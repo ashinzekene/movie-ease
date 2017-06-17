@@ -129,16 +129,25 @@ var Series = (function () {
             // this._pageNo++
         });
     };
+    Series.prototype.loadMore = function () {
+        // let dimension = this.content.getContentDimensions()
+        // let scrollTop = dimension.scrollTop
+        // let scrollHeight = dimension.scrollHeight
+        // let contentHeight = dimension.contentHeight
+        // if(scrollHeight < (scrollTop + 2*contentHeight)) {
+        //   console.log(this.content.getContentDimensions())
+    };
     return Series;
 }());
 Series = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-series',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\series\series.html"*/'<!--\n  Generated template for the Series page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>SERIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n\n<ion-content padding>\n  <div class="listings">\n    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ serie.poster_path +")"}\'>\n      <div class="wrapper">\n        <div text-capitalize text-underline class="title">{{ serie.name }}</div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\series\series.html"*/,
+        selector: 'page-series',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\series\series.html"*/'<!--\n  Generated template for the Series page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>SERIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content (ionScrollEnd)="loadMore()">\n  <div class="full">\n    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming">\n      <div class="wrapper">\n        <img [src]="\'https://image.tmdb.org/t/p/w342\'+ serie.poster_path" alt="{{ serie.name }}">\n        <div class="text">\n          <div text-capitalize text-underline class="title">{{ serie.name }}</div>\n          <div text-capitalize text-underline class="subtitle">{{ serie.status }}</div>\n        </div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n<!--\n<ion-content padding>\n  <div class="listings">\n    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ serie.poster_path +")"}\'>\n      <div class="wrapper">\n        <div text-capitalize text-underline class="title">{{ serie.name }}</div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>-->\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\series\series.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_api_series_api__["a" /* SeriesApi */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_series_storage__["a" /* SeriesStorage */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_3__providers_api_series_api__["a" /* SeriesApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_api_series_api__["a" /* SeriesApi */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_storage_series_storage__["a" /* SeriesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_storage_series_storage__["a" /* SeriesStorage */]) === "function" && _d || Object])
 ], Series);
 
+var _a, _b, _c, _d;
 //# sourceMappingURL=series.js.map
 
 /***/ })

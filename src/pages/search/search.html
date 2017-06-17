@@ -22,7 +22,21 @@
 
 </ion-header>
 
+<ion-content>
+  <div class="full">
+    <ion-card (click)="nav(data)" *ngFor="let data of result">
+      <div class="wrapper">
+        <img [src]="'https://image.tmdb.org/t/p/w342'+ (data.poster_path || data.profile_path)" alt="{{data.title }}">
+        <div class="text">
+          <div text-capitalize text-underline class="title">{{ data.name }}</div>
+          <div text-capitalize text-underline class="subtitle">{{ data.status || data.release_date  }}</div>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
 
+<!--
 <ion-content padding>
   <div class="listings">
     <ion-card (click)="nav(data)"  *ngFor="let data of result" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ data.poster_path || data.profile_path +")"}'>
@@ -31,4 +45,4 @@
       </div>
     </ion-card>
   </div>
-</ion-content>
+</ion-content>-->

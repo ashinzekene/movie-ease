@@ -12,7 +12,7 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content padding (ionScrollEnd)="loadMore()">
+<ion-content (ionScrollEnd)="loadMore()">
   <div class="full">
     <ion-card (click)="goToDetailsPage(movie)" *ngFor="let movie of popular">
       <div class="wrapper">

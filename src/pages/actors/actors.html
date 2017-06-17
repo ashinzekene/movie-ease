@@ -12,7 +12,20 @@
   </ion-navbar>
 </ion-header>
 
+<ion-content (ionScrollEnd)="loadMore()">
+  <div class="full">
+    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular">
+      <div class="wrapper">
+        <img [src]="'https://image.tmdb.org/t/p/w342'+ actor.profile_path" alt="{{ actor.name }}">
+        <div class="text">
+          <div text-capitalize text-underline class="title">{{ actor.name }}</div>
+        </div>
+      </div>
+    </ion-card>
+  </div>
+</ion-content>
 
+<!--
 <ion-content padding>
   <div class="listings">
     <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ actor.profile_path +")"}'>
@@ -21,4 +34,4 @@
       </div>
     </ion-card>
   </div>
-</ion-content>
+</ion-content>-->

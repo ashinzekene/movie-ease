@@ -138,28 +138,29 @@ var Movies = (function () {
         });
     };
     Movies.prototype.loadMore = function () {
-        var dimension = this.content.getContentDimensions();
-        var scrollTop = dimension.scrollTop;
-        var scrollHeight = dimension.scrollHeight;
-        var contentHeight = dimension.contentHeight;
-        if (scrollHeight < (scrollTop + 2 * contentHeight)) {
-            console.log(this.content.getContentDimensions());
-        }
+        // let dimension = this.content.getContentDimensions()
+        // let scrollTop = dimension.scrollTop
+        // let scrollHeight = dimension.scrollHeight
+        // let contentHeight = dimension.contentHeight
+        // if(scrollHeight < (scrollTop + 2*contentHeight)) {
+        //   console.log(this.content.getContentDimensions())
+        // }
     };
     return Movies;
 }());
 __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */])
+    __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]) === "function" && _a || Object)
 ], Movies.prototype, "content", void 0);
 Movies = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-movies',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content padding (ionScrollEnd)="loadMore()">\n  <div class="full">\n    <ion-card (click)="goToDetailsPage(movie)" *ngFor="let movie of popular">\n      <div class="wrapper">\n        <img [src]="\'https://image.tmdb.org/t/p/w342\'+ movie.poster_path" alt="{{movie.title }}">\n        <div class="text">\n          <div text-capitalize text-underline class="title">{{ movie.title }}</div>\n          <div text-capitalize text-underline class="subtitle">{{ movie.release_date }}</div>\n        </div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/,
+        selector: 'page-movies',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content (ionScrollEnd)="loadMore()">\n  <div class="full">\n    <ion-card (click)="goToDetailsPage(movie)" *ngFor="let movie of popular">\n      <div class="wrapper">\n        <img [src]="\'https://image.tmdb.org/t/p/w342\'+ movie.poster_path" alt="{{movie.title }}">\n        <div class="text">\n          <div text-capitalize text-underline class="title">{{ movie.title }}</div>\n          <div text-capitalize text-underline class="subtitle">{{ movie.release_date }}</div>\n        </div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__["a" /* MoviesApi */], __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__["a" /* MoviesStorage */]])
+    __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__["a" /* MoviesApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__["a" /* MoviesApi */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__["a" /* MoviesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__["a" /* MoviesStorage */]) === "function" && _e || Object])
 ], Movies);
 
+var _a, _b, _c, _d, _e;
 //# sourceMappingURL=movies.js.map
 
 /***/ })
