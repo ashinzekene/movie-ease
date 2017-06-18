@@ -3,9 +3,7 @@ import { IonicPage, NavController, Content, Slides } from 'ionic-angular';
 import { MoviesStorage } from '../../providers/storage/movies-storage'
 import { MoviesApi } from "../../providers/api/movies-api";
 
-@IonicPage({
-  segment: "/"
-})
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'

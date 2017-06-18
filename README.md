@@ -1,2 +1,2 @@
 ## MOVIE EASE
-The repository of my soon to be released web app...
+An app for movies. Get movie updates, release dates, cast information, reviews etc. Get actors biographies, movies starred etc.

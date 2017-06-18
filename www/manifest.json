@@ -1,13 +1,20 @@
 {
-  "name": "Ionic",
-  "short_name": "Ionic",
+  "name": "Moie-ease",
+  "short_name": "Movie-ease",
   "start_url": "index.html",
   "display": "standalone",
+  "desription": "get information about movies, actors and TV series",
+  "orientation": "portrait-primary",
+  "related_application":[{
+    "platform": "play",
+    "url": "",
+    "id": "com.ekonash.movie-ease"
+  }],
   "icons": [{
     "src": "assets/imgs/logo.png",
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
+  "background_color": "#111111",
+  "theme_color": "#111111"
 }
