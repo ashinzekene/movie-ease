@@ -9,7 +9,7 @@ var imagesRoute = require('./routes/images-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
-app.use(express.static("platforms/browser/www"))
+app.use(express.static("www"))
 app.listen(port, function(err){
   if(err) console.log(err)
   console.log('It is happening at port ', port)
