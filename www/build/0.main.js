@@ -1,2 +1,252 @@
-webpackJsonp([0],{236:function(l,n,u){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var e=u(0),t=u(268),i=u(13),o=u(23),a=u(110),r=u(161),s=u(162),c=u(163),_=u(165),d=u(166),f=u(269),p=u(247),g=u(44);u.d(n,"HomeModuleNgFactory",function(){return m});var h=this&&this.__extends||function(){var l=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(l,n){l.__proto__=n}||function(l,n){for(var u in n)n.hasOwnProperty(u)&&(l[u]=n[u])};return function(n,u){function e(){this.constructor=n}l(n,u),n.prototype=null===u?Object.create(u):(e.prototype=u.prototype,new e)}}(),b=function(l){function n(n){return l.call(this,n,[r.a,s.a,c.a,_.a,d.a,f.a],[])||this}return h(n,l),Object.defineProperty(n.prototype,"_NgLocalization_7",{get:function(){return null==this.__NgLocalization_7&&(this.__NgLocalization_7=new i.a(this.parent.get(e.c))),this.__NgLocalization_7},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_ɵi_8",{get:function(){return null==this.__ɵi_8&&(this.__ɵi_8=new o.a),this.__ɵi_8},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_FormBuilder_9",{get:function(){return null==this.__FormBuilder_9&&(this.__FormBuilder_9=new o.b),this.__FormBuilder_9},enumerable:!0,configurable:!0}),n.prototype.createInternal=function(){return this._CommonModule_0=new i.d,this._ɵba_1=new o.c,this._FormsModule_2=new o.d,this._ReactiveFormsModule_3=new o.e,this._IonicModule_4=new a.b,this._IonicPageModule_5=new a.c,this._HomeModule_6=new t.a,this._LAZY_LOADED_TOKEN_10=p.a,this._HomeModule_6},n.prototype.getInternal=function(l,n){return l===i.d?this._CommonModule_0:l===o.c?this._ɵba_1:l===o.d?this._FormsModule_2:l===o.e?this._ReactiveFormsModule_3:l===a.b?this._IonicModule_4:l===a.c?this._IonicPageModule_5:l===t.a?this._HomeModule_6:l===i.e?this._NgLocalization_7:l===o.a?this._ɵi_8:l===o.b?this._FormBuilder_9:l===g.d?this._LAZY_LOADED_TOKEN_10:n},n.prototype.destroyInternal=function(){},n}(e.x),m=new e.y(b,t.a)},242:function(l,n,u){"use strict";function e(l){return i._14(0,[(l()(),i._15(0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),i._16(278528,null,0,o.l,[i.t,i.u,i.H,i.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),i._15(0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.backButtonClick(u)&&e}return e},r.a,r.b)),i._16(278528,null,0,o.l,[i.t,i.u,i.H,i.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),i._16(1097728,null,0,s.a,[[8,"bar-button"],c.c,i.H,i.I],null,null),(l()(),i._15(0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i._16(278528,null,0,o.l,[i.t,i.u,i.H,i.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),i._16(147456,null,0,_.a,[c.c,i.H,i.I],{name:[0,"name"]},null),(l()(),i._15(0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),i._16(278528,null,0,o.l,[i.t,i.u,i.H,i.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),i._17(null,["",""])),i._23(null,0),i._23(null,1),i._23(null,2),(l()(),i._15(0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),i._16(278528,null,0,o.l,[i.t,i.u,i.H,i.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),i._23(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode),l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb),l(n,5,0,i._19(n,7)._hidden),l(n,10,0,u._backText)})}function t(l){return i._14(0,[(l()(),i._15(0,null,null,1,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,e,h)),i._16(49152,null,0,a.a,[d.a,[2,f.a],[2,p.a],c.c,i.H,i.I],null,null)],null,function(l,n){l(n,0,0,i._19(n,1)._hidden,i._19(n,1)._sbPadding)})}var i=u(0),o=u(13),a=u(25),r=u(64),s=u(19),c=u(1),_=u(37),d=u(8),f=u(4),p=u(22);u.d(n,"b",function(){return h}),n.a=e;var g=[],h=i._13({encapsulation:2,styles:g,data:{}});i._22("ion-navbar",a.a,t,{color:"color",mode:"mode",hideBackButton:"hideBackButton"},{},["[menuToggle],ion-buttons[left]","ion-buttons[start]","ion-buttons[end],ion-buttons[right]","*"])},247:function(l,n,u){"use strict";u(0),u(109),u(67),u(66);u.d(n,"a",function(){return e});var e=(this&&this.__decorate,this&&this.__metadata,function(){function l(l,n,u){this.navCtrl=l,this.store=n,this.movies=u,this._pageNo=1,this.upcomingMovies=[],this.getUpcomingMovies()}return l.prototype.goToDetailsPage=function(l){this.navCtrl.push("MovieDetails",{id:l.id,data:l})},l.prototype.loadUpcoming=function(){var l=this;this.movies.upcoming(this._pageNo).subscribe(function(n){1===l._pageNo?l.upcomingMovies=n.results:l.upcomingMovies=l.upcomingMovies.concat(n.results),l._pageNo++})},l.prototype.getUpcomingMovies=function(){var l=this;this.store.getUpcoming().then(function(n){l.upcomingMovies=n.results,console.log("On page",n)})},l.prototype.changeSlide=function(l){"+"===l?this.slides.slideNext():this.slides.slidePrev()},l.prototype.search=function(){this.navCtrl.push("Search")},l.prototype.doRefresh=function(l){},l.prototype.slideChange=function(l){var n=this.slides.length()-this.slides.getActiveIndex(),u=this.slides.getActiveIndex()>this.slides.getPreviousIndex();3===n&&u&&this.loadUpcoming()},l.prototype.ionViewDidLoad=function(){var l=this.content.getContentDimensions().contentWidth;l<=420?(console.log("Small screen"),this.slidesPerPage=1):l<=530?(console.log("Tablet"),this.slidesPerPage=2):l<=650?(console.log("Tablet"),this.slidesPerPage=3):l>770?(console.log("Big screen"),this.slidesPerPage=4):(console.log("Cannot get Screen size"),this.slidesPerPage=2)},l}())},254:function(l,n,u){"use strict";function e(l){return i._14(0,[i._23(null,0)],null,null)}function t(l){return i._14(0,[(l()(),i._15(0,null,null,3,"ion-fab",[],null,null,null,e,s)),i._16(1228800,null,2,o.a,[a.b],null,null),i._20(335544320,1,{_mainButton:0}),i._20(603979776,2,{_fabLists:1})],null,null)}var i=u(0),o=u(119),a=u(3);u.d(n,"b",function(){return s}),n.a=e;var r=[],s=i._13({encapsulation:2,styles:r,data:{}});i._22("ion-fab",o.a,t,{},{},["*"])},255:function(l,n,u){"use strict";function e(l){return i._14(2,[(l()(),i._15(0,null,null,1,"ion-icon",[["class","fab-close-icon"],["name","close"],["role","img"]],[[2,"hide",null]],null,null,null,null)),i._16(147456,null,0,o.a,[a.c,i.H,i.I],{name:[0,"name"]},null),(l()(),i._15(0,null,null,1,"span",[["class","button-inner"]],null,null,null,null,null)),i._23(null,0),(l()(),i._15(0,null,null,0,"div",[["class","button-effect"]],null,null,null,null,null))],function(l,n){l(n,1,0,"close")},function(l,n){l(n,0,0,i._19(n,1)._hidden)})}function t(l){return i._14(0,[(l()(),i._15(0,null,null,1,"div",[["ion-fab",""]],null,null,null,e,c)),i._16(49152,null,0,r.a,[a.c,i.H,i.I],null,null)],null,null)}var i=u(0),o=u(37),a=u(1),r=u(49);u.d(n,"b",function(){return c}),n.a=e;var s=[],c=i._13({encapsulation:2,styles:s,data:{}});i._22("[ion-fab]",r.a,t,{color:"color",mode:"mode"},{},["*"])},256:function(l,n,u){"use strict";function e(l){return r._14(0,[(l()(),r._15(0,null,null,2,"div",[["class","refresher-pulling-icon"]],null,null,null,null,null)),(l()(),r._15(0,null,null,1,"ion-icon",[["role","img"]],[[2,"hide",null]],null,null,null,null)),r._16(147456,null,0,s.a,[c.c,r.H,r.I],{name:[0,"name"]},null)],function(l,n){l(n,2,0,n.component.pullingIcon)},function(l,n){l(n,1,0,r._19(n,2)._hidden)})}function t(l){return r._14(0,[(l()(),r._15(0,null,null,0,"div",[["class","refresher-pulling-text"]],[[8,"innerHTML",1]],null,null,null,null))],null,function(l,n){l(n,0,0,n.component.pullingText)})}function i(l){return r._14(0,[(l()(),r._15(0,null,null,0,"div",[["class","refresher-refreshing-text"]],[[8,"innerHTML",1]],null,null,null,null))],null,function(l,n){l(n,0,0,n.component.refreshingText)})}function o(l){return r._14(0,[(l()(),r._15(0,null,null,4,"div",[["class","refresher-pulling"]],null,null,null,null,null)),(l()(),r._21(16777216,null,null,1,null,e)),r._16(16384,null,0,_.p,[r.L,r.N],{ngIf:[0,"ngIf"]},null),(l()(),r._21(16777216,null,null,1,null,t)),r._16(16384,null,0,_.p,[r.L,r.N],{ngIf:[0,"ngIf"]},null),(l()(),r._15(0,null,null,5,"div",[["class","refresher-refreshing"]],null,null,null,null,null)),(l()(),r._15(0,null,null,2,"div",[["class","refresher-refreshing-icon"]],null,null,null,null,null)),(l()(),r._15(0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,d.a,d.b)),r._16(114688,null,0,f.a,[c.c,r.H,r.I],{name:[0,"name"]},null),(l()(),r._21(16777216,null,null,1,null,i)),r._16(16384,null,0,_.p,[r.L,r.N],{ngIf:[0,"ngIf"]},null)],function(l,n){var u=n.component;l(n,2,0,u.pullingIcon),l(n,4,0,u.pullingText),l(n,8,0,u.refreshingSpinner),l(n,10,0,u.refreshingText)},function(l,n){l(n,7,0,r._19(n,8)._paused)})}function a(l){return r._14(0,[(l()(),r._15(0,null,null,1,"ion-refresher-content",[],[[1,"state",0]],null,null,o,b)),r._16(114688,null,0,p.a,[g.a,c.c],null,null)],function(l,n){l(n,1,0)},function(l,n){l(n,0,0,r._19(n,1).r.state)})}var r=u(0),s=u(37),c=u(1),_=u(13),d=u(261),f=u(124),p=u(120),g=u(74);u.d(n,"b",function(){return b}),n.a=o;var h=[],b=r._13({encapsulation:2,styles:h,data:{}});r._22("ion-refresher-content",p.a,a,{pullingIcon:"pullingIcon",pullingText:"pullingText",refreshingSpinner:"refreshingSpinner",refreshingText:"refreshingText"},{},[])},259:function(l,n,u){"use strict";function e(l){return i._14(2,[(l()(),i._15(0,null,null,1,"div",[["class","slide-zoom"]],null,null,null,null,null)),i._23(null,0)],null,null)}function t(l){return i._14(0,[(l()(),i._15(0,null,null,1,"ion-slide",[],null,null,null,e,s)),i._16(180224,null,0,o.a,[i.H,i.I,a.a],null,null)],null,null)}var i=u(0),o=u(123),a=u(73);u.d(n,"b",function(){return s}),n.a=e;var r=[],s=i._13({encapsulation:2,styles:r,data:{}});i._22("ion-slide",o.a,t,{},{},["*"])},260:function(l,n,u){"use strict";function e(l){return i._14(2,[(l()(),i._15(0,null,null,3,"div",[["class","swiper-container"]],[[1,"dir",0]],null,null,null,null)),(l()(),i._15(0,null,null,1,"div",[["class","swiper-wrapper"]],null,null,null,null,null)),i._23(null,0),(l()(),i._15(0,null,null,0,"div",[["class","swiper-pagination"]],[[2,"hide",null]],null,null,null,null))],null,function(l,n){var u=n.component;l(n,0,0,u._rtl?"rtl":null),l(n,3,0,!u.pager)})}function t(l){return i._14(0,[(l()(),i._15(0,null,null,1,"ion-slides",[],null,null,null,e,_)),i._16(1228800,null,0,o.a,[a.c,r.b,i.g,[2,s.a],i.H,i.I],null,null)],null,null)}var i=u(0),o=u(73),a=u(1),r=u(3),s=u(4);u.d(n,"b",function(){return _}),n.a=e;var c=[],_=i._13({encapsulation:2,styles:c,data:{}});i._22("ion-slides",o.a,t,{color:"color",mode:"mode",autoplay:"autoplay",control:"control",effect:"effect",direction:"direction",initialSlide:"initialSlide",loop:"loop",pager:"pager",dir:"dir",paginationType:"paginationType",parallax:"parallax",speed:"speed",zoom:"zoom",spaceBetween:"spaceBetween",slidesPerView:"slidesPerView"},{ionSlideWillChange:"ionSlideWillChange",ionSlideDidChange:"ionSlideDidChange",ionSlideDrag:"ionSlideDrag",ionSlideReachStart:"ionSlideReachStart",ionSlideReachEnd:"ionSlideReachEnd",ionSlideAutoplay:"ionSlideAutoplay",ionSlideAutoplayStart:"ionSlideAutoplayStart",ionSlideAutoplayStop:"ionSlideAutoplayStop",ionSlideNextStart:"ionSlideNextStart",ionSlidePrevStart:"ionSlidePrevStart",ionSlideNextEnd:"ionSlideNextEnd",ionSlidePrevEnd:"ionSlidePrevEnd",ionSlideTap:"ionSlideTap",ionSlideDoubleTap:"ionSlideDoubleTap"},["*"])},261:function(l,n,u){"use strict";function e(l){return a._14(0,[(l()(),a._15(0,null,null,2,":svg:svg",[["viewBox","0 0 64 64"]],null,null,null,null,null)),a._16(278528,null,0,r.m,[a.u,a.H,a.I],{ngStyle:[0,"ngStyle"]},null),(l()(),a._15(0,null,null,0,":svg:circle",[["transform","translate(32,32)"]],[[1,"r",0]],null,null,null,null))],function(l,n){l(n,1,0,n.context.$implicit.style)},function(l,n){l(n,2,0,n.context.$implicit.r)})}function t(l){return a._14(0,[(l()(),a._15(0,null,null,2,":svg:svg",[["viewBox","0 0 64 64"]],null,null,null,null,null)),a._16(278528,null,0,r.m,[a.u,a.H,a.I],{ngStyle:[0,"ngStyle"]},null),(l()(),a._15(0,null,null,0,":svg:line",[["transform","translate(32,32)"]],[[1,"y1",0],[1,"y2",0]],null,null,null,null))],function(l,n){l(n,1,0,n.context.$implicit.style)},function(l,n){l(n,2,0,n.context.$implicit.y1,n.context.$implicit.y2)})}function i(l){return a._14(2,[(l()(),a._21(16777216,null,null,1,null,e)),a._16(802816,null,0,r.k,[a.L,a.N,a.t],{ngForOf:[0,"ngForOf"]},null),(l()(),a._21(16777216,null,null,1,null,t)),a._16(802816,null,0,r.k,[a.L,a.N,a.t],{ngForOf:[0,"ngForOf"]},null)],function(l,n){var u=n.component;l(n,1,0,u._c),l(n,3,0,u._l)},null)}function o(l){return a._14(0,[(l()(),a._15(0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,i,d)),a._16(114688,null,0,s.a,[c.c,a.H,a.I],null,null)],function(l,n){l(n,1,0)},function(l,n){l(n,0,0,a._19(n,1)._paused)})}var a=u(0),r=u(13),s=u(124),c=u(1);u.d(n,"b",function(){return d}),n.a=i;var _=[],d=a._13({encapsulation:2,styles:_,data:{}});a._22("ion-spinner",s.a,o,{color:"color",mode:"mode",name:"name",duration:"duration",paused:"paused"},{},[])},268:function(l,n,u){"use strict";u(0),u(109),u(247);u.d(n,"a",function(){return e});var e=(this&&this.__decorate,function(){function l(){}return l}())},269:function(l,n,u){"use strict";function e(l){return o._14(0,[(l()(),o._15(0,null,null,10,"ion-slide",[],null,[[null,"click"],[null,"ionSlideWillChange"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.goToDetailsPage(l.context.$implicit)&&e}if("ionSlideWillChange"===n){e=!1!==t.slideCheck()&&e}return e},a.a,a.b)),o._16(278528,null,0,r.m,[o.u,o.H,o.I],{ngStyle:[0,"ngStyle"]},null),o._24(["background-image"]),o._16(180224,null,0,s.a,[o.H,o.I,c.a],null,null),(l()(),o._17(0,["\n        "])),(l()(),o._15(0,null,0,4,"div",[["class","wrapper"]],null,null,null,null,null)),(l()(),o._17(null,["\n          "])),(l()(),o._15(0,null,null,1,"div",[["class","movie-text"],["text-capitalize",""],["text-underline",""]],null,null,null,null,null)),(l()(),o._17(null,["",""])),(l()(),o._17(null,["\n        "])),(l()(),o._17(0,["\n      "]))],function(l,n){l(n,1,0,l(n,2,0,"url(https://image.tmdb.org/t/p/w342"+n.context.$implicit.poster_path+")"))},function(l,n){l(n,8,0,n.context.$implicit.title)})}function t(l){return o._14(0,[o._20(402653184,1,{content:0}),o._20(402653184,2,{slides:0}),(l()(),o._15(0,null,null,32,"ion-header",[],null,null,null,null,null)),o._16(16384,null,0,_.a,[d.c,o.H,o.I,[2,f.a]],null,null),(l()(),o._17(null,["\n  "])),(l()(),o._15(0,null,null,28,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,p.a,p.b)),o._16(49152,null,0,g.a,[h.a,[2,f.a],[2,b.a],d.c,o.H,o.I],null,null),(l()(),o._17(3,["\n    "])),(l()(),o._15(0,null,0,8,"button",[["icon-only",""],["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var e=!0;if("click"===n){e=!1!==o._19(l,10).toggle()&&e}return e},m.a,m.b)),o._16(1097728,[[3,4]],0,v.a,[[8,""],d.c,o.H,o.I],null,null),o._16(1064960,null,0,S.a,[y.a,[2,f.a],[2,v.a],[2,g.a]],{menuToggle:[0,"menuToggle"]},null),o._16(16384,null,1,I.a,[d.c,o.H,o.I,[2,k.a],[2,g.a]],null,null),o._20(603979776,3,{_buttons:1}),(l()(),o._17(0,["\n      "])),(l()(),o._15(0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._16(147456,null,0,x.a,[d.c,o.H,o.I],{name:[0,"name"]},null),(l()(),o._17(0,["\n    "])),(l()(),o._17(3,["\n    "])),(l()(),o._15(0,null,3,2,"ion-title",[],null,null,null,H.a,H.b)),o._16(49152,null,0,w.a,[d.c,o.H,o.I,[2,k.a],[2,g.a]],null,null),(l()(),o._17(0,["MOVIE EASE"])),(l()(),o._17(3,["\n    "])),(l()(),o._15(0,null,2,10,"ion-buttons",[["end",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.search()&&e}return e},null,null)),o._16(16384,null,1,I.a,[d.c,o.H,o.I,[2,k.a],[2,g.a]],null,null),o._20(603979776,4,{_buttons:1}),(l()(),o._17(null,["\n      "])),(l()(),o._15(0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,null,null,m.a,m.b)),o._16(1097728,[[4,4]],0,v.a,[[8,""],d.c,o.H,o.I],null,null),(l()(),o._17(0,["\n        "])),(l()(),o._15(0,null,0,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._16(147456,null,0,x.a,[d.c,o.H,o.I],{name:[0,"name"]},null),(l()(),o._17(0,["\n      "])),(l()(),o._17(null,["\n    "])),(l()(),o._17(3,["\n  "])),(l()(),o._17(null,["\n"])),(l()(),o._17(null,["\n\n"])),(l()(),o._15(0,null,null,41,"ion-content",[["overflow-scroll","true"]],[[2,"statusbar-padding",null]],null,null,C.a,C.b)),o._16(4374528,[[1,4]],0,T.a,[d.c,M.b,N.a,o.H,o.I,h.a,L.a,o.g,[2,f.a],[2,b.a]],null,null),(l()(),o._17(1,["\n  "])),(l()(),o._15(0,null,2,5,"ion-refresher",[],[[2,"refresher-active",null],[4,"top",null]],[[null,"ionRefresh"]],function(l,n,u){var e=!0,t=l.component;if("ionRefresh"===n){e=!1!==t.doRefresh(u)&&e}return e},null,null)),o._16(212992,null,0,O.a,[M.b,T.a,o.g,B.a],null,{ionRefresh:"ionRefresh"}),(l()(),o._17(null,["\n    "])),(l()(),o._15(0,null,null,1,"ion-refresher-content",[["refreshingText","Fetching new movies"]],[[1,"state",0]],null,null,F.a,F.b)),o._16(114688,null,0,D.a,[O.a,d.c],{refreshingText:[0,"refreshingText"]},null),(l()(),o._17(null,["\n  "])),(l()(),o._17(1,["\n  "])),(l()(),o._15(0,null,1,30,"div",[],null,null,null,null,null)),(l()(),o._17(null,["\n    "])),(l()(),o._15(0,null,null,9,"ion-fab",[["middle",""],["right",""]],null,null,null,A.a,A.b)),o._16(1228800,null,2,E.a,[M.b],null,null),o._20(335544320,5,{_mainButton:0}),o._20(603979776,6,{_fabLists:1}),(l()(),o._17(0,["\n      "])),(l()(),o._15(0,null,0,3,"button",[["color","half-transparent"],["ion-fab",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.changeSlide("+")&&e}return e},R.a,R.b)),o._16(49152,[[5,4]],0,z.a,[d.c,o.H,o.I],{color:[0,"color"]},null),(l()(),o._15(0,null,0,1,"ion-icon",[["name","arrow-forward"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._16(147456,null,0,x.a,[d.c,o.H,o.I],{name:[0,"name"]},null),(l()(),o._17(0,["\n    "])),(l()(),o._17(null,["\n    "])),(l()(),o._15(0,null,null,9,"ion-fab",[["left",""],["middle",""]],null,null,null,A.a,A.b)),o._16(1228800,null,2,E.a,[M.b],null,null),o._20(335544320,7,{_mainButton:0}),o._20(603979776,8,{_fabLists:1}),(l()(),o._17(0,["\n      "])),(l()(),o._15(0,null,0,3,"button",[["color","half-transparent"],["ion-fab",""]],null,[[null,"click"]],function(l,n,u){var e=!0,t=l.component;if("click"===n){e=!1!==t.changeSlide("-")&&e}return e},R.a,R.b)),o._16(49152,[[7,4]],0,z.a,[d.c,o.H,o.I],{color:[0,"color"]},null),(l()(),o._15(0,null,0,1,"ion-icon",[["name","arrow-back"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o._16(147456,null,0,x.a,[d.c,o.H,o.I],{name:[0,"name"]},null),(l()(),o._17(0,["\n    "])),(l()(),o._17(null,["\n    "])),(l()(),o._15(0,null,null,5,"ion-slides",[["class","slider"],["speed","800"]],null,[[null,"ionSlideWillChange"]],function(l,n,u){var e=!0,t=l.component;if("ionSlideWillChange"===n){e=!1!==t.slideChange(u)&&e}return e},W.a,W.b)),o._16(1228800,[[2,4]],0,c.a,[d.c,M.b,o.g,[2,f.a],o.H,o.I],{speed:[0,"speed"],slidesPerView:[1,"slidesPerView"]},{ionSlideWillChange:"ionSlideWillChange"}),(l()(),o._17(0,["\n\n      "])),(l()(),o._21(16777216,null,0,1,null,e)),o._16(802816,null,0,r.k,[o.L,o.N,o.t],{ngForOf:[0,"ngForOf"]},null),(l()(),o._17(0,["\n      \n    "])),(l()(),o._17(null,["\n  "])),(l()(),o._17(1,["\n \n"])),(l()(),o._17(null,["\n"]))],function(l,n){var u=n.component;l(n,10,0,"");l(n,15,0,"menu");l(n,30,0,"search"),l(n,40,0);l(n,43,0,"Fetching new movies");l(n,54,0,"half-transparent");l(n,56,0,"arrow-forward");l(n,65,0,"half-transparent");l(n,67,0,"arrow-back");l(n,71,0,"800",o._18(1,"",u.slidesPerPage,"")),l(n,74,0,u.upcomingMovies)},function(l,n){l(n,5,0,o._19(n,6)._hidden,o._19(n,6)._sbPadding),l(n,8,0,o._19(n,10).isHidden),l(n,14,0,o._19(n,15)._hidden),l(n,29,0,o._19(n,30)._hidden),l(n,36,0,o._19(n,37).statusbarPadding),l(n,39,0,"inactive"!==o._19(n,40).state,o._19(n,40)._top),l(n,42,0,o._19(n,43).r.state),l(n,55,0,o._19(n,56)._hidden),l(n,66,0,o._19(n,67)._hidden)})}function i(l){return o._14(0,[(l()(),o._15(0,null,null,1,"page-home",[],null,null,null,t,U)),o._16(49152,null,0,P.a,[b.a,$.a,j.a],null,null)],null,null)}var o=u(0),a=u(259),r=u(13),s=u(123),c=u(73),_=u(65),d=u(1),f=u(4),p=u(242),g=u(25),h=u(8),b=u(22),m=u(64),v=u(19),S=u(111),y=u(15),I=u(112),k=u(27),x=u(37),H=u(167),w=u(45),P=u(247),C=u(164),T=u(26),M=u(3),N=u(9),L=u(11),O=u(74),B=u(6),F=u(256),D=u(120),A=u(254),E=u(119),R=u(255),z=u(49),W=u(260),$=u(67),j=u(66);u.d(n,"a",function(){return K});var V=[],U=o._13({encapsulation:2,styles:V,data:{}}),K=o._22("page-home",P.a,i,{},{},[])}});
-//# sourceMappingURL=C:\Users\ekene\code\Ionic\movie-ease\www\build\0.main.js.map
+webpackJsonp([0],{
+
+/***/ 284:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(294);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var HomeModule = (function () {
+    function HomeModule() {
+    }
+    return HomeModule;
+}());
+HomeModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]
+        ]
+    })
+], HomeModule);
+
+//# sourceMappingURL=home.module.js.map
+
+/***/ }),
+
+/***/ 294:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(300);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+var Home = (function () {
+    function Home(toastCtrl, navCtrl, store, movies) {
+        var _this = this;
+        this.toastCtrl = toastCtrl;
+        this.navCtrl = navCtrl;
+        this.store = store;
+        this.movies = movies;
+        this._pageNo = 2;
+        this.size = 342;
+        this.items = [];
+        this.upcomingMovies = [];
+        this.cannotLoadContent = true;
+        if (!navigator.onLine) {
+            console.log("You are offline");
+            this.getOffline();
+        }
+        else {
+            console.log("You are online");
+            this.movies.latest().subscribe(function (res) {
+                console.log(res);
+                _this.upcomingMovies = res.results;
+            }, function (err) {
+                _this.getOffline();
+            });
+        }
+    }
+    Home.prototype.goToDetailsPage = function (movie) {
+        this.navCtrl.push('MovieDetails', { id: movie.id, data: movie, imgSize: this.size });
+    };
+    Home.prototype.getOffline = function () {
+        var _this = this;
+        this.showToast("You are currently offline, serving you cached content");
+        this.store.getLatest().then(function (res) {
+            _this.upcomingMovies = res.results;
+        });
+    };
+    Home.prototype.showToast = function (msg) {
+        var toast = this.toastCtrl.create({
+            message: msg,
+            duration: 5000,
+            position: "bottom"
+        });
+        toast.present();
+    };
+    Home.prototype.doInfinite = function (e) {
+        var _this = this;
+        console.log('Begin async operation');
+        return this.movies.latest(this._pageNo).toPromise().then(function (res) {
+            _this.upcomingMovies = _this.upcomingMovies.concat(res.results);
+            _this._pageNo++;
+            console.log('Async operation ended');
+            e.complete();
+        }).catch(function (err) {
+            if (_this.cannotLoadContent) {
+                _this.cannotLoadContent = false;
+                _this.showToast("I can't load anymore content, you are probably offline");
+            }
+        });
+    };
+    Home.prototype.search = function () {
+        this.navCtrl.push("Search");
+    };
+    Home.prototype.doRefresh = function (refresher) {
+        //this.ionViewDidLoad()
+    };
+    Home.prototype.ionViewDidLoad = function () {
+        // this.slides.slideTo(this.slideIndex || 0)
+        var width = this.content.getContentDimensions().contentWidth;
+        if (width >= 530) {
+            console.log("Tablet");
+            this.size = 500;
+        }
+    };
+    return Home;
+}());
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Content */])
+], Home.prototype, "content", void 0);
+Home = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIE EASE</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content overflow-scroll="true">\n  <ion-row>\n    <ion-col *ngFor="let movie of upcomingMovies" col-12 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(movie)" >\n        <img src="{{\'https://image.tmdb.org/t/p/w\'+ size + movie.backdrop_path }}" alt="{{ movie.title }}">\n        <ion-card-title text-center>{{ movie.title }}</ion-card-title>\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">\n    <ion-infinite-scroll-content loadingText="Getting more movies..." loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */], __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */]])
+], Home);
+
+//# sourceMappingURL=home.js.map
+
+/***/ }),
+
+/***/ 300:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var Observable_1 = __webpack_require__(6);
+var toPromise_1 = __webpack_require__(301);
+Observable_1.Observable.prototype.toPromise = toPromise_1.toPromise;
+//# sourceMappingURL=toPromise.js.map
+
+/***/ }),
+
+/***/ 301:
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+var root_1 = __webpack_require__(30);
+/* tslint:disable:max-line-length */
+/**
+ * Converts an Observable sequence to a ES2015 compliant promise.
+ *
+ * @example
+ * // Using normal ES2015
+ * let source = Rx.Observable
+ *   .just(42)
+ *   .toPromise();
+ *
+ * source.then((value) => console.log('Value: %s', value));
+ * // => Value: 42
+ *
+ * // Rejected Promise
+ * // Using normal ES2015
+ * let source = Rx.Observable
+ *   .throw(new Error('woops'))
+ *   .toPromise();
+ *
+ * source
+ *   .then((value) => console.log('Value: %s', value))
+ *   .catch((err) => console.log('Error: %s', err));
+ * // => Error: Error: woops
+ *
+ * // Setting via the config
+ * Rx.config.Promise = RSVP.Promise;
+ *
+ * let source = Rx.Observable
+ *   .of(42)
+ *   .toPromise();
+ *
+ * source.then((value) => console.log('Value: %s', value));
+ * // => Value: 42
+ *
+ * // Setting via the method
+ * let source = Rx.Observable
+ *   .just(42)
+ *   .toPromise(RSVP.Promise);
+ *
+ * source.then((value) => console.log('Value: %s', value));
+ * // => Value: 42
+ *
+ * @param PromiseCtor promise The constructor of the promise. If not provided,
+ * it will look for a constructor first in Rx.config.Promise then fall back to
+ * the native Promise constructor if available.
+ * @return {Promise<T>} An ES2015 compatible promise with the last value from
+ * the observable sequence.
+ * @method toPromise
+ * @owner Observable
+ */
+function toPromise(PromiseCtor) {
+    var _this = this;
+    if (!PromiseCtor) {
+        if (root_1.root.Rx && root_1.root.Rx.config && root_1.root.Rx.config.Promise) {
+            PromiseCtor = root_1.root.Rx.config.Promise;
+        }
+        else if (root_1.root.Promise) {
+            PromiseCtor = root_1.root.Promise;
+        }
+    }
+    if (!PromiseCtor) {
+        throw new Error('no Promise impl found');
+    }
+    return new PromiseCtor(function (resolve, reject) {
+        var value;
+        _this.subscribe(function (x) { return value = x; }, function (err) { return reject(err); }, function () { return resolve(value); });
+    });
+}
+exports.toPromise = toPromise;
+//# sourceMappingURL=toPromise.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=0.main.js.map

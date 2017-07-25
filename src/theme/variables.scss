@@ -24,8 +24,7 @@ $font-path: "../assets/fonts";
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  //primary:  #2a223f,
-  primary:    #488aff,
+  primary:    #8500d8,
   secondary:  #02a500,
   danger:     #f53d3d,
   light:      #f4f4f4,
@@ -38,17 +37,6 @@ $colors: (
 // App iOS Variables
 // --------------------------------------------------
 // iOS only Sass variables can go here
-// $toolbar-md-background:  color($colors, transparent);
-$split-pane-side-max-width: 250px;
-$split-pane-side-min-width: 150px;
-// $background-color: #2a223f;
-// $list-text-color: #fafafa;
-// $list-md-activated-background-color: #606060;
-// $list-ios-activated-background-color: #606060;
-// $list-wp-activated-background-color: #606060;
-// $font-size-root : 75%;
-
-
 
 
 // App Material Design Variables
@@ -72,7 +60,19 @@ $split-pane-side-min-width: 150px;
 // so that the above variables are used and Ionic's
 // default are overridden.
 
-@import "ionic.theme.dark";
+@import "ionic.theme.default";
+
+$split-pane-side-max-width: 350px;
+$split-pane-side-min-width: 200px;
+$list-background-color: color($colors, primary);
+$card-md-background-color: color($colors, light);
+$list-text-color:#fff;
+$menu-md-background:color($colors, primary);
+$toolbar-md-background:color($colors, primary);
+
+$toolbar-md-active-color: #fff;
+
+$segment-button-md-border-bottom-color: color($colors, primary);
 
 
 // Ionicons
@@ -86,5 +86,5 @@ $split-pane-side-min-width: 150px;
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
+//@import "roboto";
 @import "noto-sans";

@@ -1,23 +1,8 @@
-// http://ionicframework.com/docs/v2/theming/
-
 .toolbar-title {
-  font-weight: 100;
+  font-weight: 200;
 }
-::-webkit-scrollbar {
-  width: 12px;
-}
-
-::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-  box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
-  border-radius: 10px;
-}
- 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: rgba(225, 225, 225, 0.6); 
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
-  box-shadow: 0 0 6px rgba(0,0,0,0.5); 
+ion-split-pane ion-menu ion-content {
+  background-color: color($colors, primary) !important;
 }
 
 /*_______________________________________________________________*\

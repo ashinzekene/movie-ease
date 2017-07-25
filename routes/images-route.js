@@ -5,7 +5,6 @@ route = express.Router()
 
 
 route.get('*', function(req, res, next) {
-	console.log("IP ", req.ip)
   res.set({
   	'Access-Control-Allow-Origin':'*',
 	  'Content-Type': 'image/jpg',

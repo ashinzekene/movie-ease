@@ -1,8 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Content, MenuController } from 'ionic-angular';
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
-
 
 @IonicPage()
 @Component({
@@ -11,19 +10,19 @@ import { MoviesStorage } from "../../providers/storage/movies-storage";
 })
 export class Movies {
   @ViewChild(Content) content: Content;
-  public popular;
-  public topRated;
-  public latest;
-  public upcoming
-  public smallScreen:boolean
+  private popular;
+  private topRated;
+  private latest;
+  private upcoming
+  private smallScreen:boolean
   private _pageNo: number = 1;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: MoviesApi, public store: MoviesStorage) {}
+  constructor(private navCtrl: NavController, private menuCtrl: MenuController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {}
 
   goToDetailsPage(movie) {
     this.navCtrl.push("MovieDetails", {id: movie.id, data: movie})
   }
   ionViewDidLoad() {
-    console.log('ionViewDidLoad Movies');
+    this.setMenu();
     this.getPopular();
     this.getTopRated();
     this.getLatest();
@@ -80,14 +79,10 @@ export class Movies {
       // this._pageNo++
     });
   }
+  setMenu() {
+    this.menuCtrl.enable(true, "movies")
+  }
   loadMore() {
-    // let dimension = this.content.getContentDimensions()
-    // let scrollTop = dimension.scrollTop
-    // let scrollHeight = dimension.scrollHeight
-    // let contentHeight = dimension.contentHeight
-    // if(scrollHeight < (scrollTop + 2*contentHeight)) {
-    //   console.log(this.content.getContentDimensions())
-    // }
   }
 
 }

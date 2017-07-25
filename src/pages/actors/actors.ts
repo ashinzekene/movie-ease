@@ -1,14 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ActorsStorage } from "../../providers/storage/actors-storage";
 import { ActorsApi } from "../../providers/api/actors-api";
 
-/**
- * Generated class for the Actors page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+
 @IonicPage()
 @Component({
   selector: 'page-actors',
@@ -17,10 +12,11 @@ import { ActorsApi } from "../../providers/api/actors-api";
 export class Actors {
   public popular;
   private _pageNo;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api:ActorsApi, public store: ActorsStorage) {}
+  constructor(private navCtrl: NavController, private navParams: NavParams, private menuCtrl: MenuController, private api:ActorsApi, private store: ActorsStorage) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Actors');
+    this.setMenu()
     this.getPopular()
   }
   goToDetailsPage(actor) {
@@ -39,6 +35,9 @@ export class Actors {
       //else this.popular = this.popular.concat(res.results)
       // this._pageNo++
     });
+  }
+  setMenu() {
+    this.menuCtrl.enable(true, "actors")
   }
   loadMore() {
     

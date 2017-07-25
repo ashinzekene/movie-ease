@@ -1,24 +1,5 @@
 page-home {
-  ion-slide.swiper-slide {
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    height: calc(100vh - 50px);
-    max-height: 500px;
-    .slide-zoom {
-      width: 100%;
-      height: 100%;
-    }
-    .wrapper {
-      background-color: rgba(0,0,0,0.85);
-      height: 100%;
-      width: 0px;
-      transition: 500ms all;
-      .movie-text {
-        display: none;
-      } &:hover {
-        width: 100%;
-      }
-    }
+  ion-card {
+    margin: 0;
   }
 }

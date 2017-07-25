@@ -9,13 +9,13 @@ var imagesRoute = require('./routes/images-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
-app.use(express.static("www"))
+app.use(express.static("platforms/browser/www"))
 app.listen(port, function(err){
   if(err) console.log(err)
   console.log('It is happening at port ', port)
 })
 app.get('/', function(req, res){
-  res.status(200).sendFile(__dirname+"platforms/browser/www/index.html")
+  res.status(200).sendFile(path.join(__dirname, "platforms", "browser", "www", "index.html" ))
 })
 
 app.use('/movies', moviesRoute)

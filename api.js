@@ -1,3 +1,6 @@
+var fs = require('fs');
+var request = require('request');
+var cheerio = require('cheerio');
 //http://www.omdbapi.com/?t=fast+and+furious&plot=full
 var date = Date.now()
 Imdb = {
@@ -15,13 +18,14 @@ Imdb = {
   query : "&query="
 }
 
+// getOzoneMovies()
 module.exports = {
   searchMovie : `${Imdb.rootUrl}search/movie?${Imdb.apiKey+Imdb.en+Imdb.query}`,
   searchPerson : `${Imdb.rootUrl}search/person?${Imdb.apiKey+Imdb.en+Imdb.query}`,
   searchTv : `${Imdb.rootUrl}search/tv?${Imdb.apiKey+Imdb.en+Imdb.query}`,
   topRatedMovies  :  `${Imdb.rootUrl}discover/movie?${Imdb.apiKey+Imdb.en}&sort_by=vote_average.desc`,
   popularMovies : `${Imdb.rootUrl}movie/popular?${Imdb.apiKey+Imdb.en}&page=1`,
-  latestMovies :  `${Imdb.rootUrl}discover/movie?${Imdb.apiKey+Imdb.en}&sort_by=release_date.desc&primary_release_date.lte=${date}`,
+  latestMovies :  `${Imdb.rootUrl}discover/movie?${Imdb.apiKey+Imdb.en}&release_date.lte=${date}&release_date.gte=${ new Date().setMonth(new Date().getMonth() - 3) }`,
   upcomingMovies : `${Imdb.rootUrl}discover/movie?${Imdb.apiKey+Imdb.en}&sort_by=popularity.desc&primary_release_date.gte=${date}`,
   popularTvs : `${Imdb.rootUrl}discover/tv?${Imdb.apiKey+Imdb.en}&sort_by=popularity.desc`,
   topRatedTvs : `${Imdb.rootUrl}discover/tv?${Imdb.apiKey+Imdb.en}&sort_by=vote_average.desc`,
@@ -32,10 +36,8 @@ module.exports = {
   getPerson : `${Imdb.rootUrl}person/`,
   getTv : `${Imdb.rootUrl}tv/`,
   image: Imdb.imgRootUrl,
-  imdb : Imdb
+  imdb : Imdb,
 }
-
-
 
 /*
 APPEND TO RESPONSE
@@ -61,3 +63,31 @@ People - movie_credits, tv_credits, combined_credits, images, external_ids, tagg
 
 //multi search  :  https://api.themoviedb.org/3/search/multi?api_key=18a56dee58d57bd2a91d7909b636f836&language=en-US&query=stallon&page=1&include_adult=false       
 //https://api.themoviedb.org/3/discover/movie?api_key=18a56dee58d57bd2a91d7909b636f836&language=en-US&sort_by=popularity.desc
+
+getOzoneMovies = function() {
+  var url = "http://ozonecinemas.com/now_showing.php";
+  request(url, function (error, response, body) {
+    if (!error) {
+      var $ = cheerio.load(body, {normalizeWhitespace: true})
+      var title = $('header div div.col.span_1_of_2 font').text();
+      var nowShowings = $('header div ul li div.clearfix > b > font')
+      var stories = $('header div ul li .post_text p')
+      var showTimes = $('header div ul li .post_text')
+      var trailerUrls = $("body > header > div.menu_wrap > div > div > div.content > div > div > div.col-lg-8.col-md-8.col-sm-12 > div.section.read_post_list > ul > li > div.col-lg-5.col-md-6.col-sm-6 > div > div.iframe_video_container > iframe")
+      console.log(title)
+      var result=[]
+      for (let x in nowShowings) {
+        if (x < nowShowings.length)
+        // console.log(nowShowings.eq(x).text()+ ' || SHOW TIMES '+showTimes.eq(x).text().match(/\d{1,2}:\d{2}(AM|PM)/g)+'>>|| \n \n'+ trailerUrl.eq(x).attr("src"))
+        result.push({
+          title: nowShowings.eq(x).text().trim(), 
+          showTime: showTimes.eq(x).text().match(/\d{1,2}:\d{2}(AM|PM)/g), 
+          synopsi: showTimes.eq(x).text(),
+          trailerUrl: trailerUrls.eq(x).attr("src")
+        })
+      }
+      // console.log(result)
+      return result
+    }
+  })
+}
