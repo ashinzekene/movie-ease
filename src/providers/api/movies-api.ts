@@ -15,39 +15,39 @@ export class MoviesApi {
     console.log('Hello MoviesApi Provider');
   }
   one(id) {
-    return this.http.get(`http://localhost:4400/movies/one/${id}`).map((res)=> {
+    return this.http.get(`http://movie-ease.herokuapp.com/movies/one/${id}`).map((res)=> {
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`http://localhost:4400/movies/search/${query}`).map((res)=> {
+    return this.http.get(`http://movie-ease.herokuapp.com/movies/search/${query}`).map((res)=> {
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   popular(n=1) {
     console.log("Getting popular")
-    return this.http.get('http://localhost:4400/movies/popular/'+n).map((res)=> {
+    return this.http.get('http://movie-ease.herokuapp.com/movies/popular/'+n).map((res)=> {
       if(n === 1) this.store.setPopular(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   latest(n=1) {
     console.log("Getting latest")
-    return this.http.get('http://localhost:4400/movies/latest/'+n).map((res)=> {
+    return this.http.get('http://movie-ease.herokuapp.com/movies/latest/'+n).map((res)=> {
       if(n < 2) this.store.setLatest(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   upcoming(n=1) {
     console.log("Getting upcoming")
-    return this.http.get('http://localhost:4400/movies/upcoming/'+n).map((res)=> {
+    return this.http.get('http://movie-ease.herokuapp.com/movies/upcoming/'+n).map((res)=> {
       if(n === 1) this.store.setUpcoming(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   topRated(n=1) {
     console.log("Getting topRated")
-    return this.http.get('http://localhost:4400/movies/top-rated/'+n).map((res)=> {
+    return this.http.get('http://movie-ease.herokuapp.com/movies/top-rated/'+n).map((res)=> {
       if(n === 1) this.store.setTopRated(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)

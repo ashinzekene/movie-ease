@@ -57,11 +57,6 @@ export class Home {
       this._pageNo++
       console.log('Async operation ended'); 
       e.complete()
-    }).catch(err => {
-      if(this.cannotLoadContent) {
-        this.cannotLoadContent = false
-        this.showToast("I can't load anymore content, you are probably offline")
-      }
     })
   }
   search() {

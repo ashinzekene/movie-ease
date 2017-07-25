@@ -15,7 +15,7 @@ app.listen(port, function(err){
   console.log('It is happening at port ', port)
 })
 app.get('/', function(req, res){
-  res.status(200).sendFile(path.join(__dirname, "platforms", "browser", "www", "index.html" ))
+  res.status(200).sendFile(path.join(__dirname, "www", "index.html" ))
 })
 
 app.use('/movies', moviesRoute)
