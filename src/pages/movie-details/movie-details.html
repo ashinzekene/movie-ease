@@ -8,9 +8,8 @@
 
 <ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.poster_path + ')' }">
     <div class="wrapper">
-      <div>
-        <h1 class="title">{{ data.title }}</h1>
-        <p class="tagline">{{ data.tagline }}</p>
+      <div ion-text text-center color="light" class="tagline">
+        {{ data.tagline }}
       </div>
     </div>
 
@@ -39,24 +38,24 @@
         </ion-chip>
       </ion-item>
       <ion-list *ngSwitchCase="'info'">
-        <ion-item text-wrap>Release Date: {{ data.release_date }}</ion-item>
-        <ion-item text-wrap>Status: {{ data.status }}</ion-item>
-        <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>
-        <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>
-        <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
-        <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
+        <ion-item color="light" text-wrap>Release Date: {{ data.release_date }}</ion-item>
+        <ion-item color="light" text-wrap>Status: {{ data.status }}</ion-item>
+        <ion-item color="light" text-wrap>Overview: {{ data.overview }}</ion-item>
+        <ion-item color="light" text-wrap>Revenue: {{ data.revenue }}</ion-item>
+        <ion-item color="light" text-wrap>Popularity: {{ data.popularity }}</ion-item>
+        <ion-item color="light" text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
       </ion-list>
 
       <ion-list *ngSwitchCase="'reviews'">
         <ion-item *ngIf="!data.reviews"><h3>No Reviews available yet</h3></ion-item>
-        <ion-item *ngFor="let review of data.reviews?.results">
+        <ion-item color="light" *ngFor="let review of data.reviews?.results">
           <h2>{{ review.author }}</h2>
           <p ion-text text-wrap>{{ review.content }}</p>
         </ion-item>
       </ion-list>
 
       <ion-list *ngSwitchCase="'similar'">
-        <ion-item text-wrap (click)="navMovie(similar)" *ngFor="let similar of data.similar?.results" >
+        <ion-item color="light" text-wrap (click)="navMovie(similar)" *ngFor="let similar of data.similar?.results" >
           <ion-thumbnail item-left>
             <img src="https://image.tmdb.org/t/p/w92{{similar.poster_path}}">
           </ion-thumbnail>
@@ -67,8 +66,7 @@
       </ion-list>
 
       <ion-list *ngSwitchCase="'cast'">
-        <!--<ion-item text-wrap *ngFor="let cast of data.credits?.cast" (click)="showPerson(cast.id)" >{{ cast.name + " as " + cast.character }}</ion-item>-->
-        <ion-item *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">
+        <ion-item color="light" *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">
           <ion-avatar item-left>
             <img src="https://image.tmdb.org/t/p/w92{{cast.profile_path}}">
           </ion-avatar>

@@ -20,18 +20,13 @@ export class Home {
   public upcomingMovies= [];
   cannotLoadContent: boolean = true;
   constructor(private toastCtrl: ToastController, private navCtrl: NavController, private store: MoviesStorage, private movies: MoviesApi) {
-    if(!navigator.onLine) {
-      console.log("You are offline")
+    this.movies.latest().subscribe(res => {
+      console.log(res)
+      this.store.setLatest(res)
+      this.upcomingMovies = res.results
+    }, err => {
       this.getOffline()
-    } else {
-      console.log("You are online")
-      this.movies.latest().subscribe(res => {
-        console.log(res)
-        this.upcomingMovies = res.results
-      }, err => {
-        this.getOffline()
-      })
-    }
+    })
   }
   goToDetailsPage(movie) {
     this.navCtrl.push('MovieDetails', {id: movie.id, data: movie, imgSize: this.size})

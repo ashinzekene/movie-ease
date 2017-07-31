@@ -70,7 +70,9 @@ route.get('/search/:query', function(req, res) {
   })
 })
 route.get('/ozone', function(req, res) {
-  console.log(crawl.ozone())
+  crawl.ozone().then(result => {
+    res.json(result)
+  })
 })
 
 route.get('*', function(req, res) {

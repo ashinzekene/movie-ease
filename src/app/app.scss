@@ -5,6 +5,9 @@ ion-split-pane ion-menu ion-content {
   background-color: color($colors, primary) !important;
 }
 
+ion-row ion-col ion-card img {
+  min-height: 70px;
+}
 /*_______________________________________________________________*\
             MOVIES, SERIES AND ACTORS LIST PAGE
 \*_______________________________________________________________*/
@@ -86,44 +89,6 @@ ion-split-pane ion-menu ion-content {
 }
 
 
-@media screen and (max-width: 1024px) {
-  $width-screen-xl : calc(99.99% / 3);
-  .full .card {
-    width: $width-screen-xl;
-  }
-}
-@media screen and (max-width: 870px) {
-  $width-screen-l : calc(99.99% / 2);
-  .full .card {
-    width: $width-screen-l;
-  }
-}
-@media screen and (max-width: 820px) {
-  $width-screen-sl : calc(99.99% / 2);
-  .full .card {
-    width: $width-screen-sl;
-  }
-}
-@media screen and (max-width: 767px) {
-  $width-screen-md : calc(99.99% / 2);
-  .full .card {
-    width: $width-screen-md;
-  }
-}
-@media screen and (max-width: 520px) {
-  $width-screen-ls : calc(99.99%);
-  .full .card {
-    width: $width-screen-ls;
-  }
-}
-@media screen and (max-width: 300px) {
-  $width-screen-xs : calc(99.99%);
-  .full .card {
-    width: $width-screen-xs;
-  }
-}
-
-
 /*_______________________________________________________________*\
             MOVIES, SERIES AND ACTORS DETAILS PAGE
 \*_______________________________________________________________*/
@@ -146,29 +111,14 @@ ion-split-pane ion-menu ion-content {
     background: -webkit-linear-gradient(transparent 55%, rgba(0,0,0,0.9) 100%);
     background: linear-gradient(transparent 55%, rgba(0,0,0,0.9) 100%);
     text-align: center;
+    .tagline {
+      width:100%;
+      padding: 10px;
+    }
   }
   .list {
     background: rgba(0,0,0,0.8);
     margin-bottom: 0px;
-  }
-}
-@media screen and (max-width: 520px) {
-  .details .wrapper {
-    flex-wrap: wrap;
-    justify-content: center;
-    .title {
-      font-weight: 100;
-      color: #FAFAFA;
-      width: 100%;
-      text-transform: uppercase;
-      padding-bottom: 20px;
-    }
-    .tagline {
-      width: 100%;
-      font-weight: 100;
-      color: #FAFAFA;
-      font-style: italics;
-    }
   }
 }
 

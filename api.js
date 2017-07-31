@@ -1,6 +1,5 @@
 var fs = require('fs');
-var request = require('request');
-var cheerio = require('cheerio');
+var crawl = require('./crawl')
 //http://www.omdbapi.com/?t=fast+and+furious&plot=full
 var date = Date.now()
 Imdb = {
@@ -37,6 +36,7 @@ module.exports = {
   getTv : `${Imdb.rootUrl}tv/`,
   image: Imdb.imgRootUrl,
   imdb : Imdb,
+  ozone: crawl.ozone()
 }
 
 /*

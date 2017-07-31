@@ -12,16 +12,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content (ionScrollEnd)="loadMore()">
-  <div class="full">
-    <ion-card (click)="goToDetailsPage(movie)" *ngFor="let movie of popular">
-      <div class="wrapper">
-        <img [src]="'https://image.tmdb.org/t/p/w342'+ movie.poster_path" alt="{{movie.title }}">
-        <div class="text">
-          <div text-capitalize text-underline class="title">{{ movie.title }}</div>
-          <div text-capitalize text-underline class="subtitle">{{ movie.release_date }}</div>
-        </div>
-      </div>
-    </ion-card>
-  </div>
+<ion-content>
+  <ion-row>
+    <ion-col *ngFor="let movie of upcoming" col-12 col-lg-4>
+      <ion-card  (click)="goToDetailsPage(movie)" >
+        <img src="{{'https://image.tmdb.org/t/p/w500' + movie.backdrop_path }}" alt="{{ movie.title }}">
+        <ion-card-title text-center>{{ movie.title }}</ion-card-title>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content loadingText="Getting more movies... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

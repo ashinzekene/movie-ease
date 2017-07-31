@@ -1,7 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Content, MenuController } from 'ionic-angular';
+import { Component } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
+import 'rxjs/add/operator/toPromise'
 
 @IonicPage()
 @Component({
@@ -9,31 +10,17 @@ import { MoviesStorage } from "../../providers/storage/movies-storage";
   templateUrl: 'movies.html',
 })
 export class Movies {
-  @ViewChild(Content) content: Content;
   private popular;
   private topRated;
   private latest;
   private upcoming
-  private smallScreen:boolean
-  private _pageNo: number = 1;
-  constructor(private navCtrl: NavController, private menuCtrl: MenuController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {}
+  private _pageNo: number = 2;
+  constructor(private navCtrl: NavController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {
+    this.getUpcoming()
+  }
 
   goToDetailsPage(movie) {
     this.navCtrl.push("MovieDetails", {id: movie.id, data: movie})
-  }
-  ionViewDidLoad() {
-    this.setMenu();
-    this.getPopular();
-    this.getTopRated();
-    this.getLatest();
-    this.getUpcoming();
-     if(this.content.getContentDimensions().contentWidth < 415) {
-      this.smallScreen = true
-      console.log(this.content.getContentDimensions().contentWidth)
-    } else {
-      this.smallScreen=false
-      console.log(this.content.getContentDimensions().contentWidth)
-    }
   }
   search() {
     this.navCtrl.push("Search", {type: "movies"})
@@ -43,9 +30,7 @@ export class Movies {
       this.topRated = res.results;
     })
     this.api.topRated(this._pageNo).subscribe(res => {
-      this.topRated = res.results;
-      //else this.topRated = this.topRated.concat(res.results)
-      // this._pageNo++
+      if(res.results) this.topRated = res.results;
     });
   }
   getPopular(){
@@ -54,9 +39,7 @@ export class Movies {
       this.popular = res.results;
     })
     this.api.popular(this._pageNo).subscribe(res => {
-      this.popular = res.results;
-      //else this.popular = this.popular.concat(res.results)
-      // this._pageNo++
+      if(res.results) this.popular = res.results;
     });
   }
   getLatest(){
@@ -64,25 +47,32 @@ export class Movies {
       this.latest = res.results;
     })
     this.api.latest(this._pageNo).subscribe(res => {
-      this.latest = res.results;
-      //else this.latest = this.latest.concat(res.results)
-      // this._pageNo++
+      if(res.results) this.latest = res.results;
     });
   }
   getUpcoming(){
+    this.api.upcoming().subscribe(res => {
+      console.log("recieved upcoming")
+      this.store.setLatest(res)
+      this.upcoming = res.results;
+    }, err=> {
+      this.loadOffline()
+    });
+  }
+  loadOffline() {
     this.store.getUpcoming().then(res=> {
       this.upcoming = res.results;
     })
-    this.api.upcoming(this._pageNo).subscribe(res => {
-      this.upcoming = res.results;
-      //else this.upcoming = this.upcoming.concat(res.results)
-      // this._pageNo++
-    });
   }
-  setMenu() {
-    this.menuCtrl.enable(true, "movies")
+  doInfinite(e, type?) {
+    console.log("async operation started")
+    this.api.upcoming(this._pageNo).toPromise().then( res => {
+      if(res.results) {
+        this.upcoming = this.upcoming.concat(res.results)
+        this._pageNo++
+        e.complete()
+        console.log("async operation ended")
+      }
+    })
   }
-  loadMore() {
-  }
-
 }

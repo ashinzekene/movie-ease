@@ -34,7 +34,7 @@ export class MoviesApi {
   latest(n=1) {
     console.log("Getting latest")
     return this.http.get('http://movie-ease.herokuapp.com/movies/latest/'+n).map((res)=> {
-      if(n < 2) this.store.setLatest(res.json())
+      if(n < 2 && res.json().results) this.store.setLatest(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -46,9 +46,16 @@ export class MoviesApi {
     }).catch(this._handleError)
   }
   topRated(n=1) {
+    
     console.log("Getting topRated")
     return this.http.get('http://movie-ease.herokuapp.com/movies/top-rated/'+n).map((res)=> {
       if(n === 1) this.store.setTopRated(res.json())
+      return JSON.parse(res.json())
+    }).catch(this._handleError)
+  }
+  ozone() {
+    return this.http.get('http://movie-ease.herokuapp.com/movies/ozone').map(res => {
+      console.log(res.json())
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -59,6 +66,6 @@ export class MoviesApi {
     this.popular(1).subscribe(dat=>console.log(dat));
   }
   private _handleError(err) {
-    return Observable.throw("Network Error occured")
+    return Observable.throw("A Network Error Occured")
   }
 }

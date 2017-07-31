@@ -1,5 +1,5 @@
 {
-  "name": "Moie-ease",
+  "name": "Movie-ease",
   "short_name": "Movie-ease",
   "start_url": "index.html",
   "display": "standalone",
@@ -15,6 +15,6 @@
     "sizes": "512x512",
     "type": "image/png"
   }],
-  "background_color": "#111111",
-  "theme_color": "#111111"
+  "background_color": "#8500d8",
+  "theme_color": "#8500d8"
 }
