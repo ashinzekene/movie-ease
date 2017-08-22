@@ -38,8 +38,8 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.3.7",
-    "@ionic/cli-plugin-ionic-angular": "1.4.0",
-    "ionic": "3.6.0",
+    "@ionic/cli-plugin-ionic-angular": "1.4.1",
+    "ionic": "3.7.0",
     "randomise-array": "^1.0.4",
     "typescript": "2.3.3"
   },

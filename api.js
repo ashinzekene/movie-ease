@@ -36,7 +36,9 @@ module.exports = {
   getTv : `${Imdb.rootUrl}tv/`,
   image: Imdb.imgRootUrl,
   imdb : Imdb,
-  ozone: crawl.ozone()
+  ozone: crawl.ozone(),
+  filmhouseSurulere: crawl.filmhouseSurulere(),
+  genesisCinemasLagos: crawl.genesisCinemasLagos()
 }
 
 /*

@@ -1,14 +1,14 @@
 webpackJsonp([8],{
 
-/***/ 281:
+/***/ 282:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actor_details__ = __webpack_require__(291);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActorDetailsModule", function() { return ActorDetailsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actors__ = __webpack_require__(295);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActorsModule", function() { return ActorsModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,38 +18,38 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ActorDetailsModule = (function () {
-    function ActorDetailsModule() {
+var ActorsModule = (function () {
+    function ActorsModule() {
     }
-    return ActorDetailsModule;
+    return ActorsModule;
 }());
-ActorDetailsModule = __decorate([
+ActorsModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__actor_details__["a" /* ActorDetails */],
+            __WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__actor_details__["a" /* ActorDetails */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__actor_details__["a" /* ActorDetails */]
+            __WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */]
         ]
     })
-], ActorDetailsModule);
+], ActorsModule);
 
-//# sourceMappingURL=actor-details.module.js.map
+//# sourceMappingURL=actors.module.js.map
 
 /***/ }),
 
-/***/ 291:
+/***/ 295:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_actors_api__ = __webpack_require__(109);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_storage_actors_storage__ = __webpack_require__(111);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActorDetails; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_actors_storage__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_actors_api__ = __webpack_require__(109);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Actors; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -63,47 +63,53 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var ActorDetails = (function () {
-    function ActorDetails(navCtrl, navParams, _api, _storage) {
-        var _this = this;
+var Actors = (function () {
+    function Actors(navCtrl, navParams, menuCtrl, api, store) {
         this.navCtrl = navCtrl;
         this.navParams = navParams;
-        this._api = _api;
-        this._storage = _storage;
-        this.data = { profile_path: "" };
-        this.actorDetail = "info";
-        this.obj = {};
-        if (this.navParams.data.data) {
-            this.data = this.navParams.data.data;
-        }
-        this._api.one(this.navParams.data.id).subscribe(function (res) {
-            _this.data = res;
-        });
+        this.menuCtrl = menuCtrl;
+        this.api = api;
+        this.store = store;
     }
-    ActorDetails.prototype.navMovie = function (movie) {
-        this.navCtrl.push("MovieDetails", { data: movie, id: movie.id });
+    Actors.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad Actors');
+        this.setMenu();
+        this.getPopular();
     };
-    ActorDetails.prototype.navSerie = function (serie) {
-        this.navCtrl.push("SerieDetails", { data: serie, id: serie.id });
+    Actors.prototype.goToDetailsPage = function (actor) {
+        this.navCtrl.push("ActorDetails", { data: actor, id: actor.id });
     };
-    ActorDetails.prototype.ionViewCanEnter = function () { };
-    ActorDetails.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad ActorsDetails');
+    Actors.prototype.search = function () {
+        this.navCtrl.push("Search", { type: "actors" });
     };
-    return ActorDetails;
+    Actors.prototype.getPopular = function () {
+        var _this = this;
+        console.log("getting popular");
+        this.store.getPopular().then(function (res) {
+            _this.popular = res.results;
+        });
+        this.api.popular(this._pageNo).subscribe(function (res) {
+            _this.popular = res.results;
+            //else this.popular = this.popular.concat(res.results)
+            // this._pageNo++
+        });
+    };
+    Actors.prototype.setMenu = function () {
+        this.menuCtrl.enable(true, "actors");
+    };
+    Actors.prototype.loadMore = function () {
+    };
+    return Actors;
 }());
-ActorDetails = __decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])({
-        segment: "actors/:id",
-        defaultHistory: ['Actors']
-    }),
+Actors = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-actor-details',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actor-details\actor-details.html"*/'<ion-header>\n\n  <ion-navbar class="gradient-header">\n    <ion-title>{{ data.name }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n<ion-content class="details" [ngStyle]="{\'background-image\': \'url(https://image.tmdb.org/t/p/w500\' + data.profile_path + \')\'}">\n  <div class="wrapper">\n    <div>\n      <h1 class="title">{{ data.name }}</h1>\n    </div>\n  </div>\n  <ion-toolbar no-border>\n    <ion-segment color="light" [(ngModel)]="actorDetail">\n      <ion-segment-button value="series">\n        Series\n      </ion-segment-button>\n      <ion-segment-button value="info">\n        Info\n      </ion-segment-button>\n      <ion-segment-button value="movies">\n        Movies\n      </ion-segment-button>\n    </ion-segment>\n  </ion-toolbar>\n\n  <div [ngSwitch]="actorDetail">\n    <ion-item>\n      <ion-chip *ngFor="let genre of data.genre_ids" item-end color="danger">\n        <ion-icon name="information-circle"></ion-icon>\n        <ion-label>{{ genre }}</ion-label>\n      </ion-chip>\n    </ion-item>\n    \n    <ion-list *ngSwitchCase="\'info\'">\n\n      <ion-item text-wrap>Also known as  <p *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>\n      <ion-item text-wrap>Birthday:  {{ data.birthday }}</ion-item>\n      <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>\n      <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>\n      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'series\'">\n      <ion-item (click)="navSerie(serie)" text-wrap *ngFor="let serie of data.tv_credits?.cast" >\n        <ion-thumbnail item-left>\n          <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">\n        </ion-thumbnail>\n        <h2>{{ serie.name }}</h2>\n        <p>Acted as {{ serie.character }}</p>\n        <p>First Air Date: {{ serie.first_air_date }}</p>\n      </ion-item>\n    </ion-list>\n\n    <ion-list *ngSwitchCase="\'movies\'">\n      <ion-item (click)="navMovie(movie)" text-wrap *ngFor="let movie of data.movie_credits?.cast" >\n          <ion-thumbnail item-left>\n            <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">\n          </ion-thumbnail>\n          <h2>{{ movie.title }}</h2>\n          <p>Acted as {{ movie.character }}</p>\n          <p>Release Date: {{ movie.release_date }}</p>\n        </ion-item>\n    </ion-list>\n\n  </div>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actor-details\actor-details.html"*/,
+        selector: 'page-actors',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actors\actors.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>ACTORS</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content (ionScrollEnd)="loadMore()">\n  <div class="full">\n    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular">\n      <div class="wrapper">\n        <img [src]="\'https://image.tmdb.org/t/p/w342\'+ actor.profile_path" alt="{{ actor.name }}">\n        <div class="text">\n          <div text-capitalize text-underline class="title">{{ actor.name }}</div>\n        </div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>\n\n<!--\n<ion-content padding>\n  <div class="listings">\n    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular" [ngStyle]=\'{"background-image": "url(https://image.tmdb.org/t/p/w342"+ actor.profile_path +")"}\'>\n      <div class="wrapper">\n        <div text-capitalize text-underline class="title">{{ actor.name }}</div>\n      </div>\n    </ion-card>\n  </div>\n</ion-content>-->\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\actors\actors.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_actors_api__["a" /* ActorsApi */], __WEBPACK_IMPORTED_MODULE_3__providers_storage_actors_storage__["a" /* ActorsStorage */]])
-], ActorDetails);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* MenuController */], __WEBPACK_IMPORTED_MODULE_3__providers_api_actors_api__["a" /* ActorsApi */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_actors_storage__["a" /* ActorsStorage */]])
+], Actors);
 
-//# sourceMappingURL=actor-details.js.map
+//# sourceMappingURL=actors.js.map
 
 /***/ })
 

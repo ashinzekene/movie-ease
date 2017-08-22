@@ -1,10 +1,11 @@
 // var fs = require('fs');
-var request = require('request');
-var cheerio = require('cheerio');
-var url = "http://ozonecinemas.com/now_showing.php";
+const cheerio = require('cheerio');
+const request = require('request');
+
 var ozone  = () => {
+  var url = "http://ozonecinemas.com/now_showing.php";
   return new Promise((resolve, reject) => {
-    request(url, function (error, resdatabsaseponse, body) {
+    request(url, function (error, res, body) {
       if (!error) {
         var $ = cheerio.load(body, {normalizeWhitespace: true})
         var title = $('header div div.col.span_1_of_2 font').text();
@@ -31,6 +32,70 @@ var ozone  = () => {
   })
 }
 
-module.exports = {
-  ozone: ozone
+
+var filmhouseSurulere  = () => {
+  var url = 'http://www.filmhouseng.com/surulere.html';
+  return new Promise((resolve, reject) => {
+    request(url, function (error, res, body) {
+      if (!error) {
+        var $ = cheerio.load(body, {normalizeWhitespace: true})
+        var list = $("ul.vertical_list li.clearfix");
+        var result=[]
+        // var title = $('header div div.col.span_1_of_2 font').text();
+        // var movieInfo = list.eq(x).children("div").eq(1);
+        // var trailer = list.eq(x).children("div").eq(1);
+        for (let x in list) {
+          if (x < list.length && list.eq(x).children("div")[0])
+          result.push({
+            title: list.eq(x).children("div").eq(1).find("font").eq(0).text(),
+            movieLength: list.eq(x).children("div").eq(0).find(".section_title").text().substr(13).replace(/\n +/g,""), 
+            showTime: list.eq(x).children("div").eq(1).find(".post_text > div p").eq(1).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g),
+            synopsis: list.eq(x).children("div").eq(1).find(".post_text > p").text() ,
+            trailerUrl: list.eq(x).children("div").eq(0).find("iframe").attr("src") 
+          })
+        }
+        resolve(result)
+      } else {
+        reject(error)
+      }
+    })
+  })
 }
+
+
+var genesisCinemasLagos  = () => {
+  var url = 'http://www.genesiscinemas.com/lagos.html';
+  return new Promise((resolve, reject) => {
+    request(url, function (error, res, body) {
+      if (!error) {
+        var $ = cheerio.load(body, {normalizeWhitespace: true})
+        var list = $(".movie.movie--preview.release")
+        var result=[]
+        for (let x in list) {
+          if (x < list.length && list.eq(x).children("div")[0])
+          result.push({
+            title: list.eq(x).find("a.movie__title").text(),
+            movieLength: list.eq(x).find(".movie__time").text().replace(/\n +/g,""), 
+            genre: list.eq(x).find(".movie__option").eq(0).text().split(","),
+            rating: list.eq(x).find(".movie__option").eq(1).text(),
+            starring: list.eq(x).find(".movie__option").eq(2).text().split(","),
+            synopsis: list.eq(x).find(".movie__option").eq(3).text() ,
+            showTime: { friday :list.eq(x).find(".movie__option").eq(4).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g), "saturday" : list.eq(x).find(".movie__option").eq(5).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g) },
+            posterUrl: "http://www.genesiscinemas.com/"+list.eq(x).find(".movie__images > img").attr("src") 
+          })
+        }
+        resolve(result)
+      } else {
+        reject(error)
+      }
+    })
+  })
+}
+
+module.exports = {
+  ozone,
+  filmhouseSurulere,
+  genesisCinemasLagos
+}
+
+genesisCinemasLagos().then(console.log)
