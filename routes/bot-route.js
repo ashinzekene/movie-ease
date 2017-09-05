@@ -6,24 +6,43 @@ var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 
 route.post("/", (req, res) => {
+  res.setHeader("Content-Type","application/json")
   const { parameters, action } = req.body.result
   console.log("Paramteres and action", parameters, action )
-  response = Object.assign({}, sampleReponse, {
-    speech: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `,
-    displayText: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `
+  rq.get(api.searchMovie+parameters.movie_name ).then((data)=> {
+    sendDataToBot(res, data)
+  }).catch((err)=> {
+    console.log('ERROR DEY', err.message)
+    sendErrorToBot(res)
   })
-  res.setHeader("Content-Type","application/json")
-  res.json(response)
-  console.log(response)
 })
 
+
+function sendDataToBot(res, data) {
+  data = JSON.parse(data)
+  if(data.results[0]) {
+    response = {
+      speech: `Title: ${data.results[0].title} \nOverview: ${data.results[0].overview} \n Release Date: ${data.results[0].release_date}.\nI have about ${data.total_reslts} movies with almost the same name 😄😄`,
+      displayText: `Title: ${data.results[0].title} \nOverview: ${data.results[0].overview} \n Release Date: ${data.results[0].release_date}.\nI have about ${data.total_reslts} movies with almost the same name 😄😄`
+    }
+    console.log(data.results[0])
+    res.json(response)
+  } else {
+    sendErrorToBot(res)
+  }
+}
+function sendErrorToBot(res) {
+  response = Object.assign({}, sampleReponse, {
+    speech: `What movie?`,
+    displayText: `I didn't really get the movie. What movie?`
+  })
+  res.json(response)
+}
 module.exports= route
 
 var sampleReponse = {
   "speech": "Barack Hussein Obama II was the 44th and current President of the United States.",
   "displayText": "Barack Hussein Obama II was the 44th and current President of the United States, and the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University  and Harvard Law School, where ",
-  "data": {},
-  "contextOut": [""],
   "source": "movie-ease"
   }
       

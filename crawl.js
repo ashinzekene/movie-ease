@@ -98,4 +98,4 @@ module.exports = {
   genesisCinemasLagos
 }
 
-genesisCinemasLagos().then(console.log) 
+// genesisCinemasLagos().then(console.log) 
