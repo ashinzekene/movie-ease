@@ -5,7 +5,7 @@ route = express.Router()
 var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 
-route.get("/", (req, res) => {
+route.post("/", (req, res) => {
   const { parameters, action } = req.body.result
   console.log("Paramteres and action", parameters, action )
   console.log(res.body)
