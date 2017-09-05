@@ -1,5 +1,6 @@
 var express = require('express')
 var path = require("path")
+var bodyParser = require("body-parser")
 var app = express()
 
 var moviesRoute = require('./routes/movies-route')
@@ -10,6 +11,9 @@ var botRoute = require('./routes/bot-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
+
+app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.json())
 app.use(express.static("www"))
 app.listen(port, function(err){
   if(err) console.log(err)
