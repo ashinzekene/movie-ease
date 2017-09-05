@@ -8,12 +8,13 @@ var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 route.post("/", (req, res) => {
   const { parameters, action } = req.body.result
   console.log("Paramteres and action", parameters, action )
-  console.log(res.body)
   response = Object.assign({}, sampleReponse, {
     speech: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `,
     displayText: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `
   })
+  res.setHeader("Content-Type","application/json")
   res.json(response)
+  console.log(response)
 })
 
 module.exports= route

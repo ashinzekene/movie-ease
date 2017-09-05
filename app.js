@@ -11,7 +11,6 @@ var botRoute = require('./routes/bot-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
-
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(bodyParser.json())
 app.use(express.static("www"))
