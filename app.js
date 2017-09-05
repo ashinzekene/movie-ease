@@ -6,6 +6,7 @@ var moviesRoute = require('./routes/movies-route')
 var actorsRoute = require('./routes/actors-route')
 var seriesRoute = require('./routes/series-route')
 var imagesRoute = require('./routes/images-route')
+var botRoute = require('./routes/bot-route')
 var appendResponseRoute = require('./routes/append-response-route')
 var port = process.env.PORT || 4400
 
@@ -21,6 +22,7 @@ app.get('/', function(req, res){
 app.use('/movies', moviesRoute)
 app.use('/actors', actorsRoute)
 app.use('/series', seriesRoute)
+app.use('/bot', botRoute)
 app.use('/a2r', appendResponseRoute)
 app.use('/images', imagesRoute)
 
