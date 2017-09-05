@@ -8,8 +8,8 @@ var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 route.post("/", (req, res) => {
   console.log(res.body)
   response = Object.assign({}, sampleReponse, {
-    speech: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `,
-    displayText: `Hey, so you requested, for ${ parameters.movie_name } using action ${ action } `
+    speech: `Hey, so you requested, for using action`,
+    displayText: `Hey, so you requested, for using action `
   })
   res.json(response)
 })
