@@ -1,4 +1,4 @@
-// var fs = require('fs');
+var fs = require('fs');
 const cheerio = require('cheerio');
 const request = require('request');
 
@@ -71,8 +71,14 @@ var genesisCinemasLagos  = () => {
         var $ = cheerio.load(body, {normalizeWhitespace: true})
         var list = $(".movie.movie--preview.release")
         var result=[]
-        for (let x in list) {
-          if (x < list.length && list.eq(x).children("div")[0])
+        for (let x = 0;x< list.length;x++) {
+            var showTime=[]
+            console.log(list.eq(x).find("br").nextAll(".movie__option").length)
+            for (let y=0;y<list.eq(x).find("br").nextAll(".movie__option").length;y++) {
+              // console.log(list.eq(x).find("br").nextAll(".movie__option").eq(y).text())
+              showTime.push(list.eq(x).find("br").nextAll(".movie__option").eq(y).text())
+            }
+           showTimeString= showTime.join("")
           result.push({
             title: list.eq(x).find("a.movie__title").text(),
             movieLength: list.eq(x).find(".movie__time").text().replace(/\n +/g,""), 
@@ -80,7 +86,7 @@ var genesisCinemasLagos  = () => {
             rating: list.eq(x).find(".movie__option").eq(1).text(),
             starring: list.eq(x).find(".movie__option").eq(2).text().split(","),
             synopsis: list.eq(x).find(".movie__option").eq(3).text() ,
-            showTime: { friday :list.eq(x).find(".movie__option").eq(4).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g), "saturday" : list.eq(x).find(".movie__option").eq(5).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g) },
+            showTime: showTimeString,//{ friday :list.eq(x).find(".movie__option").eq(4).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g), "saturday" : list.eq(x).find(".movie__option").eq(5).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g) },
             posterUrl: "http://www.genesiscinemas.com/"+list.eq(x).find(".movie__images > img").attr("src") 
           })
         }
@@ -98,4 +104,13 @@ module.exports = {
   genesisCinemasLagos
 }
 
-// genesisCinemasLagos().then(console.log) 
+filmhouseSurulere().then(res => {
+  fs.writeFile("results", JSON.stringify(res), (err, res) => {
+    if (err) console.log(err)
+    console.log("Done")
+  })
+}) 
+
+// movie.find("br").nextAll(".movie__option").text().match(/^/)
+
+//find("br").nextAll(".movie__option").eq(2).text()
