@@ -45,14 +45,16 @@ var filmhouseSurulere  = () => {
         // var movieInfo = list.eq(x).children("div").eq(1);
         // var trailer = list.eq(x).children("div").eq(1);
         for (let x in list) {
-          if (x < list.length && list.eq(x).children("div")[0])
-          result.push({
-            title: list.eq(x).children("div").eq(1).find("font").eq(0).text(),
-            movieLength: list.eq(x).children("div").eq(0).find(".section_title").text().substr(13).replace(/\n +/g,""), 
-            showTime: list.eq(x).children("div").eq(1).find(".post_text > div p").eq(1).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g),
-            synopsis: list.eq(x).children("div").eq(1).find(".post_text > p").text() ,
-            trailerUrl: list.eq(x).children("div").eq(0).find("iframe").attr("src") 
-          })
+          if (x < list.length && list.eq(x).children("div")[0]){
+              showTime = list.eq(x).children("div").eq(1).find(".post_text > div p").eq(1).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g) || []
+            result.push({
+              title: list.eq(x).children("div").eq(1).find("font").eq(0).text(),
+              movieLength: list.eq(x).children("div").eq(0).find(".section_title").text().substr(13).replace(/\n +/g,""), 
+              showTime: showTime.join(), //list.eq(x).children("div").eq(1).find(".post_text > div p").eq(1).text().match(/\d{1,2}:\d{1,2}(AM|PM|am|pm)/g),
+              synopsis: list.eq(x).children("div").eq(1).find(".post_text > p").text() ,
+              trailerUrl: list.eq(x).children("div").eq(0).find("iframe").attr("src") 
+            })
+          }
         }
         resolve(result)
       } else {
