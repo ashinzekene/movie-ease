@@ -58,7 +58,7 @@ function movieSearch(data) {
   var cast = res.credits.cast.map(actor => `${actor.name} acted as ${actor.character}`)
     .filter(detail => detail.indexOf("uncredited") === -1).join(", ")
     return {
-      speech: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}😄😄`,
+      speech: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}`,
       displayText: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}😄😄`
     }    
   } 
@@ -78,7 +78,7 @@ function movieSearch(data) {
       .filter(detail => detail.indexOf("uncredited") === -1).join(", ")
   return {
     speech: `In ${res.name}, ${res.overview}. It was first released on ${res.first_air_date} and was last aired on ${res.last_air_date}, ${cast}.
-     There are ${res.number_of_seasons} seasons and ${res.number_of_episodes} episodes 😄😄`,
+     There are ${res.number_of_seasons} seasons and ${res.number_of_episodes} episodes`,
     displayText: `In ${res.name}, ${res.overview}. It was first released on ${res.first_air_date} and was last aired on ${res.last_air_date}, ${cast}.
      There are ${res.number_of_seasons} seasons and ${res.number_of_episodes} episodes 😄😄`
   }
