@@ -1,6 +1,7 @@
-var api = require('../api')
-var rq = require('request-promise')
 var express = require('express')
+var movies = require("../functions/movies")
+var actors = require("../functions/actors")
+var series = require("../functions/series")
 route = express.Router()
 var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
@@ -10,12 +11,58 @@ route.post("/", (req, res) => {
   const { parameters, action } = req.body.result
   console.log("Paramteres and action", parameters, action )
   rq.get(api.searchMovie+parameters.movie_name ).then((data)=> {
-    sendDataToBot(res, data)
-  }).catch((err)=> {
-    console.log('ERROR DEY', err.message)
-    sendErrorToBot(res)
-  })
+      sendDataToBot(res, data)
+    }).catch((err)=> {
+        console.log('ERROR DEY', err.message)
+        sendErrorToBot(res)
+    })
 })
+
+route.post("/", (req, res) => {
+  const { parameters, action } = req.body.result
+  switch (action) {
+    case 'movie_details': {
+      return movies.search(parameters.movie_name).then(movieSearch).then(result => res.json(result))
+    };
+    case 'actors_details': {
+      return actors.search(parameters.movie_name).then(actorSearch).then(result => res.json(result))
+    };
+    case 'serie_details': {
+      return seies.search(parameters.movie_name).then(seieSearch).then(result => res.json(result))
+    }
+    default: {
+      movies.search(parameters.movie_name).then(movieSearch).then(result => res.json(result))
+    }
+  }
+})
+
+
+function movieSearch(data) {
+  const res = data.results[0]
+  return {
+    speech: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`,
+    displayText: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`
+  }
+}
+
+function actorSearch(data) {
+  const res = data.results[0]
+  return {
+    speech: `${res.name}. ${res.biograpghy}. ${res.name} was born on ${res.birth_date}`,
+    displayText: `${res.name}. ${res.biograpghy}. ${res.name} was born on ${res.birth_date}`
+  }
+}
+
+function serieSearch(data) {
+  const res = data.results[0]
+  return {
+    speech: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`,
+    displayText: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`
+  }
+}
+
+
+
 
 
 function sendDataToBot(res, data) {
@@ -32,20 +79,15 @@ function sendDataToBot(res, data) {
   }
 }
 function sendErrorToBot(res) {
-  response = Object.assign({}, sampleReponse, {
+  response = {
     speech: `What movie?`,
     displayText: `I didn't really get the movie. What movie?`
-  })
+  }
   res.json(response)
 }
 module.exports= route
 
-var sampleReponse = {
-  "speech": "Barack Hussein Obama II was the 44th and current President of the United States.",
-  "displayText": "Barack Hussein Obama II was the 44th and current President of the United States, and the first African American to hold the office. Born in Honolulu, Hawaii, Obama is a graduate of Columbia University  and Harvard Law School, where ",
-  "source": "movie-ease"
-  }
-      
+
 var sampleRequest = {
   "lang": "en", 
   "status": {
