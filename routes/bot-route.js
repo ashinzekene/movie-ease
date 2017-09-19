@@ -1,69 +1,112 @@
 var express = require('express')
 var movies = require("../functions/movies")
+var rq = require('request-promise')
 var actors = require("../functions/actors")
 var series = require("../functions/series")
 route = express.Router()
 var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 
-route.post("/", (req, res) => {
-  res.setHeader("Content-Type","application/json")
-  const { parameters, action } = req.body.result
-  console.log("Paramteres and action", parameters, action )
-  rq.get(api.searchMovie+parameters.movie_name ).then((data)=> {
-      sendDataToBot(res, data)
-    }).catch((err)=> {
-        console.log('ERROR DEY', err.message)
-        sendErrorToBot(res)
-    })
-})
+// route.post("/", (req, res) => {
+//   res.setHeader("Content-Type","application/json")
+//   const { parameters, action } = req.body.result
+//   console.log("Paramteres and action", parameters, action )
+//   rq.get(api.searchMovie+parameters.movie_name ).then((data)=> {
+//       sendDataToBot(res, data)
+//     }).catch((err)=> {
+//         console.log('ERROR DEY', err.message)
+//         sendErrorToBot(res)
+//     })
+// })
 
 route.post("/", (req, res) => {
   const { parameters, action } = req.body.result
   switch (action) {
-    case 'movie_details': {
-      return movies.search(parameters.movie_name).then(movieSearch).then(result => res.json(result))
+    case 'movie.details': {
+      return movies.search(parameters.movie_name)
+        .then(getMovie)
+        .then(movieSearch)
+        .then(result => res.json(result))
+        .catch(e => handleError(parameters.movie_name, res, e))
     };
-    case 'actors_details': {
-      return actors.search(parameters.movie_name).then(actorSearch).then(result => res.json(result))
+    case 'actor.details': {
+      return actors.search(parameters.actor_name)
+        .then(getActor)
+        .then(actorSearch)
+        .then(result => res.json(result))
+        .catch(e => handleError(parameters.actor_name, res, e))
     };
-    case 'serie_details': {
-      return seies.search(parameters.movie_name).then(seieSearch).then(result => res.json(result))
+    case 'serie.details': {
+      return series.search(parameters.serie_name)
+        .then(getSerie)
+        .then(serieSearch)
+        .then(result => res.json(result))
+        .catch(e => handleError(parameters.serie_name, res, e))
     }
     default: {
-      movies.search(parameters.movie_name).then(movieSearch).then(result => res.json(result))
+      movies.search(parameters.movie_name)
+        .then(movieSearch)
+        .then(result => res.json(result))
+        .catch(handleError)
     }
   }
 })
 
 
 function movieSearch(data) {
-  const res = data.results[0]
+  const res = JSON.parse(data)
+  var cast = res.credits.cast.map(actor => `${actor.name} acted as ${actor.character}`)
+    .filter(detail => detail.indexOf("uncredited") === -1).join(", ")
+    return {
+      speech: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}😄😄`,
+      displayText: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}😄😄`
+    }    
+  } 
+  
+  function actorSearch(data) {
+    const res = JSON.parse(data)
+    var movies = res.credits.cast.map(movie => movie.title).join(", ")
+    return {
+      speech: `${res.name}. ${res.biography}. ${res.name} was born on ${res.birthday}, ${res.name} has starred in ${movies}`,
+      displayText: `${res.name}. ${res.biography}. ${res.name} was born on ${res.birthday}, ${res.name} has starred in ${movies}`
+    }
+  }
+  
+  function serieSearch(data) {
+    const res = JSON.parse(data)
+    var cast = res.credits.cast.map(actor => `${actor.name} acted as ${actor.character}`)
+      .filter(detail => detail.indexOf("uncredited") === -1).join(", ")
   return {
-    speech: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`,
-    displayText: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`
+    speech: `In ${res.name}, ${res.overview}. It was first released on ${res.first_air_date} and was last aired on ${res.last_air_date}, ${cast}.
+     There are ${res.number_of_seasons} seasons and ${res.number_of_episodes} episodes 😄😄`,
+    displayText: `In ${res.name}, ${res.overview}. It was first released on ${res.first_air_date} and was last aired on ${res.last_air_date}, ${cast}.
+     There are ${res.number_of_seasons} seasons and ${res.number_of_episodes} episodes 😄😄`
   }
 }
+  
+function getActor(data) {
+  return actors.one(JSON.parse(data).results[0].id)
+}  
 
-function actorSearch(data) {
-  const res = data.results[0]
-  return {
-    speech: `${res.name}. ${res.biograpghy}. ${res.name} was born on ${res.birth_date}`,
-    displayText: `${res.name}. ${res.biograpghy}. ${res.name} was born on ${res.birth_date}`
+function getSerie(data) {
+  return series.one(JSON.parse(data).results[0].id)
+}  
+
+function getMovie(data) {
+  return movies.one(JSON.parse(data).results[0].id)
+}  
+
+
+
+function handleError(that, res, error) {
+  return () => {
+    console.log(error)
+    res.json({
+      speech: `Is there anything like ${that}? 😵😵`,
+      displayText: `Is there anything like ${that}? 😵😵`
+    })
   }
 }
-
-function serieSearch(data) {
-  const res = data.results[0]
-  return {
-    speech: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`,
-    displayText: `${res.title}. ${res.overview}. It was released on ${res.release_date} 😄😄`
-  }
-}
-
-
-
-
 
 function sendDataToBot(res, data) {
   data = JSON.parse(data)
@@ -77,13 +120,6 @@ function sendDataToBot(res, data) {
   } else {
     sendErrorToBot(res)
   }
-}
-function sendErrorToBot(res) {
-  response = {
-    speech: `What movie?`,
-    displayText: `I didn't really get the movie. What movie?`
-  }
-  res.json(response)
 }
 module.exports= route
 
