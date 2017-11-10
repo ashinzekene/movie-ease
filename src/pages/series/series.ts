@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SeriesStorage } from "../../providers/storage/series-storage";
-import { SerieDetails } from "../serie-details/serie-details";
 import { SeriesApi } from "../../providers/api/series-api";
+import 'rxjs/add/operator/toPromise';
 
 @IonicPage()
 @Component({
@@ -14,7 +14,7 @@ export class Series {
   public upcoming;
   public latest;
   public popular;
-  private _pageNo: number =1
+  private _pageNo: number = 1
   constructor(public navCtrl: NavController, public navParams: NavParams, public api: SeriesApi, public store: SeriesStorage) {}
 
   ionViewDidLoad() {
@@ -36,8 +36,6 @@ export class Series {
     })
     this.api.topRated(this._pageNo).subscribe(res => {
       this.topRated = res.results;
-      //else this.topRated = this.topRated.concat(res.results)
-      // this._pageNo++
     });
   }
   getPopular(){
@@ -47,8 +45,6 @@ export class Series {
     })
     this.api.popular(this._pageNo).subscribe(res => {
       this.popular = res.results;
-      //else this.popular = this.popular.concat(res.results)
-      // this._pageNo++
     });
   }
   getLatest(){
@@ -57,8 +53,6 @@ export class Series {
     })
     this.api.latest(this._pageNo).subscribe(res => {
       this.latest = res.results;
-      //else this.latest = this.latest.concat(res.results)
-      // this._pageNo++
     });
   }
   getUpcoming(){
@@ -67,11 +61,10 @@ export class Series {
     })
     this.api.upcoming(this._pageNo).subscribe(res => {
       this.upcoming = res.results;
-      //else this.upcoming = this.upcoming.concat(res.results)
-      // this._pageNo++
+      this._pageNo++
     });
   }
-  doInfinite(e, type?) {
+  doInfinite(e) {
     console.log("async operation started")
     this.api.upcoming(this._pageNo).toPromise().then( res => {
       if(res.results) {

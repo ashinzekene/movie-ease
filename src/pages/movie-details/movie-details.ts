@@ -39,6 +39,7 @@ export class MovieDetails {
     }
     this._api.one(this.navParams.data.id).subscribe(res => {
       this.data = res;
+      console.log(res)
     });
   }
   getGenre(id) {

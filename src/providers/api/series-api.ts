@@ -26,31 +26,31 @@ export class SeriesApi {
   popular(n=1) {
     console.log("Getting popular")
     return this.http.get('https://movie-ease.herokuapp.com/series/popular/'+n).map((res)=> {
-      if(n === 1) this.store.setPopular(res.json())
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   latest(n=1) {
     console.log("Getting latest")
     return this.http.get('https://movie-ease.herokuapp.com/series/latest/'+n).map((res)=> {
-      if(n === 1) this.store.setLatest(res.json())
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   upcoming(n=1) {
     console.log("Getting upcoming")
     return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/'+n).map((res)=> {
-      if(n === 1) this.store.setUpcoming(res.json())
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   topRated(n=1) {
     console.log("Getting topRated")
     return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/'+n).map((res)=> {
-      if(n === 1) this.store.setTopRated(res.json())
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
-  }
+  } 
   private _handleError(){
     return Observable.throw("Network Error")
   }

@@ -3,25 +3,20 @@ import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Api } from "../providers/api/api";
-import { Home } from "../pages/home/home";
-
 
 @Component({
   templateUrl: 'app.html'
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = Home;
+  rootPage:any = "Home";
   pages = [
-    {name: "Home", component: Home},
+    {name: "Home", component: "Home"},
     {name: "Movies", component: "Movies"},
     {name: "Series", component: "Series"},
     {name: "Actors", component: "Actors"}
   ]
 
-  actorPages = [
-    {name: "Top Actors", component: ""}
-  ]
   openPage(p) {
     this.nav.setRoot(p.component)
   }
@@ -33,8 +28,6 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.api.getAll();
-      // this.menuCtrl.enable(true, 'series')
-      // this.menuCtrl.enable(false, 'movies')
     });
   }
 }

@@ -6,7 +6,7 @@
 
 </ion-header>
 
-<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.poster_path + ')' }">
+<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780' + data.backdrop_path + ')' }">
   <div class="wrapper">
     <div>
       <h1 class="title">{{ data.name }}</h1>
@@ -51,7 +51,7 @@
     <ion-list *ngSwitchCase="'episode'">
       <ion-item *ngFor="let season of data.seasons">
         <ion-thumbnail item-left>
-          <img src="https://image.tmdb.org/t/p/w92{{season.poster_path}}" alt="data.name, season {{ season?.season_number }}">
+          <img [src]="'https://image.tmdb.org/t/p/w92'+season.poster_path" [alt]="data.name + ' Season: ' + season?.season_number">
         </ion-thumbnail>
         <h3>Season {{ season?.season_number }}</h3>
         <p>No of episodes: {{ season?.episode_count }} </p>
@@ -62,7 +62,7 @@
     <ion-list *ngSwitchCase="'similar'">
       <ion-item text-wrap (click)="navSerie(similar)" *ngFor="let similar of data.similar?.results" >
         <ion-thumbnail item-left>
-          <img src="https://image.tmdb.org/t/p/w92{{similar.poster_path}}">
+          <img [src]="'https://image.tmdb.org/t/p/w92' + similar.poster_path">
         </ion-thumbnail>
         <h2>{{ similar.name }}</h2>
         <p>First Air Date {{ similar.first_air_date }}</p>
@@ -74,7 +74,7 @@
       <!--<ion-item text-wrap *ngFor="let cast of data.credits?.cast" (click)="showPerson(cast.id)" >{{ cast.name + " as " + cast.character }}</ion-item>-->
       <ion-item *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">
         <ion-avatar item-left>
-          <img src="https://image.tmdb.org/t/p/w92{{cast.profile_path}}">
+          <img [src]="'https://image.tmdb.org/t/p/w92' + cast.profile_path">
         </ion-avatar>
         <h2>{{ cast.name }}</h2>
         <p>Acted as {{ cast.character }}</p>

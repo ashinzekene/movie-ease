@@ -6,11 +6,6 @@ import { MyApp } from './app.component';
 import { IonicStorageModule } from "@ionic/storage";
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 
-import { Home } from "../pages/home/home";
-import { MovieDetails } from "../pages/movie-details/movie-details";
-import { SerieDetails } from "../pages/serie-details/serie-details";
-import { ActorDetails } from "../pages/actor-details/actor-details";
-
 import { MoviesApi } from "../providers/api/movies-api";
 import { SeriesApi } from "../providers/api/series-api";
 import { ActorsApi } from "../providers/api/actors-api";
@@ -26,10 +21,6 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 @NgModule({
   declarations: [
     MyApp,
-    Home,
-    ActorDetails,
-    MovieDetails,
-    SerieDetails,
   ],
   imports: [
     BrowserModule,
@@ -39,11 +30,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    Home,
     MyApp,
-    ActorDetails,
-    MovieDetails,
-    SerieDetails,
   ],
   providers: [
     StatusBar,

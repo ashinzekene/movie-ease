@@ -65,12 +65,13 @@ export class Movies {
       this.upcoming = res.results;
     })
   }
-  doInfinite() {
+  doInfinite(e) {
     console.log("async operation started")
     this.api.upcoming(this._pageNo).toPromise().then( res => {
       if(res.results) {
         this.upcoming = this.upcoming.concat(res.results)
         this._pageNo++
+        e.complete()
         console.log("async operation ended")
       }
     })

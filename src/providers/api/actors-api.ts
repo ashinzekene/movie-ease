@@ -14,11 +14,13 @@ export class ActorsApi {
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/actors/one/${id}`).map((res)=> {
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   search(query) {
     return this.http.get(`https://movie-ease.herokuapp.com/actors/search/${query}`).map((res)=> {
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -26,6 +28,7 @@ export class ActorsApi {
     console.log("Getting popular")
     return this.http.get('https://movie-ease.herokuapp.com/actors/popular/'+n).map((res)=> {
       if(n === 1) this.store.setPopular(res.json())
+      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }

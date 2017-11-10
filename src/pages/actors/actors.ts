@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
 import { ActorsStorage } from "../../providers/storage/actors-storage";
 import { ActorsApi } from "../../providers/api/actors-api";
-
+import 'rxjs/add/operator/toPromise';
 
 @IonicPage()
 @Component({
@@ -11,7 +11,7 @@ import { ActorsApi } from "../../providers/api/actors-api";
 })
 export class Actors {
   public popular;
-  private _pageNo;
+  private _pageNo: number = 2;
   constructor(private navCtrl: NavController, private navParams: NavParams, private menuCtrl: MenuController, private api:ActorsApi, private store: ActorsStorage) {}
 
   ionViewDidLoad() {
@@ -32,14 +32,20 @@ export class Actors {
     })
     this.api.popular(this._pageNo).subscribe(res => {
       this.popular = res.results;
-      //else this.popular = this.popular.concat(res.results)
-      // this._pageNo++
     });
   }
   setMenu() {
     this.menuCtrl.enable(true, "actors")
   }
-  loadMore() {
-    
+  doInfinite(e) {
+    console.log("async operation started")
+    this.api.popular(this._pageNo).toPromise().then( res => {
+      if(res.results) {
+        this.popular = this.popular.concat(res.results)
+        this._pageNo++
+        e.complete()
+        console.log("async operation ended")
+      }
+    })
   }
 }
