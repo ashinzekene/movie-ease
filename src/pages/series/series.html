@@ -1,9 +1,3 @@
-<!--
-  Generated template for the Series page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
   <ion-navbar>
     <button ion-button menuToggle icon-only>
@@ -18,26 +12,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content (ionScrollEnd)="loadMore()">
-  <div class="full">
-    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming">
-      <div class="wrapper">
-        <img [src]="'https://image.tmdb.org/t/p/w342'+ serie.poster_path" alt="{{ serie.name }}">
-        <div class="text">
-          <div text-capitalize text-underline class="title">{{ serie.name }}</div>
-          <div text-capitalize text-underline class="subtitle">{{ serie.status }}</div>
-        </div>
-      </div>
-    </ion-card>
-  </div>
+<ion-content>
+  <ion-row>
+    <ion-col *ngFor="let serie of upcoming" col-12 col-md-6 col-lg-4>
+      <ion-card  (click)="goToDetailsPage(serie)" >
+        <img [src]="'https://image.tmdb.org/t/p/w500' + serie.poster_path" [alt]="serie.title">
+        <!-- <ion-card-title text-center>{{ serie.title }}</ion-card-title> -->
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content loadingText="Getting more series... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
-<!--
-<ion-content padding>
-  <div class="listings">
-    <ion-card (click)="goToDetailsPage(serie)" *ngFor="let serie of upcoming" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ serie.poster_path +")"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="title">{{ serie.name }}</div>
-      </div>
-    </ion-card>
-  </div>
-</ion-content>-->

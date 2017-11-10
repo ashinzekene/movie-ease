@@ -1,2 +1,160 @@
-webpackJsonp([2],{230:function(l,n,u){"use strict";Object.defineProperty(n,"__esModule",{value:!0});var t=u(0),a=u(267),e=u(11),i=u(22),o=u(102),_=u(151),s=u(152),c=u(153),r=u(155),d=u(156),b=u(157),m=u(268),p=u(244),g=u(45);u.d(n,"SerieDetailsModuleNgFactory",function(){return v});var f=this&&this.__extends||function(){var l=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(l,n){l.__proto__=n}||function(l,n){for(var u in n)n.hasOwnProperty(u)&&(l[u]=n[u])};return function(n,u){function t(){this.constructor=n}l(n,u),n.prototype=null===u?Object.create(u):(t.prototype=u.prototype,new t)}}(),h=function(l){function n(n){return l.call(this,n,[_.a,s.a,c.a,r.a,d.a,b.a,m.a],[])||this}return f(n,l),Object.defineProperty(n.prototype,"_NgLocalization_7",{get:function(){return null==this.__NgLocalization_7&&(this.__NgLocalization_7=new e.a(this.parent.get(t.c))),this.__NgLocalization_7},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_ɵi_8",{get:function(){return null==this.__ɵi_8&&(this.__ɵi_8=new i.a),this.__ɵi_8},enumerable:!0,configurable:!0}),Object.defineProperty(n.prototype,"_FormBuilder_9",{get:function(){return null==this.__FormBuilder_9&&(this.__FormBuilder_9=new i.b),this.__FormBuilder_9},enumerable:!0,configurable:!0}),n.prototype.createInternal=function(){return this._CommonModule_0=new e.d,this._ɵba_1=new i.c,this._FormsModule_2=new i.d,this._ReactiveFormsModule_3=new i.e,this._IonicModule_4=new o.b,this._IonicPageModule_5=new o.c,this._SerieDetailsModule_6=new a.a,this._LAZY_LOADED_TOKEN_10=p.a,this._SerieDetailsModule_6},n.prototype.getInternal=function(l,n){return l===e.d?this._CommonModule_0:l===i.c?this._ɵba_1:l===i.d?this._FormsModule_2:l===i.e?this._ReactiveFormsModule_3:l===o.b?this._IonicModule_4:l===o.c?this._IonicPageModule_5:l===a.a?this._SerieDetailsModule_6:l===e.e?this._NgLocalization_7:l===i.a?this._ɵi_8:l===i.b?this._FormBuilder_9:l===g.d?this._LAZY_LOADED_TOKEN_10:n},n.prototype.destroyInternal=function(){},n}(t.x),v=new t.y(h,a.a)},232:function(l,n,u){"use strict";function t(l){return e._14(0,[(l()(),e._15(0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),e._16(278528,null,0,i.l,[e.t,e.u,e.H,e.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),e._15(0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(l,n,u){var t=!0,a=l.component;if("click"===n){t=!1!==a.backButtonClick(u)&&t}return t},_.a,_.b)),e._16(278528,null,0,i.l,[e.t,e.u,e.H,e.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),e._16(1097728,null,0,s.a,[[8,"bar-button"],c.c,e.H,e.I],null,null),(l()(),e._15(0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),e._16(278528,null,0,i.l,[e.t,e.u,e.H,e.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),e._16(147456,null,0,r.a,[c.c,e.H,e.I],{name:[0,"name"]},null),(l()(),e._15(0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),e._16(278528,null,0,i.l,[e.t,e.u,e.H,e.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(l()(),e._17(null,["",""])),e._23(null,0),e._23(null,1),e._23(null,2),(l()(),e._15(0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),e._16(278528,null,0,i.l,[e.t,e.u,e.H,e.I],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),e._23(null,3)],function(l,n){var u=n.component;l(n,1,0,"toolbar-background","toolbar-background-"+u._mode);l(n,3,0,"back-button","back-button-"+u._mode);l(n,6,0,"back-button-icon","back-button-icon-"+u._mode),l(n,7,0,u._bbIcon);l(n,9,0,"back-button-text","back-button-text-"+u._mode);l(n,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(l,n){var u=n.component;l(n,2,0,u._hideBb),l(n,5,0,e._19(n,7)._hidden),l(n,10,0,u._backText)})}function a(l){return e._14(0,[(l()(),e._15(0,null,null,1,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,t,g)),e._16(49152,null,0,o.a,[d.a,[2,b.a],[2,m.a],c.c,e.H,e.I],null,null)],null,function(l,n){l(n,0,0,e._19(n,1)._hidden,e._19(n,1)._sbPadding)})}var e=u(0),i=u(11),o=u(24),_=u(44),s=u(15),c=u(1),r=u(35),d=u(8),b=u(4),m=u(21);u.d(n,"b",function(){return g}),n.a=t;var p=[],g=e._13({encapsulation:2,styles:p,data:{}});e._22("ion-navbar",o.a,a,{color:"color",mode:"mode",hideBackButton:"hideBackButton"},{},["[menuToggle],ion-buttons[left]","ion-buttons[start]","ion-buttons[end],ion-buttons[right]","*"])},233:function(l,n,u){"use strict";function t(l){return e._14(0,[e._23(null,0),(l()(),e._15(0,null,null,0,"div",[["class","button-effect"]],null,null,null,null,null))],null,null)}function a(l){return e._14(0,[(l()(),e._15(0,null,null,1,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var t=!0;if("click"===n){t=!1!==e._19(l,1).onClick()&&t}return t},t,_)),e._16(114688,null,0,i.a,[],null,null)],function(l,n){l(n,1,0)},function(l,n){l(n,0,0,e._19(n,1)._disabled,e._19(n,1).isActive,e._19(n,1).isActive)})}var e=u(0),i=u(64);u.d(n,"b",function(){return _}),n.a=t;var o=[],_=e._13({encapsulation:2,styles:o,data:{}});e._22("ion-segment-button",i.a,a,{value:"value",disabled:"disabled"},{ionSelect:"ionSelect"},["*"])},244:function(l,n,u){"use strict";var t=(u(0),u(101),u(66),u(68),u(246));u.d(n,"a",function(){return a});var a=(this&&this.__decorate,this&&this.__metadata,function(){function l(l,n,u,a){var e=this;this.navCtrl=l,this.navParams=n,this._api=u,this._storage=a,this.data={},this.serieDetail="info",this._genres=t.a,this.navParams.data.data&&(this.data=this.navParams.data.data),this._api.one(this.navParams.data.id).subscribe(function(l){e.data=l})}return l.prototype.getGenre=function(l){this._genres.find(function(n){return n.id===l})},l.prototype.navActor=function(l){this.navCtrl.push("ActorDetails",{data:l,id:l.id})},l.prototype.navSerie=function(l){this.navCtrl.push("SerieDetails",{data:l,id:l.id})},l.prototype.ionViewDidLoad=function(){console.log("ionViewDidLoad SeriesDetails")},l}())},246:function(l,n,u){"use strict";u.d(n,"a",function(){return t});var t=[{id:28,name:"Action"},{id:12,name:"Adventure"},{id:16,name:"Animation"},{id:35,name:"Comedy"},{id:80,name:"Crime"},{id:99,name:"Documentary"},{id:18,name:"Drama"},{id:10751,name:"Family"},{id:14,name:"Fantasy"},{id:36,name:"History"},{id:27,name:"Horror"},{id:10402,name:"Music"},{id:9648,name:"Mystery"},{id:10749,name:"Romance"},{id:878,name:"Science Fiction"},{id:10770,name:"TV Movie"},{id:53,name:"Thriller"},{id:10752,name:"War"},{id:37,name:"Western"}]},267:function(l,n,u){"use strict";u(0),u(101),u(244);u.d(n,"a",function(){return t});var t=(this&&this.__decorate,function(){function l(){}return l}())},268:function(l,n,u){"use strict";function t(l){return b._14(0,[(l()(),b._15(0,null,null,9,"ion-chip",[],null,null,null,null,null)),b._16(16384,null,0,m.a,[p.c,b.H,b.I],null,null),(l()(),b._17(null,["\n        "])),(l()(),b._15(0,null,null,1,"ion-icon",[["name","information-circle"],["role","img"]],[[2,"hide",null]],null,null,null,null)),b._16(147456,null,0,g.a,[p.c,b.H,b.I],{name:[0,"name"]},null),(l()(),b._17(null,["\n        "])),(l()(),b._15(0,null,null,2,"ion-label",[["color","light"]],null,null,null,null,null)),b._16(16384,[[2,4]],0,f.a,[p.c,b.H,b.I,[8,null],[8,null],[8,null],[8,null]],{color:[0,"color"]},null),(l()(),b._17(null,["",""])),(l()(),b._17(null,["\n      "]))],function(l,n){l(n,4,0,"information-circle");l(n,7,0,"light")},function(l,n){l(n,3,0,b._19(n,4)._hidden),l(n,8,0,n.context.$implicit.name)})}function a(l){return b._14(0,[(l()(),b._15(0,null,null,66,"ion-list",[],null,null,null,null,null)),b._16(16384,null,0,h.a,[p.c,b.H,b.I,v.b,k.a,I.a],null,null),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,5,{contentLabel:0}),b._20(603979776,6,{_buttons:1}),b._20(603979776,7,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Status: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,8,{contentLabel:0}),b._20(603979776,9,{_buttons:1}),b._20(603979776,10,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["First Aired: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,11,{contentLabel:0}),b._20(603979776,12,{_buttons:1}),b._20(603979776,13,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Last Aired: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,14,{contentLabel:0}),b._20(603979776,15,{_buttons:1}),b._20(603979776,16,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Episode Run Time: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,17,{contentLabel:0}),b._20(603979776,18,{_buttons:1}),b._20(603979776,19,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Overview: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,20,{contentLabel:0}),b._20(603979776,21,{_buttons:1}),b._20(603979776,22,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,23,{contentLabel:0}),b._20(603979776,24,{_buttons:1}),b._20(603979776,25,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Type: ",""])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,6,"ion-item",[["class","item item-block"],["text-wrap",""]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,26,{contentLabel:0}),b._20(603979776,27,{_buttons:1}),b._20(603979776,28,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["Vote Average: ",""])),(l()(),b._17(null,["\n\n    "]))],null,function(l,n){var u=n.component;l(n,9,0,u.data.status),l(n,17,0,u.data.first_air_date),l(n,25,0,u.data.last_air_date),l(n,33,0,u.data.episode_run_time),l(n,41,0,u.data.overview),l(n,49,0,u.data.in_production?"In production":"Not in production"),l(n,57,0,u.data.type),l(n,65,0,u.data.vote_average)})}function e(l){return b._14(0,[(l()(),b._15(0,null,null,21,"ion-item",[["class","item item-block"]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,29,{contentLabel:0}),b._20(603979776,30,{_buttons:1}),b._20(603979776,31,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,0,4,"ion-thumbnail",[["item-left",""]],null,null,null,null,null)),b._16(16384,null,0,L.a,[],null,null),(l()(),b._17(null,["\n          "])),(l()(),b._15(0,null,null,0,"img",[],[[8,"src",4],[8,"alt",0]],null,null,null,null)),(l()(),b._17(null,["\n        "])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"h3",[],null,null,null,null,null)),(l()(),b._17(null,["Season ",""])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"p",[],null,null,null,null,null)),(l()(),b._17(null,["No of episodes: "," "])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"p",[],null,null,null,null,null)),(l()(),b._17(null,["Air date: "," "])),(l()(),b._17(2,["\n      "]))],null,function(l,n){l(n,10,0,b._18(1,"https://image.tmdb.org/t/p/w92",n.context.$implicit.poster_path,""),b._18(1,"data.name, season ",null==n.context.$implicit?null:n.context.$implicit.season_number,"")),l(n,14,0,null==n.context.$implicit?null:n.context.$implicit.season_number),l(n,17,0,null==n.context.$implicit?null:n.context.$implicit.episode_count),l(n,20,0,null==n.context.$implicit?null:n.context.$implicit.air_date)})}function i(l){return b._14(0,[(l()(),b._15(0,null,null,5,"ion-list",[],null,null,null,null,null)),b._16(16384,null,0,h.a,[p.c,b.H,b.I,v.b,k.a,I.a],null,null),(l()(),b._17(null,["\n      "])),(l()(),b._21(16777216,null,null,1,null,e)),b._16(802816,null,0,A.k,[b.L,b.N,b.t],{ngForOf:[0,"ngForOf"]},null),(l()(),b._17(null,["\n    "]))],function(l,n){l(n,4,0,n.component.data.seasons)},null)}function o(l){return b._14(0,[(l()(),b._15(0,null,null,18,"ion-item",[["class","item item-block"],["text-wrap",""]],null,[[null,"click"]],function(l,n,u){var t=!0,a=l.component;if("click"===n){t=!1!==a.navSerie(l.context.$implicit)&&t}return t},w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,32,{contentLabel:0}),b._20(603979776,33,{_buttons:1}),b._20(603979776,34,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,0,4,"ion-thumbnail",[["item-left",""]],null,null,null,null,null)),b._16(16384,null,0,L.a,[],null,null),(l()(),b._17(null,["\n          "])),(l()(),b._15(0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null)),(l()(),b._17(null,["\n        "])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"h2",[],null,null,null,null,null)),(l()(),b._17(null,["",""])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"p",[],null,null,null,null,null)),(l()(),b._17(null,["First Air Date ",""])),(l()(),b._17(2,["\n        \n      "]))],null,function(l,n){l(n,10,0,b._18(1,"https://image.tmdb.org/t/p/w92",n.context.$implicit.poster_path,"")),l(n,14,0,n.context.$implicit.name),l(n,17,0,n.context.$implicit.first_air_date)})}function _(l){return b._14(0,[(l()(),b._15(0,null,null,5,"ion-list",[],null,null,null,null,null)),b._16(16384,null,0,h.a,[p.c,b.H,b.I,v.b,k.a,I.a],null,null),(l()(),b._17(null,["\n      "])),(l()(),b._21(16777216,null,null,1,null,o)),b._16(802816,null,0,A.k,[b.L,b.N,b.t],{ngForOf:[0,"ngForOf"]},null),(l()(),b._17(null,["\n    "]))],function(l,n){var u=n.component;l(n,4,0,null==u.data.similar?null:u.data.similar.results)},null)}function s(l){return b._14(0,[(l()(),b._15(0,null,null,18,"ion-item",[["class","item item-block"]],null,[[null,"click"]],function(l,n,u){var t=!0,a=l.component;if("click"===n){t=!1!==a.navActor(l.context.$implicit)&&t}return t},w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(335544320,35,{contentLabel:0}),b._20(603979776,36,{_buttons:1}),b._20(603979776,37,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,0,4,"ion-avatar",[["item-left",""]],null,null,null,null,null)),b._16(16384,null,0,S.a,[],null,null),(l()(),b._17(null,["\n          "])),(l()(),b._15(0,null,null,0,"img",[],[[8,"src",4]],null,null,null,null)),(l()(),b._17(null,["\n        "])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"h2",[],null,null,null,null,null)),(l()(),b._17(null,["",""])),(l()(),b._17(2,["\n        "])),(l()(),b._15(0,null,2,1,"p",[],null,null,null,null,null)),(l()(),b._17(null,["Acted as ",""])),(l()(),b._17(2,["\n      "]))],null,function(l,n){l(n,10,0,b._18(1,"https://image.tmdb.org/t/p/w92",n.context.$implicit.profile_path,"")),l(n,14,0,n.context.$implicit.name),l(n,17,0,n.context.$implicit.character)})}function c(l){return b._14(0,[(l()(),b._15(0,null,null,6,"ion-list",[],null,null,null,null,null)),b._16(16384,null,0,h.a,[p.c,b.H,b.I,v.b,k.a,I.a],null,null),(l()(),b._17(null,["\n      "])),(l()(),b._17(null,["\n      "])),(l()(),b._21(16777216,null,null,1,null,s)),b._16(802816,null,0,A.k,[b.L,b.N,b.t],{ngForOf:[0,"ngForOf"]},null),(l()(),b._17(null,["\n      \n    "]))],function(l,n){var u=n.component;l(n,5,0,null==u.data.credits?null:u.data.credits.cast)},null)}function r(l){return b._14(0,[(l()(),b._15(0,null,null,10,"ion-header",[],null,null,null,null,null)),b._16(16384,null,0,F.a,[p.c,b.H,b.I,[2,D.a]],null,null),(l()(),b._17(null,["\n\n  "])),(l()(),b._15(0,null,null,6,"ion-navbar",[["class","toolbar"],["color","gradient"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,M.a,M.b)),b._16(49152,null,0,O.a,[N.a,[2,D.a],[2,P.a],p.c,b.H,b.I],{color:[0,"color"]},null),(l()(),b._17(3,["\n    "])),(l()(),b._15(0,null,3,2,"ion-title",[],null,null,null,$.a,$.b)),b._16(49152,null,0,B.a,[p.c,b.H,b.I,[2,T.a],[2,O.a]],null,null),(l()(),b._17(0,["",""])),(l()(),b._17(3,["\n  "])),(l()(),b._17(null,["\n\n"])),(l()(),b._17(null,["\n\n"])),(l()(),b._15(0,null,null,68,"ion-content",[["class","details"]],[[2,"statusbar-padding",null]],null,null,j.a,j.b)),b._16(278528,null,0,A.m,[b.u,b.H,b.I],{ngStyle:[0,"ngStyle"]},null),b._24(["background-image"]),b._16(4374528,null,0,E.a,[p.c,v.b,I.a,b.H,b.I,N.a,z.a,b.g,[2,D.a],[2,P.a]],null,null),(l()(),b._17(1,["\n  "])),(l()(),b._15(0,null,1,7,"div",[["class","wrapper"]],null,null,null,null,null)),(l()(),b._17(null,["\n    "])),(l()(),b._15(0,null,null,4,"div",[],null,null,null,null,null)),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,1,"h1",[["class","title"]],null,null,null,null,null)),(l()(),b._17(null,["",""])),(l()(),b._17(null,["\n    "])),(l()(),b._17(null,["\n  "])),(l()(),b._17(1,["\n  "])),(l()(),b._15(0,null,1,26,"ion-toolbar",[["class","toolbar"],["no-border",""]],[[2,"statusbar-padding",null]],null,null,V.a,V.b)),b._16(49152,null,0,T.a,[p.c,b.H,b.I],null,null),(l()(),b._17(3,["\n    "])),(l()(),b._15(0,null,3,22,"ion-segment",[["color","light"]],[[2,"ng-untouched",null],[2,"ng-touched",null],[2,"ng-pristine",null],[2,"ng-dirty",null],[2,"ng-valid",null],[2,"ng-invalid",null],[2,"ng-pending",null],[2,"segment-disabled",null]],[[null,"ngModelChange"]],function(l,n,u){var t=!0,a=l.component;if("ngModelChange"===n){t=!1!==(a.serieDetail=u)&&t}return t},null,null)),b._16(671744,null,0,K.f,[[8,null],[8,null],[8,null],[8,null]],{model:[0,"model"]},{update:"ngModelChange"}),b._25(2048,null,K.g,null,[K.f]),b._16(16384,null,0,K.h,[K.g],null,null),b._16(1196032,null,1,W.a,[p.c,b.H,b.I,[2,K.g]],{color:[0,"color"]},null),b._20(603979776,1,{_buttons:1}),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","episode"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var t=!0;if("click"===n){t=!1!==b._19(l,37).onClick()&&t}return t},Y.a,Y.b)),b._16(114688,[[1,4]],0,Z.a,[],{value:[0,"value"]},null),(l()(),b._17(0,["\n        Episodes\n      "])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","info"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var t=!0;if("click"===n){t=!1!==b._19(l,41).onClick()&&t}return t},Y.a,Y.b)),b._16(114688,[[1,4]],0,Z.a,[],{value:[0,"value"]},null),(l()(),b._17(0,["\n        Info\n      "])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","cast"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var t=!0;if("click"===n){t=!1!==b._19(l,45).onClick()&&t}return t},Y.a,Y.b)),b._16(114688,[[1,4]],0,Z.a,[],{value:[0,"value"]},null),(l()(),b._17(0,["\n        Cast\n      "])),(l()(),b._17(null,["\n      "])),(l()(),b._15(0,null,null,2,"ion-segment-button",[["class","segment-button"],["role","button"],["tappable",""],["value","similar"]],[[2,"segment-button-disabled",null],[2,"segment-activated",null],[1,"aria-pressed",0]],[[null,"click"]],function(l,n,u){var t=!0;if("click"===n){t=!1!==b._19(l,49).onClick()&&t}return t},Y.a,Y.b)),b._16(114688,[[1,4]],0,Z.a,[],{value:[0,"value"]},null),(l()(),b._17(0,["\n        Similar\n      "])),(l()(),b._17(null,["\n    "])),(l()(),b._17(3,["\n  "])),(l()(),b._17(1,["\n\n  "])),(l()(),b._15(0,null,1,25,"div",[],null,null,null,null,null)),b._16(16384,null,0,A.n,[],{ngSwitch:[0,"ngSwitch"]},null),(l()(),b._17(null,["\n    "])),(l()(),b._15(0,null,null,9,"ion-item",[["class","item item-block"]],null,null,null,w.a,w.b)),b._16(1097728,null,3,C.a,[y.a,p.c,b.H,b.I,[2,H.a]],null,null),b._20(603979776,2,{contentLabel:0}),b._20(603979776,3,{_buttons:1}),b._20(603979776,4,{_icons:1}),b._16(16384,null,0,x.a,[],null,null),(l()(),b._17(2,["\n      "])),(l()(),b._21(16777216,null,2,1,null,t)),b._16(802816,null,0,A.k,[b.L,b.N,b.t],{ngForOf:[0,"ngForOf"]},null),(l()(),b._17(2,["\n    "])),(l()(),b._17(null,["\n    "])),(l()(),b._21(16777216,null,null,1,null,a)),b._16(278528,null,0,A.o,[b.L,b.N,A.n],{ngSwitchCase:[0,"ngSwitchCase"]},null),(l()(),b._17(null,["\n\n    "])),(l()(),b._21(16777216,null,null,1,null,i)),b._16(278528,null,0,A.o,[b.L,b.N,A.n],{ngSwitchCase:[0,"ngSwitchCase"]},null),(l()(),b._17(null,["\n\n    "])),(l()(),b._21(16777216,null,null,1,null,_)),b._16(278528,null,0,A.o,[b.L,b.N,A.n],{ngSwitchCase:[0,"ngSwitchCase"]},null),(l()(),b._17(null,["\n\n    "])),(l()(),b._21(16777216,null,null,1,null,c)),b._16(278528,null,0,A.o,[b.L,b.N,A.n],{ngSwitchCase:[0,"ngSwitchCase"]},null),(l()(),b._17(null,["\n  "])),(l()(),b._17(1,["\n"]))],function(l,n){var u=n.component;l(n,4,0,"gradient"),l(n,13,0,l(n,14,0,"url(https://image.tmdb.org/t/p/w500"+u.data.poster_path+")")),l(n,30,0,u.serieDetail);l(n,33,0,"light");l(n,37,0,"episode");l(n,41,0,"info");l(n,45,0,"cast");l(n,49,0,"similar"),l(n,55,0,u.serieDetail),l(n,65,0,u.data.genres);l(n,69,0,"info");l(n,72,0,"episode");l(n,75,0,"similar");l(n,78,0,"cast")},function(l,n){var u=n.component;l(n,3,0,b._19(n,4)._hidden,b._19(n,4)._sbPadding),l(n,8,0,u.data.name),l(n,12,0,b._19(n,15).statusbarPadding),l(n,22,0,u.data.name),l(n,26,0,b._19(n,27)._sbPadding),l(n,29,0,b._19(n,32).ngClassUntouched,b._19(n,32).ngClassTouched,b._19(n,32).ngClassPristine,b._19(n,32).ngClassDirty,b._19(n,32).ngClassValid,b._19(n,32).ngClassInvalid,b._19(n,32).ngClassPending,b._19(n,33)._disabled),l(n,36,0,b._19(n,37)._disabled,b._19(n,37).isActive,b._19(n,37).isActive),l(n,40,0,b._19(n,41)._disabled,b._19(n,41).isActive,b._19(n,41).isActive),l(n,44,0,b._19(n,45)._disabled,b._19(n,45).isActive,b._19(n,45).isActive),l(n,48,0,b._19(n,49)._disabled,b._19(n,49).isActive,b._19(n,49).isActive)})}function d(l){return b._14(0,[(l()(),b._15(0,null,null,1,"page-serie-details",[],null,null,null,r,Q)),b._16(49152,null,0,R.a,[P.a,G.a,J.a,U.a],null,null)],null,null)}var b=u(0),m=u(109),p=u(1),g=u(35),f=u(36),h=u(48),v=u(3),k=u(6),I=u(9),w=u(106),C=u(23),y=u(17),H=u(32),x=u(47),L=u(111),A=u(11),S=u(112),F=u(61),D=u(4),M=u(232),O=u(24),N=u(8),P=u(21),$=u(158),B=u(46),T=u(26),j=u(154),E=u(25),z=u(12),V=u(159),R=u(244),K=u(22),W=u(110),Y=u(233),Z=u(64),G=u(10),J=u(66),U=u(68);u.d(n,"a",function(){return X});var q=[],Q=b._13({encapsulation:2,styles:q,data:{}}),X=b._22("page-serie-details",R.a,d,{},{},[])}});
-//# sourceMappingURL=C:\Users\ekene\code\Ionic\movie-ease\www\build\2.main.js.map
+webpackJsonp([2],{
+
+/***/ 294:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__movies__ = __webpack_require__(301);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoviesModule", function() { return MoviesModule; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MoviesModule = (function () {
+    function MoviesModule() {
+    }
+    return MoviesModule;
+}());
+MoviesModule = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
+        declarations: [
+            __WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */],
+        ],
+        imports: [
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */]),
+        ],
+        exports: [
+            __WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */]
+        ]
+    })
+], MoviesModule);
+
+//# sourceMappingURL=movies.module.js.map
+
+/***/ }),
+
+/***/ 301:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__ = __webpack_require__(40);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__movie_details_movie_details__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_storage_movies_storage__ = __webpack_require__(41);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__ = __webpack_require__(215);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_toPromise__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Movies; });
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var Movies = (function () {
+    function Movies(navCtrl, navParams, api, store) {
+        this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.api = api;
+        this.store = store;
+        this._pageNo = 2;
+        this.getUpcoming();
+    }
+    Movies.prototype.goToDetailsPage = function (movie) {
+        this.navCtrl.push(__WEBPACK_IMPORTED_MODULE_3__movie_details_movie_details__["a" /* MovieDetails */], { id: movie.id, data: movie });
+    };
+    Movies.prototype.search = function () {
+        this.navCtrl.push("Search", { type: "movies" });
+    };
+    Movies.prototype.getTopRated = function () {
+        var _this = this;
+        this.store.getTopRated().then(function (res) {
+            _this.topRated = res.results;
+        });
+        this.api.topRated(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.topRated = res.results;
+        });
+    };
+    Movies.prototype.getPopular = function () {
+        var _this = this;
+        console.log("getting popular");
+        this.store.getPopular().then(function (res) {
+            _this.popular = res.results;
+        });
+        this.api.popular(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.popular = res.results;
+        });
+    };
+    Movies.prototype.getLatest = function () {
+        var _this = this;
+        this.store.getLatest().then(function (res) {
+            _this.latest = res.results;
+        });
+        this.api.latest(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.latest = res.results;
+        });
+    };
+    Movies.prototype.getUpcoming = function () {
+        var _this = this;
+        this.api.upcoming().subscribe(function (res) {
+            console.log("recieved upcoming");
+            _this.store.setLatest(res);
+            _this.upcoming = res.results;
+        }, function (err) {
+            _this.loadOffline();
+        });
+    };
+    Movies.prototype.loadOffline = function () {
+        var _this = this;
+        this.store.getUpcoming().then(function (res) {
+            _this.upcoming = res.results;
+        });
+    };
+    Movies.prototype.doInfinite = function (e, type) {
+        var _this = this;
+        console.log("async operation started");
+        this.api.upcoming(this._pageNo).toPromise().then(function (res) {
+            if (res.results) {
+                _this.upcoming = _this.upcoming.concat(res.results);
+                _this._pageNo++;
+                e.complete();
+                console.log("async operation ended");
+            }
+        });
+    };
+    return Movies;
+}());
+Movies = __decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
+        selector: 'page-movies',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col *ngFor="let movie of upcoming" col-12 col-md-6 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(movie)" >\n        <img [src]="\'https://image.tmdb.org/t/p/w500\' + movie.poster_path" [alt]="movie.title">\n        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">\n    <ion-infinite-scroll-content loadingText="Getting more movies... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/,
+    }),
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__["a" /* MoviesApi */], __WEBPACK_IMPORTED_MODULE_4__providers_storage_movies_storage__["a" /* MoviesStorage */]])
+], Movies);
+
+//# sourceMappingURL=movies.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=2.main.js.map

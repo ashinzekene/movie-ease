@@ -31,10 +31,4 @@ export class ActorDetails {
     this.navCtrl.push("SerieDetails", {data: serie, id: serie.id})
   }
 
-
-  ionViewCanEnter() {}
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad ActorsDetails');
-  }
-
 }

@@ -2,11 +2,11 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, ToastController,  NavController, Content } from 'ionic-angular';
 import { MoviesStorage } from '../../providers/storage/movies-storage'
 import { MoviesApi } from "../../providers/api/movies-api";
+import { MovieDetails } from '../movie-details/movie-details'
 import 'rxjs/add/operator/toPromise'
 
 declare var window;
 
-@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -29,7 +29,7 @@ export class Home {
     })
   }
   goToDetailsPage(movie) {
-    this.navCtrl.push('MovieDetails', {id: movie.id, data: movie, imgSize: this.size})
+    this.navCtrl.push(MovieDetails, {id: movie.id, data: movie, imgSize: this.size})
   }
   getOffline() {
     this.showToast("You are currently offline, serving you cached content")

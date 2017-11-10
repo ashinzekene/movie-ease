@@ -14,10 +14,10 @@
 
 <ion-content>
   <ion-row>
-    <ion-col *ngFor="let movie of upcomingMovies" col-12 col-lg-4>
+    <ion-col *ngFor="let movie of upcomingMovies" col-12 col-md-6 col-lg-4>
       <ion-card  (click)="goToDetailsPage(movie)" >
-        <img src="{{'https://image.tmdb.org/t/p/w'+ size + movie.backdrop_path }}" alt="{{ movie.title }}">
-        <ion-card-title text-center>{{ movie.title }}</ion-card-title>
+        <img [src]="'https://image.tmdb.org/t/p/w'+ size + movie.poster_path" [alt]="movie.title">
+        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->
       </ion-card>
     </ion-col>
   </ion-row>

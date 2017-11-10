@@ -12,26 +12,16 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content (ionScrollEnd)="loadMore()">
-  <div class="full">
-    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular">
-      <div class="wrapper">
-        <img [src]="'https://image.tmdb.org/t/p/w342'+ actor.profile_path" alt="{{ actor.name }}">
-        <div class="text">
-          <div text-capitalize text-underline class="title">{{ actor.name }}</div>
-        </div>
-      </div>
-    </ion-card>
-  </div>
+<ion-content>
+  <ion-row>
+    <ion-col *ngFor="let actor of popular" col-12 col-md-6 col-lg-4>
+      <ion-card  (click)="goToDetailsPage(actor)" >
+        <img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path" [alt]="actor.title">
+        <!-- <ion-card-title text-center>{{ actor.title }}</ion-card-title> -->
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">
+    <ion-infinite-scroll-content loadingText="Getting more actors... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>
-
-<!--
-<ion-content padding>
-  <div class="listings">
-    <ion-card (click)="goToDetailsPage(actor)" *ngFor="let actor of popular" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ actor.profile_path +")"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underline class="title">{{ actor.name }}</div>
-      </div>
-    </ion-card>
-  </div>
-</ion-content>-->

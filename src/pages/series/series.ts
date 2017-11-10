@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SeriesStorage } from "../../providers/storage/series-storage";
+import { SerieDetails } from "../serie-details/serie-details";
 import { SeriesApi } from "../../providers/api/series-api";
 
 @IonicPage()
@@ -18,9 +19,9 @@ export class Series {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Series');
-    this.getPopular();
-    this.getTopRated();
-    this.getLatest();
+    // this.getPopular();
+    // this.getTopRated();
+    // this.getLatest();
     this.getUpcoming();
   }
   goToDetailsPage(serie) {
@@ -70,12 +71,15 @@ export class Series {
       // this._pageNo++
     });
   }
-  loadMore() {
-    // let dimension = this.content.getContentDimensions()
-    // let scrollTop = dimension.scrollTop
-    // let scrollHeight = dimension.scrollHeight
-    // let contentHeight = dimension.contentHeight
-    // if(scrollHeight < (scrollTop + 2*contentHeight)) {
-    //   console.log(this.content.getContentDimensions())
-    }
+  doInfinite(e, type?) {
+    console.log("async operation started")
+    this.api.upcoming(this._pageNo).toPromise().then( res => {
+      if(res.results) {
+        this.upcoming = this.upcoming.concat(res.results)
+        this._pageNo++
+        e.complete()
+        console.log("async operation ended")
+      }
+    })
   }
+}

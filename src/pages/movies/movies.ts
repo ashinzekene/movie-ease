@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesApi } from "../../providers/api/movies-api";
+import { MovieDetails } from "../movie-details/movie-details";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
 import 'rxjs/add/operator/toPromise'
 
@@ -20,7 +21,7 @@ export class Movies {
   }
 
   goToDetailsPage(movie) {
-    this.navCtrl.push("MovieDetails", {id: movie.id, data: movie})
+    this.navCtrl.push(MovieDetails, {id: movie.id, data: movie})
   }
   search() {
     this.navCtrl.push("Search", {type: "movies"})
@@ -64,13 +65,12 @@ export class Movies {
       this.upcoming = res.results;
     })
   }
-  doInfinite(e, type?) {
+  doInfinite() {
     console.log("async operation started")
     this.api.upcoming(this._pageNo).toPromise().then( res => {
       if(res.results) {
         this.upcoming = this.upcoming.concat(res.results)
         this._pageNo++
-        e.complete()
         console.log("async operation ended")
       }
     })

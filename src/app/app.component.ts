@@ -3,6 +3,7 @@ import { Platform, Nav, MenuController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Api } from "../providers/api/api";
+import { Home } from "../pages/home/home";
 
 
 @Component({
@@ -10,26 +11,12 @@ import { Api } from "../providers/api/api";
 })
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
-  rootPage:any = "Home";
+  rootPage:any = Home;
   pages = [
-    {name: "Home", component: "Home"},
+    {name: "Home", component: Home},
     {name: "Movies", component: "Movies"},
     {name: "Series", component: "Series"},
     {name: "Actors", component: "Actors"}
-  ]
-
-  moviePages = [
-    {name: "Top Movies", component: ""},
-    {name: "Upcoming Movies", component: ""},
-    {name: "Popular Movies", component: ""},
-    {name: "Latest Movies", component: ""},
-  ]
-
-  seriePages = [
-    {name: "Top Series", component: ""},
-    {name: "Upcoming Series", component: ""},
-    {name: "Popular Series", component: ""},
-    {name: "Latest Series", component: ""},
   ]
 
   actorPages = [
@@ -46,8 +33,8 @@ export class MyApp {
       statusBar.styleDefault();
       splashScreen.hide();
       this.api.getAll();
-      this.menuCtrl.enable(true, 'series')
-      this.menuCtrl.enable(false, 'movies')
+      // this.menuCtrl.enable(true, 'series')
+      // this.menuCtrl.enable(false, 'movies')
     });
   }
 }
