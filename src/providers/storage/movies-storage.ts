@@ -15,7 +15,9 @@ export class MoviesStorage {
   getUpcoming() {
     return this.store.get("upcomingMovies").then(res => {
       if(!res) return {results: []};
-      else return JSON.parse(res)
+      else{
+        return JSON.parse(res)
+      }
     })
   }
   
@@ -25,7 +27,7 @@ export class MoviesStorage {
   getLatest() {
     return this.store.get("latestMovies").then(res => {
       if(!res) return {results: []};
-      else return JSON.parse(res)
+      else return res
     })
   }
 

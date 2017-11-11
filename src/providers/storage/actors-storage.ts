@@ -28,7 +28,7 @@ export class ActorsStorage {
       else return JSON.parse(res)
     })
   }
-
+  
   setPopular(res) {
     return this.store.set("popularActors", res)
   }

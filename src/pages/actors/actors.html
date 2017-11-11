@@ -16,7 +16,7 @@
   <ion-row>
     <ion-col *ngFor="let actor of popular" col-12 col-md-6 col-lg-4>
       <ion-card  (click)="goToDetailsPage(actor)" >
-        <img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path" [alt]="actor.title">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + actor.profile_path" [alt]="actor.name">
         <!-- <ion-card-title text-center>{{ actor.title }}</ion-card-title> -->
       </ion-card>
     </ion-col>

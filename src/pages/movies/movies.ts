@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { MoviesApi } from "../../providers/api/movies-api";
-import { MovieDetails } from "../movie-details/movie-details";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
 import 'rxjs/add/operator/toPromise'
 
@@ -16,12 +15,12 @@ export class Movies {
   private latest;
   private upcoming
   private _pageNo: number = 2;
-  constructor(private navCtrl: NavController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {
+  constructor(private toastCtrl: ToastController, private navCtrl: NavController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {
     this.getUpcoming()
   }
 
   goToDetailsPage(movie) {
-    this.navCtrl.push(MovieDetails, {id: movie.id, data: movie})
+    this.navCtrl.push("MovieDetails", {id: movie.id, data: movie})
   }
   search() {
     this.navCtrl.push("Search", {type: "movies"})
@@ -44,9 +43,9 @@ export class Movies {
     });
   }
   getLatest(){
-    this.store.getLatest().then(res=> {
-      this.latest = res.results;
-    })
+    // this.store.getLatest().then(res=> {
+    //   this.latest = res.results;
+    // })
     this.api.latest(this._pageNo).subscribe(res => {
       if(res.results) this.latest = res.results;
     });
@@ -60,7 +59,8 @@ export class Movies {
       this.loadOffline()
     });
   }
-  loadOffline() {
+  loadOffline(msg?) {
+    this.presentToast(msg || "You are currently offline, serving you cached content")    
     this.store.getUpcoming().then(res=> {
       this.upcoming = res.results;
     })
@@ -74,6 +74,15 @@ export class Movies {
         e.complete()
         console.log("async operation ended")
       }
+    }).catch(err => {
+      this.presentToast("Can't fetch you more movies. There seems to be something wrong with the network 😥📵")
     })
+  }
+  presentToast(message) {
+    this.toastCtrl.create({
+      position: "bottom",
+      duration: 4000,
+      message,
+    }).present()
   }
 }

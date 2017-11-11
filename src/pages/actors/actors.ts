@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, MenuController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { ActorsStorage } from "../../providers/storage/actors-storage";
 import { ActorsApi } from "../../providers/api/actors-api";
 import 'rxjs/add/operator/toPromise';
@@ -12,11 +12,10 @@ import 'rxjs/add/operator/toPromise';
 export class Actors {
   public popular;
   private _pageNo: number = 2;
-  constructor(private navCtrl: NavController, private navParams: NavParams, private menuCtrl: MenuController, private api:ActorsApi, private store: ActorsStorage) {}
+  constructor(private navCtrl: NavController, private navParams: NavParams, private toastCtrl: ToastController, private api:ActorsApi, private store: ActorsStorage) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Actors');
-    this.setMenu()
     this.getPopular()
   }
   goToDetailsPage(actor) {
@@ -27,15 +26,16 @@ export class Actors {
   }
   getPopular(){
     console.log("getting popular")
-    this.store.getPopular().then(res=> {
-      this.popular = res.results;
-    })
     this.api.popular(this._pageNo).subscribe(res => {
       this.popular = res.results;
-    });
+    }, err => this.getOffline());
   }
-  setMenu() {
-    this.menuCtrl.enable(true, "actors")
+  getOffline(msg?) {
+    this.presentToast(msg || "You are currently offline, serving you cached content")
+    this.store.getPopular().then(res=> {
+      console.log("rec", res)
+      this.popular = res.results;
+    })
   }
   doInfinite(e) {
     console.log("async operation started")
@@ -46,6 +46,15 @@ export class Actors {
         e.complete()
         console.log("async operation ended")
       }
+    }).catch(err => {
+      this.presentToast("Can't fetch you more actors. There seems to be something wrong with the network 😥📵")
     })
+  }
+  presentToast(message) {
+    this.toastCtrl.create({
+      position: "bottom",
+      duration: 4000,
+      message,
+    }).present()
   }
 }

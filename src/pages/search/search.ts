@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { Api } from "../../providers/api/api";
-/**
- * Generated class for the Search page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { Observable } from "rxjs/Observable";
+import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/distinctUntilChanged';
 
 @IonicPage({
   defaultHistory:["Home"]
@@ -25,7 +25,7 @@ export class Search {
     console.log(this.navParams.data.type)
     this._type = this.navParams.data.type || "movies"
   }
-  search() {
+  gsearch() {
     clearTimeout(this._req)
     this._req = setTimeout(()=> {
       this._api.search(this.queryText, this._type).subscribe(res => {
@@ -35,10 +35,20 @@ export class Search {
       console.info("Sending request")
     }, 1000)
   }
+  search() {
+    Observable.of(this.queryText)
+      .distinctUntilChanged()
+      .filter(x => x.length > 3)
+      .throttleTime(3000)
+      // .switchMap(res => this._api.search(res, this._type))
+      .subscribe(res => {
+        console.log(res)
+        // this.result = res.results
+      })
+  }
   nav(data) {
-    if(data.first_air_date) {
-      this.navSerie(data)
-    } else if (data.title) {
+    console.log(data)
+    if (data.title) {
       this.navSerie(data)
     } else if (data.name) {
       this.navActor(data)

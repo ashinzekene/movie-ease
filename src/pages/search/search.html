@@ -4,45 +4,28 @@
     <button ion-button menuToggle icon-only>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-searchbar color="primary"
-                   [(ngModel)]="queryText"
-                   (ionInput)="search()"
-                   placeholder="Search">
+    <ion-searchbar color="primary" [(ngModel)]="queryText" (ionInput)="search()" placeholder="Search">
     </ion-searchbar>
   </ion-navbar>
-  
-    <ion-item>
-      <ion-label>Type</ion-label>
-      <ion-select [(ngModel)]="_type" interface="popover" cancelText="Nah" okText="Yeah!">
-        <ion-option value="movies">Movies</ion-option>
-        <ion-option value="series">Series</ion-option>
-        <ion-option value="actors">Actors</ion-option>
-      </ion-select>
-    </ion-item>
+
+  <ion-item>
+    <ion-label>Type</ion-label>
+    <ion-select [(ngModel)]="_type" interface="popover" cancelText="Nah" okText="Yeah!">
+      <ion-option value="movies">Movies</ion-option>
+      <ion-option value="series">Series</ion-option>
+      <ion-option value="actors">Actors</ion-option>
+    </ion-select>
+  </ion-item>
 
 </ion-header>
 
 <ion-content>
-  <div class="full">
-    <ion-card (click)="nav(data)" *ngFor="let data of result">
-      <div class="wrapper">
-        <img [src]="'https://image.tmdb.org/t/p/w342'+ (data.poster_path || data.profile_path)" alt="{{data.title }}">
-        <div class="text">
-          <div text-capitalize text-underline class="title">{{ data.name }}</div>
-          <div text-capitalize text-underline class="subtitle">{{ data.status || data.release_date  }}</div>
-        </div>
-      </div>
-    </ion-card>
-  </div>
+  <ion-row>
+    <ion-col *ngFor="let data of result" col-12 col-md-6 col-lg-4>
+      <ion-card (click)="nav(data)">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + (data.poster_path || data.profile_path)" [alt]="data.title">
+        <!-- <ion-card-title text-center>{{ data.title }}</ion-card-title> -->
+      </ion-card>
+    </ion-col>
+  </ion-row>
 </ion-content>
-
-<!--
-<ion-content padding>
-  <div class="listings">
-    <ion-card (click)="nav(data)"  *ngFor="let data of result" [ngStyle]='{"background-image": "url(https://image.tmdb.org/t/p/w342"+ data.poster_path || data.profile_path +")"}'>
-      <div class="wrapper">
-        <div text-capitalize text-underlineclass="card-subtitle">{{ data.title || data.name}}</div>
-      </div>
-    </ion-card>
-  </div>
-</ion-content>-->

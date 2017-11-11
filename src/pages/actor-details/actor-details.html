@@ -8,9 +8,7 @@
 
 <ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.profile_path + ')'}">
   <div class="wrapper">
-    <div>
-      <h1 class="title">{{ data.name }}</h1>
-    </div>
+    <h1 class="title">{{ data.name }}</h1>
   </div>
   <ion-toolbar no-border>
     <ion-segment color="light" [(ngModel)]="actorDetail">

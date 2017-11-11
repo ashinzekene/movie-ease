@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
 import { SeriesStorage } from "../../providers/storage/series-storage";
 import { SeriesApi } from "../../providers/api/series-api";
 import 'rxjs/add/operator/toPromise';
@@ -15,7 +15,7 @@ export class Series {
   public latest;
   public popular;
   private _pageNo: number = 1
-  constructor(public navCtrl: NavController, public navParams: NavParams, public api: SeriesApi, public store: SeriesStorage) {}
+  constructor(private toastCtrl: ToastController, public navCtrl: NavController, public navParams: NavParams, public api: SeriesApi, public store: SeriesStorage) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad Series');
@@ -62,7 +62,15 @@ export class Series {
     this.api.upcoming(this._pageNo).subscribe(res => {
       this.upcoming = res.results;
       this._pageNo++
+    }, err => {
+      
     });
+  }
+  getOffline() {
+    this.presentToast("You are currently offline, serving you cached content")
+    this.store.getUpcoming().then(res=> {
+      this.upcoming = res.results;
+    })    
   }
   doInfinite(e) {
     console.log("async operation started")
@@ -73,6 +81,15 @@ export class Series {
         e.complete()
         console.log("async operation ended")
       }
+    }).catch(err  => {
+      this.presentToast("Can't fetch you more series. There seems to be something wrong with the network 😥📵")
     })
+  }
+  presentToast(message) {
+    this.toastCtrl.create({
+      position: "bottom",
+      duration: 3000,
+      message,
+    }).present()
   }
 }
