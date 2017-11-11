@@ -23,118 +23,64 @@
   <meta name='apple-mobile-web-app-status-bar-style' content='black'>
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
+  <link href="build/main.css" rel="stylesheet">
   <meta name="theme-color" content="#8500d8">
-  <style>
-    .sk-folding-cube {
-      margin: 100px auto;
-      width: 100px;
-      height: 100px;
-      position: relative;
-      -webkit-transform: rotateZ(45deg);
-              transform: rotateZ(45deg);
-    }
-
-    .sk-folding-cube .sk-cube {
-      float: left;
-      background-color: #8500d8;
-      width: 50%;
-      height: 50%;
-      position: relative;
-      -webkit-transform: scale(1.1);
-          -ms-transform: scale(1.1);
-              transform: scale(1.1); 
-    }
-    .sk-folding-cube .sk-cube:before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: #FFF;
-      -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
-              animation: sk-foldCubeAngle 2.4s infinite linear both;
-      -webkit-transform-origin: 100% 100%;
-          -ms-transform-origin: 100% 100%;
-              transform-origin: 100% 100%;
-    }
-    .sk-folding-cube .sk-cube2 {
-      -webkit-transform: scale(1.1) rotateZ(90deg);
-              transform: scale(1.1) rotateZ(90deg);
-    }
-    .sk-folding-cube .sk-cube3 {
-      -webkit-transform: scale(1.1) rotateZ(180deg);
-              transform: scale(1.1) rotateZ(180deg);
-    }
-    .sk-folding-cube .sk-cube4 {
-      -webkit-transform: scale(1.1) rotateZ(270deg);
-              transform: scale(1.1) rotateZ(270deg);
-    }
-    .sk-folding-cube .sk-cube2:before {
-      -webkit-animation-delay: 0.3s;
-              animation-delay: 0.3s;
-    }
-    .sk-folding-cube .sk-cube3:before {
-      -webkit-animation-delay: 0.6s;
-              animation-delay: 0.6s; 
-    }
-    .sk-folding-cube .sk-cube4:before {
-      -webkit-animation-delay: 0.9s;
-              animation-delay: 0.9s;
-    }
-    @-webkit-keyframes sk-foldCubeAngle {
-      0%, 10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-                transform: perspective(140px) rotateX(-180deg);
-        opacity: 0; 
-      } 25%, 75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-                transform: perspective(140px) rotateX(0deg);
-        opacity: 1; 
-      } 90%, 100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-                transform: perspective(140px) rotateY(180deg);
-        opacity: 0; 
-      } 
-    }
-
-    @keyframes sk-foldCubeAngle {
-      0%, 10% {
-        -webkit-transform: perspective(140px) rotateX(-180deg);
-                transform: perspective(140px) rotateX(-180deg);
-        opacity: 0; 
-      } 25%, 75% {
-        -webkit-transform: perspective(140px) rotateX(0deg);
-                transform: perspective(140px) rotateX(0deg);
-        opacity: 1; 
-      } 90%, 100% {
-        -webkit-transform: perspective(140px) rotateY(180deg);
-                transform: perspective(140px) rotateY(180deg);
-        opacity: 0; 
-      }
-    }
-  </style>
-  <script src="cordova.js"></script>
-  <script>
+  <!-- <script>
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('service-worker.js')
         .then(() => console.log('service worker installed'))
         .catch(err => console.error('Error', err));
     }
-  </script>
-  <link href="build/main.css" rel="stylesheet">
+  </script> -->
+  <style>
+    @keyframes bounce {
+      10% { transform: translateY(4px) scale(1.0) }
+      20% { transform: translateY(12px) scale(0.9) }
+      30% { transform: translateY(20px) scale(0.8) }
+      40% { transform: translateY(34px) scale(0.7) }
+      50% { transform: translateY(50px) scale(0.6) }
+      60% { transform: translateY(87px) scale(0.5) }
+      70% { transform: translateY(100px) scale(0.4) }
+      80% { transform: translateY(150px) scale(0.4) }
+    }
+    html, body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background-color: #8500d8;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      font-size: 16px;
+      padding: 60px 10px;
+    }
+    .splash-text {
+      font-size: 2rem;
+      font-family: Arial, sans-serif;
+      font-weight: 200;
+      width: 100%;
+      text-align: center;
+      color: #fafafa;
+    }
+    .circle {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background-color: #fafafa;
+      animation: bounce 1.5s ease-out infinite;
+    }
+  </style>
 </head>
-
 <body>
-  <div class="sk-folding-cube">
-    <div class="sk-cube1 sk-cube"></div>
-    <div class="sk-cube2 sk-cube"></div>
-    <div class="sk-cube4 sk-cube"></div>
-    <div class="sk-cube3 sk-cube"></div>
-</div>
+  <div class="circle"></div>
+  <div class="splash-text">MOVIE EASE</div>
   <ion-app></ion-app>
-  <!-- <script src="build/polyfills.js"></script>
-  <script src="build/main.js"></script> -->
+  <script src="cordova.js"></script>
+  <script src="build/polyfills.js"></script>
+  <script src="build/main.js"></script>
 </body>
 
 </html>
