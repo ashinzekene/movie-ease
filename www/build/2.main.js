@@ -1,14 +1,14 @@
 webpackJsonp([2],{
 
-/***/ 285:
+/***/ 287:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(299);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__movies__ = __webpack_require__(300);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MoviesModule", function() { return MoviesModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,26 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var HomeModule = (function () {
-    function HomeModule() {
+var MoviesModule = (function () {
+    function MoviesModule() {
     }
-    return HomeModule;
+    return MoviesModule;
 }());
-HomeModule = __decorate([
+MoviesModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */],
+            __WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]
+            __WEBPACK_IMPORTED_MODULE_2__movies__["a" /* Movies */]
         ]
     })
-], HomeModule);
+], MoviesModule);
 
-//# sourceMappingURL=home.module.js.map
+//# sourceMappingURL=movies.module.js.map
 
 /***/ }),
 
@@ -132,17 +132,17 @@ exports.toPromise = toPromise;
 
 /***/ }),
 
-/***/ 299:
+/***/ 300:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__ = __webpack_require__(108);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Movies; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -157,83 +157,102 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Home = (function () {
-    function Home(toastCtrl, navCtrl, store, movies) {
-        var _this = this;
+var Movies = (function () {
+    function Movies(toastCtrl, navCtrl, navParams, api, store) {
         this.toastCtrl = toastCtrl;
         this.navCtrl = navCtrl;
+        this.navParams = navParams;
+        this.api = api;
         this.store = store;
-        this.movies = movies;
         this._pageNo = 2;
-        this.size = 342;
-        this.items = [];
-        this.upcomingMovies = [];
-        this.cannotLoadContent = true;
-        this.movies.latest().subscribe(function (res) {
-            console.log(res);
-            _this.store.setLatest(res);
-            _this.upcomingMovies = res.results;
-        }, function (err) {
-            _this.getOffline();
-        });
+        this.getUpcoming();
     }
-    Home.prototype.goToDetailsPage = function (movie) {
-        this.navCtrl.push("MovieDetails", { id: movie.id, data: movie, imgSize: this.size });
+    Movies.prototype.goToDetailsPage = function (movie) {
+        this.navCtrl.push("MovieDetails", { id: movie.id, data: movie });
     };
-    Home.prototype.getOffline = function () {
+    Movies.prototype.search = function () {
+        this.navCtrl.push("Search", { type: "movies" });
+    };
+    Movies.prototype.getTopRated = function () {
         var _this = this;
-        this.showToast("You are currently offline, serving you cached content");
-        this.store.getLatest().then(function (res) {
-            _this.upcomingMovies = res.results;
+        this.store.getTopRated().then(function (res) {
+            _this.topRated = res.results;
+        });
+        this.api.topRated(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.topRated = res.results;
         });
     };
-    Home.prototype.showToast = function (msg) {
-        var toast = this.toastCtrl.create({
-            message: msg,
-            duration: 5000,
-            position: "bottom"
-        });
-        toast.present();
-    };
-    Home.prototype.doInfinite = function (e) {
+    Movies.prototype.getPopular = function () {
         var _this = this;
-        console.log('Begin async operation');
-        return this.movies.latest(this._pageNo).toPromise().then(function (res) {
-            _this.upcomingMovies = _this.upcomingMovies.concat(res.results);
-            _this._pageNo++;
-            console.log('Async operation ended');
-            e.complete();
+        console.log("getting popular");
+        this.store.getPopular().then(function (res) {
+            _this.popular = res.results;
+        });
+        this.api.popular(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.popular = res.results;
         });
     };
-    Home.prototype.search = function () {
-        this.navCtrl.push("Search");
+    Movies.prototype.getLatest = function () {
+        var _this = this;
+        // this.store.getLatest().then(res=> {
+        //   this.latest = res.results;
+        // })
+        this.api.latest(this._pageNo).subscribe(function (res) {
+            if (res.results)
+                _this.latest = res.results;
+        });
     };
-    Home.prototype.doRefresh = function (refresher) {
-        //this.ionViewDidLoad()
+    Movies.prototype.getUpcoming = function () {
+        var _this = this;
+        this.api.upcoming().subscribe(function (res) {
+            console.log("recieved upcoming");
+            _this.store.setLatest(res);
+            _this.upcoming = res.results;
+        }, function (err) {
+            _this.loadOffline();
+        });
     };
-    Home.prototype.ionViewDidLoad = function () {
-        // this.slides.slideTo(this.slideIndex || 0)
-        var width = this.content.getContentDimensions().contentWidth;
-        if (width >= 530) {
-            console.log("Tablet");
-            this.size = 500;
-        }
+    Movies.prototype.loadOffline = function (msg) {
+        var _this = this;
+        this.presentToast(msg || "You are currently offline, serving you cached content");
+        this.store.getUpcoming().then(function (res) {
+            _this.upcoming = res.results;
+        });
     };
-    return Home;
+    Movies.prototype.doInfinite = function (e) {
+        var _this = this;
+        console.log("async operation started");
+        this.api.upcoming(this._pageNo).toPromise().then(function (res) {
+            if (res.results) {
+                _this.upcoming = _this.upcoming.concat(res.results);
+                _this._pageNo++;
+                e.complete();
+                console.log("async operation ended");
+            }
+        }).catch(function (err) {
+            _this.presentToast("Can't fetch you more movies. There seems to be something wrong with the network 😥📵");
+        });
+    };
+    Movies.prototype.presentToast = function (message) {
+        this.toastCtrl.create({
+            position: "bottom",
+            duration: 4000,
+            message: message,
+        }).present();
+    };
+    return Movies;
 }());
-__decorate([
-    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Content */]),
-    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Content */])
-], Home.prototype, "content", void 0);
-Home = __decorate([
+Movies = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ekene\code\ionic\movie-ease\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIE EASE</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col *ngFor="let movie of upcomingMovies" col-12 col-md-6 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(movie)" >\n        <img [src]="\'https://image.tmdb.org/t/p/w\'+ size + movie.poster_path" [alt]="movie.title">\n        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">\n    <ion-infinite-scroll-content loadingText="Getting more movies..." loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\ionic\movie-ease\src\pages\home\home.html"*/
+        selector: 'page-movies',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIES</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col *ngFor="let movie of upcoming" col-12 col-md-6 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(movie)" >\n        <img [src]="\'https://image.tmdb.org/t/p/w500\' + movie.poster_path" [alt]="movie.title">\n        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content loadingText="Getting more movies... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\movies\movies.html"*/,
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */], __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */]])
-], Home);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__providers_api_movies_api__["a" /* MoviesApi */], __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__["a" /* MoviesStorage */]])
+], Movies);
 
-//# sourceMappingURL=home.js.map
+//# sourceMappingURL=movies.js.map
 
 /***/ })
 

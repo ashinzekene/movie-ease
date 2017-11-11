@@ -8,8 +8,7 @@ self.toolbox.options.cache = {
 // pre-cache our key assets
 self.toolbox.precache(
   [
-    './build/*.js$',
-    './build/main.css',
+    // './build/*.js$',
     'index.html',
     'manifest.json'
   ]

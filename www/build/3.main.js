@@ -1,14 +1,14 @@
 webpackJsonp([3],{
 
-/***/ 282:
+/***/ 285:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__actors__ = __webpack_require__(296);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ActorsModule", function() { return ActorsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__home__ = __webpack_require__(298);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "HomeModule", function() { return HomeModule; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -18,26 +18,26 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 
-var ActorsModule = (function () {
-    function ActorsModule() {
+var HomeModule = (function () {
+    function HomeModule() {
     }
-    return ActorsModule;
+    return HomeModule;
 }());
-ActorsModule = __decorate([
+HomeModule = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["a" /* NgModule */])({
         declarations: [
-            __WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */],
+            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */],
         ],
         imports: [
-            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */]),
+            __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]),
         ],
         exports: [
-            __WEBPACK_IMPORTED_MODULE_2__actors__["a" /* Actors */]
+            __WEBPACK_IMPORTED_MODULE_2__home__["a" /* Home */]
         ]
     })
-], ActorsModule);
+], HomeModule);
 
-//# sourceMappingURL=actors.module.js.map
+//# sourceMappingURL=home.module.js.map
 
 /***/ }),
 
@@ -132,17 +132,17 @@ exports.toPromise = toPromise;
 
 /***/ }),
 
-/***/ 296:
+/***/ 298:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(106);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_actors_storage__ = __webpack_require__(111);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_actors_api__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__ = __webpack_require__(107);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__ = __webpack_require__(291);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_toPromise__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Actors; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Home; });
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -157,73 +157,83 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 
 
-var Actors = (function () {
-    function Actors(navCtrl, navParams, toastCtrl, api, store) {
-        this.navCtrl = navCtrl;
-        this.navParams = navParams;
+var Home = (function () {
+    function Home(toastCtrl, navCtrl, store, movies) {
+        var _this = this;
         this.toastCtrl = toastCtrl;
-        this.api = api;
+        this.navCtrl = navCtrl;
         this.store = store;
+        this.movies = movies;
         this._pageNo = 2;
+        this.size = 342;
+        this.items = [];
+        this.upcomingMovies = [];
+        this.cannotLoadContent = true;
+        this.movies.latest().subscribe(function (res) {
+            console.log(res);
+            _this.store.setLatest(res);
+            _this.upcomingMovies = res.results;
+        }, function (err) {
+            _this.getOffline();
+        });
     }
-    Actors.prototype.ionViewDidLoad = function () {
-        console.log('ionViewDidLoad Actors');
-        this.getPopular();
+    Home.prototype.goToDetailsPage = function (movie) {
+        this.navCtrl.push("MovieDetails", { id: movie.id, data: movie, imgSize: this.size });
     };
-    Actors.prototype.goToDetailsPage = function (actor) {
-        this.navCtrl.push("ActorDetails", { data: actor, id: actor.id });
-    };
-    Actors.prototype.search = function () {
-        this.navCtrl.push("Search", { type: "actors" });
-    };
-    Actors.prototype.getPopular = function () {
+    Home.prototype.getOffline = function () {
         var _this = this;
-        console.log("getting popular");
-        this.api.popular(this._pageNo).subscribe(function (res) {
-            _this.popular = res.results;
-        }, function (err) { return _this.getOffline(); });
-    };
-    Actors.prototype.getOffline = function (msg) {
-        var _this = this;
-        this.presentToast(msg || "You are currently offline, serving you cached content");
-        this.store.getPopular().then(function (res) {
-            console.log("rec", res);
-            _this.popular = res.results;
+        this.showToast("You are currently offline, serving you cached content");
+        this.store.getLatest().then(function (res) {
+            _this.upcomingMovies = res.results;
         });
     };
-    Actors.prototype.doInfinite = function (e) {
+    Home.prototype.showToast = function (msg) {
+        var toast = this.toastCtrl.create({
+            message: msg,
+            duration: 5000,
+            position: "bottom"
+        });
+        toast.present();
+    };
+    Home.prototype.doInfinite = function (e) {
         var _this = this;
-        console.log("async operation started");
-        this.api.popular(this._pageNo).toPromise().then(function (res) {
-            if (res.results) {
-                _this.popular = _this.popular.concat(res.results);
-                _this._pageNo++;
-                e.complete();
-                console.log("async operation ended");
-            }
-        }).catch(function (err) {
-            _this.presentToast("Can't fetch you more actors. There seems to be something wrong with the network 😥📵");
+        console.log('Begin async operation');
+        return this.movies.latest(this._pageNo).toPromise().then(function (res) {
+            _this.upcomingMovies = _this.upcomingMovies.concat(res.results);
+            _this._pageNo++;
+            console.log('Async operation ended');
+            e.complete();
         });
     };
-    Actors.prototype.presentToast = function (message) {
-        this.toastCtrl.create({
-            position: "bottom",
-            duration: 4000,
-            message: message,
-        }).present();
+    Home.prototype.search = function () {
+        this.navCtrl.push("Search");
     };
-    return Actors;
+    Home.prototype.doRefresh = function (refresher) {
+        //this.ionViewDidLoad()
+    };
+    Home.prototype.ionViewDidLoad = function () {
+        // this.slides.slideTo(this.slideIndex || 0)
+        var width = this.content.getContentDimensions().contentWidth;
+        if (width >= 530) {
+            console.log("Tablet");
+            this.size = 500;
+        }
+    };
+    return Home;
 }());
-Actors = __decorate([
+__decorate([
+    __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Content */]),
+    __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* Content */])
+], Home.prototype, "content", void 0);
+Home = __decorate([
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPage */])(),
     __webpack_require__.i(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_5" /* Component */])({
-        selector: 'page-actors',template:/*ion-inline-start:"C:\Users\ekene\code\ionic\movie-ease\src\pages\actors\actors.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>ACTORS</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col *ngFor="let actor of popular" col-12 col-md-6 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(actor)" >\n        <img [src]="\'https://image.tmdb.org/t/p/w500\' + actor.profile_path" [alt]="actor.name">\n        <!-- <ion-card-title text-center>{{ actor.title }}</ion-card-title> -->\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">\n    <ion-infinite-scroll-content loadingText="Getting more actors... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>'/*ion-inline-end:"C:\Users\ekene\code\ionic\movie-ease\src\pages\actors\actors.html"*/,
+        selector: 'page-home',template:/*ion-inline-start:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/'<ion-header>\n  <ion-navbar>\n    <button ion-button menuToggle icon-only>\n      <ion-icon name="menu"></ion-icon>\n    </button>\n    <ion-title>MOVIE EASE</ion-title>\n    <ion-buttons end (click)="search()">\n      <button ion-button icon-only>\n        <ion-icon name="search"></ion-icon>\n      </button>\n    </ion-buttons>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-row>\n    <ion-col *ngFor="let movie of upcomingMovies" col-12 col-md-6 col-lg-4>\n      <ion-card  (click)="goToDetailsPage(movie)" >\n        <img [src]="\'https://image.tmdb.org/t/p/w\'+ size + movie.poster_path" [alt]="movie.title">\n        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->\n      </ion-card>\n    </ion-col>\n  </ion-row>\n  <ion-infinite-scroll (ionInfinite)="$event.waitFor(doInfinite())">\n    <ion-infinite-scroll-content loadingText="Getting more movies..." loadingSpinner="bubbles" ></ion-infinite-scroll-content>\n  </ion-infinite-scroll>\n</ion-content>\n'/*ion-inline-end:"C:\Users\ekene\code\Ionic\movie-ease\src\pages\home\home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* NavParams */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__providers_api_actors_api__["a" /* ActorsApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__providers_api_actors_api__["a" /* ActorsApi */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__providers_storage_actors_storage__["a" /* ActorsStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__providers_storage_actors_storage__["a" /* ActorsStorage */]) === "function" && _e || Object])
-], Actors);
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* ToastController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_2__providers_storage_movies_storage__["a" /* MoviesStorage */], __WEBPACK_IMPORTED_MODULE_3__providers_api_movies_api__["a" /* MoviesApi */]])
+], Home);
 
-var _a, _b, _c, _d, _e;
-//# sourceMappingURL=actors.js.map
+//# sourceMappingURL=home.js.map
 
 /***/ })
 
