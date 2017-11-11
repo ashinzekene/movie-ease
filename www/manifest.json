@@ -3,7 +3,7 @@
   "short_name": "Movie-ease",
   "start_url": "index.html",
   "display": "standalone",
-  "desription": "get information about movies, actors and TV series",
+  "desription": "Get information about movies, actors and TV series",
   "orientation": "portrait-primary",
   "related_application":[{
     "platform": "play",

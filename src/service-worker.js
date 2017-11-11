@@ -8,18 +8,17 @@ self.toolbox.options.cache = {
 // pre-cache our key assets
 self.toolbox.precache(
   [
-    './build',
+    './build/*.js$',
+    './build/main.css',
     'index.html',
     'manifest.json'
   ]
 );
 
 // dynamically cache any other local assets
-// self.toolbox.router.get(/("null" || "undefined")$/, function(req) {
-//   return
+// self.toolbox.router.get("/build/*", function(req) {
+//   return new Response(req.url)
 // })
-self.toolbox.router.any('/*', self.toolbox.cacheFirst);
-
 // for any other requests go to the network, cache,
 // and then only use that cached resource if your user goes offline
 self.toolbox.router.default = self.toolbox.networkFirst;
