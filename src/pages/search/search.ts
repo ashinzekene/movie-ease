@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { Api } from "../../providers/api/api";
 import { Observable } from "rxjs/Observable";
-import 'rxjs/add/operator/throttleTime';
+import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/filter';
@@ -37,21 +37,21 @@ export class Search {
   }
   search() {
     Observable.of(this.queryText)
+      .debounceTime(1000)
       .distinctUntilChanged()
       .filter(x => x.length > 3)
-      .throttleTime(3000)
-      // .switchMap(res => this._api.search(res, this._type))
+      .switchMap(res => this._api.search(res, this._type))
       .subscribe(res => {
-        console.log(res)
-        // this.result = res.results
+        // console.log(res)
+        this.result = res.results
       })
   }
   nav(data) {
     console.log(data)
-    if (data.title) {
-      this.navSerie(data)
-    } else if (data.name) {
-      this.navActor(data)
+    switch (this._type) {
+      case "movies": return this.navMovie(data)
+      case "actors": return this.navActor(data)
+      case "series": return this.navSerie(data)
     }
   }
   navActor(actor) {

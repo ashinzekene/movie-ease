@@ -8,9 +8,19 @@ self.toolbox.options.cache = {
 // pre-cache our key assets
 self.toolbox.precache(
   [
-    // './build/*.js$',
     'index.html',
-    'manifest.json'
+    'manifest.json',
+    './build/main.js',
+    './build/polyfills.js',
+    './build/0.main.js',
+    './build/1.main.js',
+    './build/2.main.js',
+    './build/3.main.js',
+    './build/4.main.js',
+    './build/5.main.js',
+    './build/6.main.js',
+    './build/7.main.js',
+    './build/8.main.js'
   ]
 );
 
