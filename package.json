@@ -10,7 +10,9 @@
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
-    "ionic:serve": "ionic-app-scripts serve"
+    "ionic:serve": "ionic-app-scripts serve",
+    "qp:heroku": "git add . && git commit -m \"quick push\" && git push heroku master",
+    "qp:origin": "git add . && git commit -m \"quick push\" && git push origin master"
   },
   "dependencies": {
     "@angular/common": "4.1.2",
