@@ -11,7 +11,6 @@ import 'rxjs/add/observable/throw';
 export class SeriesApi {
 
   constructor(public http: Http, public store: SeriesStorage) {
-    console.log('Hello SeriesApi Provider');
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/series/one/${id}`).map((res)=> {
@@ -24,30 +23,22 @@ export class SeriesApi {
     }).catch(this._handleError)
   }
   popular(n=1) {
-    console.log("Getting popular")
     return this.http.get('https://movie-ease.herokuapp.com/series/popular/'+n).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   latest(n=1) {
-    console.log("Getting latest")
     return this.http.get('https://movie-ease.herokuapp.com/series/latest/'+n).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   upcoming(n=1) {
-    console.log("Getting upcoming")
     return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/'+n).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   topRated(n=1) {
-    console.log("Getting topRated")
     return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/'+n).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   } 

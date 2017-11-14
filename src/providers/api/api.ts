@@ -22,7 +22,6 @@ export class Api {
   public actorsObservable: Observable<[any]>;
   
   constructor(public https: Http, public actors: ActorsApi, public movies: MoviesApi, public series: SeriesApi) {
-    console.log('Hello Api Provider');
   }
   getAll() {
     

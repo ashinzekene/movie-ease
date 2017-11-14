@@ -12,7 +12,6 @@ import 'rxjs/add/operator/catch';
 export class MoviesApi {
 
   constructor(public http: Http, public store: MoviesStorage) {
-    console.log('Hello MoviesApi Provider');
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/movies/one/${id}`).map((res)=> {
