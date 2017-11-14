@@ -8,9 +8,9 @@
 
 <ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780' + data.backdrop_path + ')' }">
     <div class="wrapper">
-      <div ion-text text-center class="tagline">
+      <h3 style="font-weight: 300" ion-text color="light" text-center class="tagline">
         {{ data.tagline }}
-      </div>
+      </h3>
     </div>
 
     <ion-toolbar no-border>
@@ -47,10 +47,10 @@
       </ion-list>
 
       <ion-list *ngSwitchCase="'reviews'">
-        <ion-item *ngIf="!data.reviews"><h3>No Reviews available yet</h3></ion-item>
+        <ion-item *ngIf="!data.reviews.total_results"><h3>No Reviews available yet</h3></ion-item>
         <ion-item *ngFor="let review of data.reviews?.results">
           <h2>{{ review.author }}</h2>
-          <p ion-text text-wrap>{{ review.content }}</p>
+          <p ion-text color="light" text-wrap>{{ review.content }}</p>
         </ion-item>
       </ion-list>
 
@@ -60,7 +60,7 @@
             <img src="https://image.tmdb.org/t/p/w92{{similar.poster_path}}">
           </ion-thumbnail>
           <h2>{{ similar.title }}</h2>
-          <p>Release Date {{ similar.release_date }}</p>
+          <p ion-text color="light">Release Date {{ similar.release_date }}</p>
           
         </ion-item>
       </ion-list>
@@ -71,7 +71,7 @@
             <img src="https://image.tmdb.org/t/p/w92{{cast.profile_path}}">
           </ion-avatar>
           <h2>{{ cast.name }}</h2>
-          <p>Acted as {{ cast.character }}</p>
+          <p ion-text color="light">Acted as {{ cast.character }}</p>
         </ion-item>
         
       </ion-list>

@@ -16,13 +16,11 @@ export class MoviesApi {
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/movies/one/${id}`).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   search(query) {
     return this.http.get(`https://movie-ease.herokuapp.com/movies/search/${query}`).map((res)=> {
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -30,7 +28,6 @@ export class MoviesApi {
     console.log("Getting popular")
     return this.http.get('https://movie-ease.herokuapp.com/movies/popular/'+n).map((res)=> {
       if(n === 1) this.store.setPopular(res.json())
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -38,7 +35,6 @@ export class MoviesApi {
     console.log("Getting latest")
     return this.http.get('https://movie-ease.herokuapp.com/movies/latest/'+n).map((res)=> {
       if(n < 2 && res.json().results) this.store.setLatest(res.json())
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -46,7 +42,6 @@ export class MoviesApi {
     console.log("Getting upcoming")
     return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/'+n).map((res)=> {
       if(n === 1) this.store.setUpcoming(res.json())
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
@@ -55,14 +50,12 @@ export class MoviesApi {
     console.log("Getting topRated")
     return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/'+n).map((res)=> {
       if(n === 1) this.store.setTopRated(res.json())
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }
   ozone() {
     return this.http.get('https://movie-ease.herokuapp.com/movies/ozone').map(res => {
       console.log(res.json())
-      console.log(res)
       return JSON.parse(res.json())
     }).catch(this._handleError)
   }

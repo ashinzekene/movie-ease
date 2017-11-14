@@ -29,16 +29,20 @@ interface movie{
   templateUrl: 'movie-details.html',
 })
 export class MovieDetails {
-  public data = {}
+  public data:any = {}
   public movieDetail = 'info'
   private _genres = MovieGenres
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _store: MoviesStorage, private _api: MoviesApi) {
     if(this.navParams.data.data) {
       this.data = this.navParams.data.data
+      this.data.backdrop_path = this.navParams.data.data.poster_path
     }
     this._api.one(this.navParams.data.id).subscribe(res => {
       this.data = res;
+      if (!res.backdrop_path) {
+        this.data.backdrop_path = res.poster_path
+      }
       console.log(res)
     });
   }

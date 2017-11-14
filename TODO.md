@@ -11,3 +11,6 @@
 - Handle NotFOUND Images
 - Actors movies and series not showing
 - Search results showing undefined
+- Put min-height for each card
+- Proabably show lists (conserve data)
+- defer installation of web app

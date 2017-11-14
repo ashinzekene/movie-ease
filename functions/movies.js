@@ -3,7 +3,7 @@ var api = require("../api")
 
 module.exports = {
   one(id) {
-    return rq.get(api.getMovie + id + "?"+ api.imdb.apiKey+ api.imdb.aToR + "credits,reviews,similar").catch(catchError)
+    return rq.get(api.getMovie + id + "?"+ api.imdb.apiKey+ api.imdb.aToR + "credits,videos,images,reviews,similar").catch(catchError)
   },
   popular(page=1) {
     return rq.get(api.popularMovies+`&page=${page}`).catch(catchError)

@@ -9,6 +9,10 @@ ion-row ion-col ion-card img {
   min-height: 70px;
 }
 
+ion-card {
+  min-height: 500px !important;
+}
+
 .sidebar button .label {
   font-size: 2.5rem;
   font-weight: 200;

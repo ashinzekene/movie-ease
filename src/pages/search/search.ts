@@ -20,26 +20,30 @@ export class Search {
   public queryText;
   public result;
   private _req;
+  private isSearching:boolean = false;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public popCtrl: PopoverController, private _api: Api) {
     console.log(this.navParams.data.type)
     this._type = this.navParams.data.type || "movies"
   }
-  gsearch() {
+  search() {
     clearTimeout(this._req)
     this._req = setTimeout(()=> {
+      if (this.queryText.length < 3) return
+      this.isSearching = true
       this._api.search(this.queryText, this._type).subscribe(res => {
         console.log(res)
+        this.isSearching = false
         this.result = res.results
       })
       console.info("Sending request")
     }, 1000)
   }
-  search() {
+  Osearch() {
     Observable.of(this.queryText)
-      .debounceTime(1000)
       .distinctUntilChanged()
       .filter(x => x.length > 3)
+      .debounceTime(1000)
       .switchMap(res => this._api.search(res, this._type))
       .subscribe(res => {
         // console.log(res)

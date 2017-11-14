@@ -20,10 +20,13 @@
 </ion-header>
 
 <ion-content>
+  <h1 [hidden]="!searching" style="width: 100%; text-align: center; color: #6a6a6a">
+    Seacrching...
+  </h1>
   <ion-row>
     <ion-col *ngFor="let data of result" col-12 col-md-6 col-lg-4>
       <ion-card (click)="nav(data)">
-        <img [src]="'https://image.tmdb.org/t/p/w500' + (data.poster_path || data.profile_path)" [alt]="data.title">
+        <img [src]="'https://image.tmdb.org/t/p/w500' + (data.poster_path || data.profile_path)" [alt]="data.title || data.name">
         <!-- <ion-card-title text-center>{{ data.title }}</ion-card-title> -->
       </ion-card>
     </ion-col>
