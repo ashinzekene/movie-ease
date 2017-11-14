@@ -26,11 +26,11 @@
   <link href="build/main.css" rel="stylesheet">
   <meta name="theme-color" content="#8500d8">
   <script>
-    // if ('serviceWorker' in navigator) {
-    //   navigator.serviceWorker.register('service-worker.js')
-    //     .then(() => console.log('service worker installed'))
-    //     .catch(err => console.error('Error', err));
-    // }
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('service-worker.js')
+        .then(() => console.log('service worker installed'))
+        .catch(err => console.error('Error', err));
+    }
   </script>
   <style>
     @keyframes bounce {
@@ -78,6 +78,7 @@
   <div class="circle"></div>
   <div class="splash-text">MOVIE EASE</div>
   <ion-app></ion-app>
+  <script src="cordova.js"></script>
   <script src="build/polyfills.js"></script>
   <script src="build/main.js"></script>
 </body>
