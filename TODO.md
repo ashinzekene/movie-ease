@@ -14,3 +14,5 @@
 - Put min-height for each card
 - Proabably show lists (conserve data)
 - defer installation of web app
+- sort actor movies by date
+- add advanced search, date, genre
