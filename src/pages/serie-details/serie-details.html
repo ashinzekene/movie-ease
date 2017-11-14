@@ -52,8 +52,8 @@
           <img [src]="'https://image.tmdb.org/t/p/w92'+season.poster_path" [alt]="data.name + ' Season: ' + season?.season_number">
         </ion-thumbnail>
         <h3>Season {{ season?.season_number }}</h3>
-        <p>No of episodes: {{ season?.episode_count }} </p>
-        <p>Air date: {{ season?.air_date }} </p>
+        <p ion-text color="light">No of episodes: {{ season?.episode_count }} </p>
+        <p ion-text color="light">Air date: {{ season?.air_date }} </p>
       </ion-item>
     </ion-list>
 
@@ -63,7 +63,7 @@
           <img [src]="'https://image.tmdb.org/t/p/w92' + similar.poster_path">
         </ion-thumbnail>
         <h2>{{ similar.name }}</h2>
-        <p>First Air Date {{ similar.first_air_date }}</p>
+        <p ion-text color="light">First Air Date {{ similar.first_air_date }}</p>
         
       </ion-item>
     </ion-list>
@@ -75,7 +75,7 @@
           <img [src]="'https://image.tmdb.org/t/p/w92' + cast.profile_path">
         </ion-avatar>
         <h2>{{ cast.name }}</h2>
-        <p>Acted as {{ cast.character }}</p>
+        <p ion-text color="light">Acted as {{ cast.character }}</p>
       </ion-item>
       
     </ion-list>

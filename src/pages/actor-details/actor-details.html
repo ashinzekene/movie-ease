@@ -34,7 +34,7 @@
     
     <ion-list *ngSwitchCase="'info'">
 
-      <ion-item text-wrap>Also known as  <p *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>
+      <ion-item text-wrap>Also known as  <p ion-text color="light" *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>
       <ion-item text-wrap>Birthday:  {{ data.birthday }}</ion-item>
       <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>
       <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
@@ -47,8 +47,8 @@
           <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">
         </ion-thumbnail>
         <h2>{{ serie.name }}</h2>
-        <p>Acted as {{ serie.character }}</p>
-        <p>First Air Date: {{ serie.first_air_date }}</p>
+        <p ion-text color="light">Acted as {{ serie.character }}</p>
+        <p ion-text color="light">First Air Date: {{ serie.first_air_date }}</p>
       </ion-item>
     </ion-list>
 
@@ -58,8 +58,8 @@
             <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">
           </ion-thumbnail>
           <h2>{{ movie.title }}</h2>
-          <p>Acted as {{ movie.character }}</p>
-          <p>Release Date: {{ movie.release_date }}</p>
+          <p ion-text color="light">Acted as {{ movie.character }}</p>
+          <p ion-text color="light">Release Date: {{ movie.release_date }}</p>
         </ion-item>
     </ion-list>
 

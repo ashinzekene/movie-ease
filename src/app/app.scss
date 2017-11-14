@@ -1,5 +1,5 @@
 .toolbar-title {
-  font-weight: 200;
+  font-weight: 300;
 }
 ion-split-pane ion-menu ion-content {
   background-color: color($colors, primary) !important;
@@ -15,7 +15,7 @@ ion-card {
 
 .sidebar button .label {
   font-size: 2.5rem;
-  font-weight: 200;
+  font-weight: 300;
   padding-left: 30px;
   margin: 30px;
 }
@@ -53,7 +53,7 @@ ion-card {
       width: 100%;
       letter-spacing: 5px;
       font-size: 1.5em;
-      font-weight: 200;
+      font-weight: 300;
       color: white;
     }
     &:hover {
@@ -90,7 +90,7 @@ ion-card {
       display: inline-block;
       text-align: center;
       font-size: 1.5em;
-      font-weight: 200;
+      font-weight: 300;
       color: white;
     }
   }
@@ -124,7 +124,7 @@ ion-card {
     text-align: center;
     .title {
       text-align: center;
-      font-weight: 200;
+      font-weight: 300;
       color: #EFEFEF;
       font-variant: small-caps;
       width: 100%;
