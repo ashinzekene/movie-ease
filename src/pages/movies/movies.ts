@@ -62,7 +62,12 @@ export class Movies {
   loadOffline(msg?) {
     this.presentToast(msg || "You are currently offline, serving you cached content")    
     this.store.getUpcoming().then(res=> {
-      this.upcoming = res.results;
+      if (!res.results[0]) {
+        this.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")
+      } else {
+        this.presentToast("You are currently offline, serving you cached content")
+        this.upcoming = res.results
+      }
     })
   }
   doInfinite(e) {

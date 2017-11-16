@@ -32,12 +32,16 @@ export class Home {
     this.navCtrl.push("MovieDetails", {id: movie.id, data: movie, imgSize: this.size})
   }
   getOffline() {
-    this.showToast("You are currently offline, serving you cached content")
     this.store.getLatest().then(res => {
-      this.upcomingMovies = res.results
+      if (!res.results[0]) {
+        this.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")
+      } else {
+        this.presentToast("You are currently offline, serving you cached content")
+        this.upcomingMovies = res.results
+      }
     })
   }
-  showToast(msg) {
+  presentToast(msg) {
     let toast = this.toastCtrl.create({
       message: msg,
       duration: 5000,
@@ -52,14 +56,14 @@ export class Home {
       this._pageNo++
       console.log('Async operation ended'); 
       e.complete()
+    }).catch(err => {
+      this.presentToast("Can't fetch you more movies. There seems to be something wrong with the network 😥📵")
     })
   }
   search() {
     this.navCtrl.push("Search")
   }
-  doRefresh(refresher) {
-    //this.ionViewDidLoad()
-  }
+
   ionViewDidLoad() {
     // this.slides.slideTo(this.slideIndex || 0)
     let width = this.content.getContentDimensions().contentWidth;

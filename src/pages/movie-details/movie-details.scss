@@ -2,4 +2,9 @@ page-movie-details {
   ion-list .ion-item div.item-inner ion-label p {
     color: #fafafa;
   }
+  .wrapper .fab {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+  }
 }

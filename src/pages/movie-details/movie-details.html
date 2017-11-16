@@ -5,12 +5,13 @@
   </ion-navbar>
 
 </ion-header>
-
+<!-- <iframe id="ytplayer" type="text/html" width="640" height="360" [src]="moviePath" frameborder="0"></iframe> -->
 <ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780' + data.backdrop_path + ')' }">
     <div class="wrapper">
       <h3 style="font-weight: 300" ion-text color="light" text-center class="tagline">
         {{ data.tagline }}
       </h3>
+      <button (click)="playTrailer()" ion-fab color="primary"><ion-icon name="play"></ion-icon></button>
     </div>
 
     <ion-toolbar no-border>

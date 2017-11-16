@@ -21,6 +21,8 @@ export class ActorDetails {
       this.data = this.navParams.data.data
     }
     this._api.one(this.navParams.data.id).subscribe(res => {
+      res.movie_credits.cast.sort((a, b) => a.release_date > b.release_date ? -1: 1)
+      res.tv_credits.cast.sort((a, b) => a.first_air_date > b.first_air_date ? -1: 1)
       this.data = res;
       console.log(res)
     });

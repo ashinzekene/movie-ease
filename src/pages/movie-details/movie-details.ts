@@ -4,21 +4,21 @@ import { MoviesStorage } from "../../providers/storage/movies-storage";
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MovieGenres } from "../../providers/data/genres";
 
-interface movie{
-  "poster_path": string,
-  "adult": false,
-  "overview": string,
-  "release_date": string,
-  "genre_ids": number[],
-  "id": number,
-  "original_title": string,
-  "original_language": string,
-  "title": string,
-  "backdrop_path": string,
-  "popularity":  number,
-  "vote_count":  number,
-  "video":  boolean
-  "vote_average": number
+interface movie {
+  "poster_path"?: string,
+  "adult"?: false,
+  "overview"?: string,
+  "release_date"?: string,
+  "genre_ids"?: number[],
+  "id"?: number,
+  "original_title"?: string,
+  "original_language"?: string,
+  "title"?: string,
+  "backdrop_path"?: string,
+  "popularity"?:  number,
+  "vote_count"?:  number,
+  "video"?:  boolean
+  "vote_average"?: number
 }
 @IonicPage({
   segment: "movies/:id",
@@ -32,6 +32,7 @@ export class MovieDetails {
   public data:any = {}
   public movieDetail = 'info'
   private _genres = MovieGenres
+  private moviePath: string = ""
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private _store: MoviesStorage, private _api: MoviesApi) {
     if(this.navParams.data.data) {
@@ -61,6 +62,9 @@ export class MovieDetails {
     console.log('ionViewDidLoad MovieDetails');
   }
   ionViewWillEnter() {
+  }
+  playTrailer() {
+    console.log("Will play ", this.data.videos.results[0].key)
   }
   save() {
     //add ability to save film for viewing later

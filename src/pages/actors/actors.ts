@@ -11,11 +11,9 @@ import 'rxjs/add/operator/toPromise';
 })
 export class Actors {
   public popular;
-  private _pageNo: number = 2;
-  constructor(private navCtrl: NavController, private navParams: NavParams, private toastCtrl: ToastController, private api:ActorsApi, private store: ActorsStorage) {}
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad Actors');
+  public isOffline: Boolean = true
+  private _pageNo: number = 1;
+  constructor(private navCtrl: NavController, private navParams: NavParams, private toastCtrl: ToastController, private api:ActorsApi, private store: ActorsStorage) {
     this.getPopular()
   }
   goToDetailsPage(actor) {
@@ -27,18 +25,28 @@ export class Actors {
   getPopular(){
     console.log("getting popular")
     this.api.popular(this._pageNo).subscribe(res => {
+      this.isOffline = false
+      this._pageNo++
       this.popular = res.results;
     }, err => this.getOffline());
   }
   getOffline(msg?) {
-    this.presentToast(msg || "You are currently offline, serving you cached content")
+    this.isOffline = true
     this.store.getPopular().then(res=> {
-      console.log("rec", res)
-      this.popular = res.results;
+      if (!res.results[0]) {
+        this.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")
+      } else {
+        this.presentToast("You are currently offline, serving you cached content")
+        this.popular = res.results
+      }
     })
   }
   doInfinite(e) {
     console.log("async operation started")
+    if (this.isOffline) {
+      e.complete()
+      // return this.presentToast("Can't fetch you more actors. There seems to be something wrong with the network 😥📵")
+    }
     this.api.popular(this._pageNo).toPromise().then( res => {
       if(res.results) {
         this.popular = this.popular.concat(res.results)

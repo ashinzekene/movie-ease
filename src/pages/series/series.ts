@@ -31,45 +31,47 @@ export class Series {
     this.navCtrl.push("Search", {type: "series"})
   }
   getTopRated(){
-    this.store.getTopRated().then(res=> {
-      this.topRated = res.results;
-    })
+    // this.store.getTopRated().then(res=> {
+    //   this.topRated = res.results;
+    // })
     this.api.topRated(this._pageNo).subscribe(res => {
       this.topRated = res.results;
     });
   }
   getPopular(){
-    console.log("getting popular")
-    this.store.getPopular().then(res=> {
-      this.popular = res.results;
-    })
+    // console.log("getting popular")
+    // this.store.getPopular().then(res=> {
+    //   this.popular = res.results;
+    // })
     this.api.popular(this._pageNo).subscribe(res => {
       this.popular = res.results;
     });
   }
   getLatest(){
-    this.store.getLatest().then(res=> {
-      this.latest = res.results;
-    })
+    // this.store.getLatest().then(res=> {
+    //   this.latest = res.results;
+    // })
     this.api.latest(this._pageNo).subscribe(res => {
       this.latest = res.results;
     });
   }
   getUpcoming(){
-    this.store.getUpcoming().then(res=> {
-      this.upcoming = res.results;
-    })
     this.api.upcoming(this._pageNo).subscribe(res => {
       this.upcoming = res.results;
       this._pageNo++
     }, err => {
-      
+      this.getOffline()
     });
   }
   getOffline() {
     this.presentToast("You are currently offline, serving you cached content")
     this.store.getUpcoming().then(res=> {
-      this.upcoming = res.results;
+      if (!res.results[0]) {
+        this.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")
+      } else {
+        this.presentToast("You are currently offline, serving you cached content")
+        this.upcoming = res.results
+      }
     })    
   }
   doInfinite(e) {
