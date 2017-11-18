@@ -28,6 +28,7 @@
     "@ionic-native/splash-screen": "3.10.2",
     "@ionic-native/status-bar": "3.10.2",
     "@ionic/storage": "2.0.1",
+    "@types/youtube": "0.0.31",
     "apiai": "^4.0.3",
     "body-parser": "^1.17.2",
     "cheerio": "^1.0.0-rc.2",

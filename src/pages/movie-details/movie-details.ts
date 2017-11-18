@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DomSanitizer, SafeResourceUrl  } from '@angular/platform-browser';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MoviesStorage } from "../../providers/storage/movies-storage";
 import { MoviesApi } from "../../providers/api/movies-api";
@@ -32,25 +33,32 @@ export class MovieDetails {
   public data:any = {}
   public movieDetail = 'info'
   private _genres = MovieGenres
-  private moviePath: string = ""
+  private shouldPlayTrailer:boolean = false
+  private movieUrl: SafeResourceUrl
+  private iconName: string = 'play';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _store: MoviesStorage, private _api: MoviesApi) {
+  constructor(public navCtrl: NavController, private sanitizer: DomSanitizer, public navParams: NavParams, private _store: MoviesStorage, private _api: MoviesApi) {
     if(this.navParams.data.data) {
       this.data = this.navParams.data.data
       this.data.backdrop_path = this.navParams.data.data.poster_path
     }
     this._api.one(this.navParams.data.id).subscribe(res => {
       this.data = res;
+      console.log(res)
       if (!res.backdrop_path) {
         this.data.backdrop_path = res.poster_path
       }
-      console.log(res)
+      this.movieUrl = this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/'+res.videos.results[0].key)
     });
   }
   getGenre(id) {
     this._genres.find(genre => {
       return genre.id === id
     })
+  }
+  toggleTrailer() {
+    this.shouldPlayTrailer = !this.shouldPlayTrailer
+    this.iconName = this.shouldPlayTrailer ? "close" : "play";
   }
   navActor(actor) {
     this.navCtrl.push("ActorDetails", {data: actor, id: actor.id})

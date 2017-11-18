@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from "@ionic/storage";
+
 import { PhotoViewer } from "@ionic-native/photo-viewer";
 
 import { MoviesApi } from "../providers/api/movies-api";
