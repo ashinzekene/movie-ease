@@ -5,7 +5,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { MyApp } from './app.component';
 import { IonicStorageModule } from "@ionic/storage";
 
-import { PhotoViewer } from "@ionic-native/photo-viewer";
+// import { PhotoViewer } from "@ionic-native/photo-viewer";
 
 import { MoviesApi } from "../providers/api/movies-api";
 import { SeriesApi } from "../providers/api/series-api";
@@ -36,7 +36,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
-    PhotoViewer,
+    // PhotoViewer,
     MoviesApi,
     ActorsApi,
     SeriesApi,

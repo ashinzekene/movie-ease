@@ -1,9 +1,11 @@
 var express = require('express')
+var route = express.Router()
+var io= require('socket.io')(route)
+
 var movies = require("../functions/movies")
 var rq = require('request-promise')
 var actors = require("../functions/actors")
 var series = require("../functions/series")
-route = express.Router()
 var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
 
