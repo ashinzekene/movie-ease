@@ -6,8 +6,31 @@ var movies = require("../functions/movies")
 var rq = require('request-promise')
 var actors = require("../functions/actors")
 var series = require("../functions/series")
+var apiai = require('apiai')
+var sessionId = Math.random() * 10000000
 var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
 var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
+var app = apiai(clientAccessToken)
+
+io.on('connection', function(client) {  
+  console.log('Client connected...');
+    var request
+    client.on('userMessage', data => {
+      console.log(data, "GOTTEN")
+      request = app.textRequest(data, { sessionId });
+    })
+    
+    request.on('response', response => {
+      console.log(response, "RECIEVED")
+      client.emit('AIMessage', response)
+    });
+    
+    request.on('error', function(error) {
+      console.log("ERROR", error);
+    });
+    
+    request.end();
+})
 
 // route.post("/", (req, res) => {
 //   res.setHeader("Content-Type","application/json")
