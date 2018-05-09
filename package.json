@@ -7,7 +7,7 @@
   "scripts": {
     "start": "node app.js",
     "clean": "ionic-app-scripts clean",
-    "postinstall": "ionic build --prod --mimifyjs --minifycss --optimizejs",
+    "postinstall": "ionic build --prod --minifyjs --minifycss --optimizejs",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
@@ -44,6 +44,7 @@
   "devDependencies": {
     "@ionic/app-scripts": "3.1.9",
     "ionic": "~3.20.0",
+    "cordova": "8.0.0",
     "typescript": "~2.6.2"
   },
   "description": "An Ionic project"
