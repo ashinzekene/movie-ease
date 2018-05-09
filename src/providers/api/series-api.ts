@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { SeriesStorage } from "../storage/series-storage";
 import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
@@ -10,7 +10,7 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class SeriesApi {
 
-  constructor(public http: Http, public store: SeriesStorage) {
+  constructor(public http: HttpClient, public store: SeriesStorage) {
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/series/one/${id}`).map((res)=> {

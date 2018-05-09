@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import { MoviesApi } from "./movies-api";
 import { SeriesApi } from "./series-api";
 import { ActorsApi } from "./actors-api";
@@ -21,7 +20,7 @@ export class Api {
   public seriesObservable: Observable<[any]>;
   public actorsObservable: Observable<[any]>;
   
-  constructor(public https: Http, public actors: ActorsApi, public movies: MoviesApi, public series: SeriesApi) {
+  constructor(public actors: ActorsApi, public movies: MoviesApi, public series: SeriesApi) {
   }
   getAll() {
     

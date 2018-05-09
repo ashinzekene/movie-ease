@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from "rxjs/Observable";
 import { MoviesStorage } from "../storage/movies-storage";
 import 'rxjs/add/observable/throw';
@@ -11,51 +11,52 @@ import 'rxjs/add/operator/catch';
 @Injectable()
 export class MoviesApi {
 
-  constructor(public http: Http, public store: MoviesStorage) {
+  constructor(public http: HttpClient, public store: MoviesStorage) {
+    this.one(11233).subscribe(res => {
+      console.log("Testing result", typeof res)
+    })
   }
   one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/movies/one/${id}`).map((res)=> {
-      return JSON.parse(res.json())
-    }).catch(this._handleError)
+    return this.http.get(`https://movie-ease.herokuapp.com/movies/one/${id}`)
+    .catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/movies/search/${query}`).map((res)=> {
-      return JSON.parse(res.json())
-    }).catch(this._handleError)
+    return this.http.get(`https://movie-ease.herokuapp.com/movies/search/${query}`)
+    .catch(this._handleError)
   }
   popular(n=1) {
     console.log("Getting popular")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/popular/'+n).map((res)=> {
-      if(n === 1) this.store.setPopular(res.json())
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/movies/popular/'+n).map(res => {
+      if(n === 1) this.store.setPopular(res)
+      return res
     }).catch(this._handleError)
   }
   latest(n=1) {
     console.log("Getting latest")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/latest/'+n).map((res)=> {
-      if(n < 2 && res.json().results) this.store.setLatest(res.json())
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/movies/latest/'+n).map((res: any)=> {
+      if(n < 2 && res.results) this.store.setLatest(res)
+      return res
     }).catch(this._handleError)
   }
   upcoming(n=1) {
     console.log("Getting upcoming")
     return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/'+n).map((res)=> {
-      if(n === 1) this.store.setUpcoming(res.json())
-      return JSON.parse(res.json())
+      if(n === 1) this.store.setUpcoming(res)
+      return res
     }).catch(this._handleError)
   }
   topRated(n=1) {
 
     console.log("Getting topRated")
     return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/'+n).map((res)=> {
-      if(n === 1) this.store.setTopRated(res.json())
-      return JSON.parse(res.json())
+      if(n === 1) this.store.setTopRated(res)
+      return res
     }).catch(this._handleError)
   }
   ozone() {
     return this.http.get('https://movie-ease.herokuapp.com/movies/ozone').map(res => {
-      console.log(res.json())
-      return JSON.parse(res.json())
+      console.log(res)
+      return res
     }).catch(this._handleError)
   }
   getAll() {
