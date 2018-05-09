@@ -1,5 +1,5 @@
 var fs = require('fs');
-var crawl = require('./crawl')
+// var crawl = require('./crawl')
 //http://www.omdbapi.com/?t=fast+and+furious&plot=full
 var date = Date.now()
 Imdb = {
@@ -36,9 +36,9 @@ module.exports = {
   getTv : `${Imdb.rootUrl}tv/`,
   image: Imdb.imgRootUrl,
   imdb : Imdb,
-  ozone: crawl.ozone(),
-  filmhouseSurulere: crawl.filmhouseSurulere(),
-  genesisCinemasLagos: crawl.genesisCinemasLagos()
+  // ozone: crawl.ozone(),
+  // filmhouseSurulere: crawl.filmhouseSurulere(),
+  // genesisCinemasLagos: crawl.genesisCinemasLagos()
 }
 
 /*
