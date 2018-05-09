@@ -1,0 +1,27 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle icon-only>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MOVIES</ion-title>
+    <ion-buttons end (click)="search()">
+      <button ion-button icon-only>
+        <ion-icon name="search"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col *ngFor="let movie of upcoming" col-12 col-md-6 col-lg-4>
+      <ion-card  (click)="goToDetailsPage(movie)" >
+        <img [src]="'https://image.tmdb.org/t/p/w500' + movie.poster_path" [alt]="movie.title">
+        <!-- <ion-card-title text-center>{{ movie.title }}</ion-card-title> -->
+      </ion-card>
+    </ion-col>
+  </ion-row>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content loadingText="Getting more movies... Hold on" loadingSpinner="bubbles" ></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

@@ -1,0 +1,83 @@
+<ion-header>
+
+  <ion-navbar color="gradient">
+    <ion-title>{{ data.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w780' + data.backdrop_path + ')' }">
+  <div class="wrapper">
+    <h1 class="title">{{ data.name }}</h1>
+  </div>
+  <ion-toolbar no-border>
+    <ion-segment [(ngModel)]="serieDetail">
+      <ion-segment-button value="episode">
+        Episodes
+      </ion-segment-button>
+      <ion-segment-button value="info">
+        Info
+      </ion-segment-button>
+      <ion-segment-button value="cast">
+        Cast
+      </ion-segment-button>
+      <ion-segment-button value="similar">
+        Similar
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div [ngSwitch]="serieDetail">
+    <ion-item>
+      <ion-chip *ngFor="let genre of data.genres">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label color="light">{{ genre.name }}</ion-label>
+      </ion-chip>
+    </ion-item>
+    <ion-list *ngSwitchCase="'info'">
+      <ion-item text-wrap>Status: {{ data.status }}</ion-item>
+      <ion-item text-wrap>First Aired: {{ data.first_air_date }}</ion-item>
+      <ion-item text-wrap>Last Aired: {{ data.last_air_date }}</ion-item>
+      <ion-item text-wrap>Episode Run Time: {{ data.episode_run_time }}</ion-item>
+      <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>
+      <ion-item text-wrap>{{ data.in_production ? "In production" : "Not in production" }}</ion-item>
+      <ion-item text-wrap>Type: {{ data.type }}</ion-item>
+      <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>
+
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'episode'">
+      <ion-item *ngFor="let season of data.seasons">
+        <ion-thumbnail item-left>
+          <img [src]="'https://image.tmdb.org/t/p/w92'+season.poster_path" [alt]="data.name + ' Season: ' + season?.season_number">
+        </ion-thumbnail>
+        <h3>Season {{ season?.season_number }}</h3>
+        <p ion-text color="light">No of episodes: {{ season?.episode_count }} </p>
+        <p ion-text color="light">Air date: {{ season?.air_date }} </p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'similar'">
+      <ion-item text-wrap (click)="navSerie(similar)" *ngFor="let similar of data.similar?.results" >
+        <ion-thumbnail item-left>
+          <img [src]="'https://image.tmdb.org/t/p/w92' + similar.poster_path">
+        </ion-thumbnail>
+        <h2>{{ similar.name }}</h2>
+        <p ion-text color="light">First Air Date {{ similar.first_air_date }}</p>
+        
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'cast'">
+      <!--<ion-item text-wrap *ngFor="let cast of data.credits?.cast" (click)="showPerson(cast.id)" >{{ cast.name + " as " + cast.character }}</ion-item>-->
+      <ion-item *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">
+        <ion-avatar item-left>
+          <img [src]="'https://image.tmdb.org/t/p/w92' + cast.profile_path">
+        </ion-avatar>
+        <h2>{{ cast.name }}</h2>
+        <p ion-text color="light">Acted as {{ cast.character }}</p>
+      </ion-item>
+      
+    </ion-list>
+  </div>
+</ion-content>

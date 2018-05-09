@@ -1,0 +1,67 @@
+<ion-header>
+
+  <ion-navbar class="gradient-header">
+    <ion-title>{{ data.name }}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content class="details" [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w500' + data.profile_path + ')'}">
+  <div class="wrapper">
+    <h1 class="title">{{ data.name }}</h1>
+  </div>
+  <ion-toolbar no-border>
+    <ion-segment color="light" [(ngModel)]="actorDetail">
+      <ion-segment-button value="series">
+        Series
+      </ion-segment-button>
+      <ion-segment-button value="info">
+        Info
+      </ion-segment-button>
+      <ion-segment-button value="movies">
+        Movies
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <div [ngSwitch]="actorDetail">
+    <ion-item>
+      <ion-chip *ngFor="let genre of data.genre_ids" item-end color="danger">
+        <ion-icon name="information-circle"></ion-icon>
+        <ion-label>{{ genre }}</ion-label>
+      </ion-chip>
+    </ion-item>
+    
+    <ion-list *ngSwitchCase="'info'">
+
+      <ion-item text-wrap>Also known as  <p ion-text color="light" *ngFor="let aka of data.also_known_as">{{ aka }}</p></ion-item>
+      <ion-item text-wrap>Birthday:  {{ data.birthday }}</ion-item>
+      <ion-item text-wrap>Biography: {{ data.biography }}</ion-item>
+      <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>
+      <ion-item text-wrap>Place of Birth: {{ data.place_of_birth }}</ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'series'">
+      <ion-item (click)="navSerie(serie)" text-wrap *ngFor="let serie of data.tv_credits?.cast" >
+        <ion-thumbnail item-left>
+          <img src="https://image.tmdb.org/t/p/w92{{serie.poster_path}}">
+        </ion-thumbnail>
+        <h2>{{ serie.name }}</h2>
+        <p ion-text color="light">Acted as {{ serie.character }}</p>
+        <p ion-text color="light">First Air Date: {{ serie.first_air_date }}</p>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'movies'">
+      <ion-item (click)="navMovie(movie)" text-wrap *ngFor="let movie of data.movie_credits?.cast" >
+          <ion-thumbnail item-left>
+            <img src="https://image.tmdb.org/t/p/w92{{movie.poster_path}}">
+          </ion-thumbnail>
+          <h2>{{ movie.title }}</h2>
+          <p ion-text color="light">Acted as {{ movie.character }}</p>
+          <p ion-text color="light">Release Date: {{ movie.release_date }}</p>
+        </ion-item>
+    </ion-list>
+
+  </div>
+</ion-content>
