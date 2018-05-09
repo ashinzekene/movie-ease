@@ -1,48 +1,3 @@
-var express = require('express')
-var route = express.Router()
-var io= require('socket.io')(route)
-
-var movies = require("../functions/movies")
-var rq = require('request-promise')
-var actors = require("../functions/actors")
-var series = require("../functions/series")
-var apiai = require('apiai')
-var sessionId = Math.random() * 10000000
-var clientAccessToken ="e5fd4070d9e8491eb7bffe6a581e49dc"
-var developerAccessToken ="ddc9be9877f84670ab4b391a71fec8de"
-var app = apiai(clientAccessToken)
-
-io.on('connection', function(client) {  
-  console.log('Client connected...');
-    var request
-    client.on('userMessage', data => {
-      console.log(data, "GOTTEN")
-      request = app.textRequest(data, { sessionId });
-    })
-    
-    request.on('response', response => {
-      console.log(response, "RECIEVED")
-      client.emit('AIMessage', response)
-    });
-    
-    request.on('error', function(error) {
-      console.log("ERROR", error);
-    });
-    
-    request.end();
-})
-
-// route.post("/", (req, res) => {
-//   res.setHeader("Content-Type","application/json")
-//   const { parameters, action } = req.body.result
-//   console.log("Paramteres and action", parameters, action )
-//   rq.get(api.searchMovie+parameters.movie_name ).then((data)=> {
-//       sendDataToBot(res, data)
-//     }).catch((err)=> {
-//         console.log('ERROR DEY', err.message)
-//         sendErrorToBot(res)
-//     })
-// })
 
 route.post("/", (req, res) => {
   const { parameters, action } = req.body.result
@@ -80,7 +35,7 @@ route.post("/", (req, res) => {
 
 function movieSearch(data) {
   const res = JSON.parse(data)
-  var cast = res.credits.cast.map(actor => `${actor.name} acted as ${actor.character}`)
+  var cast = res.credits.cast.filter((actor, i) => i < 5).map(actor => `${actor.name} acted as ${actor.character}`)
     .filter(detail => detail.indexOf("uncredited") === -1).join(", ")
     return {
       speech: `In ${res.title}, ${res.overview}. It was released on ${res.release_date}. In the movie ${cast}`,
@@ -147,74 +102,3 @@ function sendDataToBot(res, data) {
   }
 }
 module.exports= route
-
-
-var sampleRequest = {
-  "lang": "en", 
-  "status": {
-      "errorType": "success", 
-      "code": 200
-  }, 
-  "timestamp": "2017-02-09T16:06:01.908Z", 
-  "sessionId": "1486656220806", 
-  "result": {
-      "parameters": {
-          "city": "Rome", 
-          "name": "Ana"
-      }, 
-      "contexts": [], 
-      "resolvedQuery": "my name is Ana and I live in Rome", 
-      "source": "agent", 
-      "score": 1.0, 
-      "speech": "", 
-      "fulfillment": {
-          "messages": [
-              {
-                  "speech": "Hi Ana! Nice to meet you!", 
-                  "type": 0
-              }
-          ], 
-          "speech": "Hi Ana! Nice to meet you!"
-      }, 
-      "actionIncomplete": false, 
-      "action": "greetings", 
-      "metadata": {
-          "intentId": "9f41ef7c-82fa-42a7-9a30-49a93e2c14d0", 
-          "webhookForSlotFillingUsed": "false", 
-          "intentName": "greetings", 
-          "webhookUsed": "true"
-      }
-  }, 
-  "id": "ab30d214-f4bb-4cdd-ae36-31caac7a6693", 
-  "originalRequest": {
-      "source": "google", 
-      "data": {
-          "inputs": [
-              {
-                  "raw_inputs": [
-                      {
-                          "query": "my name is Ana and I live in Rome", 
-                          "input_type": 2
-                      }
-                  ], 
-                  "intent": "assistant.intent.action.TEXT", 
-                  "arguments": [
-                      {
-                          "text_value": "my name is Ana and I live in Rome", 
-                          "raw_text": "my name is Ana and I live in Rome", 
-                          "name": "text"
-                      }
-                  ]
-              }
-          ], 
-          "user": {
-              "user_id": "PuQndWs1OMjUYwVJMYqwJv0/KT8satJHAUQGiGPDQ7A="
-          }, 
-          "conversation": {
-              "conversation_id": "1486656220806", 
-              "type": 2, 
-              "conversation_token": "[]"
-          }
-      }
-  }
-}
