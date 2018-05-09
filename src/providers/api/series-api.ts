@@ -10,39 +10,54 @@ import 'rxjs/add/observable/throw';
 @Injectable()
 export class SeriesApi {
 
-  constructor(public http: HttpClient, public store: SeriesStorage) {
-  }
+  constructor(public http: HttpClient, public store: SeriesStorage) {}
+  
   one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/series/one/${id}`).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get(`https://movie-ease.herokuapp.com/series/one/${id}`)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/series/search/${query}`).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get(`https://movie-ease.herokuapp.com/series/search/${query}`)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   }
   popular(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/popular/'+n).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/series/popular/'+n)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   }
   latest(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/latest/'+n).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/series/latest/'+n)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   }
   upcoming(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/'+n).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/'+n)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   }
   topRated(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/'+n).map((res)=> {
-      return JSON.parse(res.json())
+    return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/'+n)
+    .map(this.transformObject)
+    .map((res)=> {
+      return res
     }).catch(this._handleError)
   } 
   private _handleError(){
     return Observable.throw("Network Error")
+  }
+  private transformObject(str) {
+    return typeof str === "object" ? str : JSON.parse(str) 
   }
 }

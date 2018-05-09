@@ -13,14 +13,18 @@ export class ActorsApi {
   }
   one(id) {
     return this.http.get(`https://movie-ease.herokuapp.com/actors/one/${id}`)
-    .catch(this._handleError)
+      .map(this.transformObject)
+      .catch(this._handleError)
   }
   search(query) {
     return this.http.get(`https://movie-ease.herokuapp.com/actors/search/${query}`)
-    .catch(this._handleError)
+      .map(this.transformObject)
+      .catch(this._handleError)
   }
   popular(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/actors/popular/'+n).map((res)=> {
+    return this.http.get('https://movie-ease.herokuapp.com/actors/popular/'+n)
+      .map(this.transformObject)
+      .map((res)=> {
       if(n === 1) this.store.setPopular(res);
       return res
     }).catch(this._handleError)
@@ -28,5 +32,8 @@ export class ActorsApi {
   
   private _handleError(err) {
     return Observable.throw("Network Error occured")
+  }
+  private transformObject(str) {
+    return typeof str === "object" ? str : JSON.parse(str) 
   }
 }

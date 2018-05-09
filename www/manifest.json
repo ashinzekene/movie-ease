@@ -1,18 +1,4 @@
 {
-<<<<<<< HEAD
-  "name": "Ionic",
-  "short_name": "Ionic",
-  "start_url": "index.html",
-  "display": "standalone",
-  "icons": [{
-    "src": "assets/imgs/logo.png",
-    "sizes": "512x512",
-    "type": "image/png"
-  }],
-  "background_color": "#4e8ef7",
-  "theme_color": "#4e8ef7"
-}
-=======
   "name": "Movie Ease",
   "short_name": "Movie Ease",
   "start_url": "index.html",
@@ -51,4 +37,3 @@
   "background_color": "#8500d8",
   "theme_color": "#8500d8"
 }
->>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45

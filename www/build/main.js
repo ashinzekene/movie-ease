@@ -1,84 +1,6 @@
 webpackJsonp([10],{
 
-/***/ 115:
-/***/ (function(module, exports) {
-
-function webpackEmptyAsyncContext(req) {
-	// Here Promise.resolve().then() is used instead of new Promise() to prevent
-	// uncatched exception popping up in devtools
-	return Promise.resolve().then(function() {
-		throw new Error("Cannot find module '" + req + "'.");
-	});
-}
-webpackEmptyAsyncContext.keys = function() { return []; };
-webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
-module.exports = webpackEmptyAsyncContext;
-webpackEmptyAsyncContext.id = 115;
-
-/***/ }),
-
-/***/ 157:
-/***/ (function(module, exports, __webpack_require__) {
-
-var map = {
-	"../pages/actor-details/actor-details.module": [
-		291,
-		9
-	],
-	"../pages/actors/actors.module": [
-		292,
-		6
-	],
-	"../pages/cinemas/cinemas.module": [
-		293,
-		8
-	],
-	"../pages/discover/discover.module": [
-		294,
-		7
-	],
-	"../pages/home/home.module": [
-		295,
-		5
-	],
-	"../pages/movie-details/movie-details.module": [
-		296,
-		4
-	],
-	"../pages/movies/movies.module": [
-		297,
-		3
-	],
-	"../pages/search/search.module": [
-		298,
-		0
-	],
-	"../pages/serie-details/serie-details.module": [
-		299,
-		2
-	],
-	"../pages/series/series.module": [
-		300,
-		1
-	]
-};
-function webpackAsyncContext(req) {
-	var ids = map[req];
-	if(!ids)
-		return Promise.reject(new Error("Cannot find module '" + req + "'."));
-	return __webpack_require__.e(ids[1]).then(function() {
-		return __webpack_require__(ids[0]);
-	});
-};
-webpackAsyncContext.keys = function webpackAsyncContextKeys() {
-	return Object.keys(map);
-};
-webpackAsyncContext.id = 157;
-module.exports = webpackAsyncContext;
-
-/***/ }),
-
-/***/ 202:
+/***/ 106:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -86,7 +8,7 @@ module.exports = webpackAsyncContext;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -151,31 +73,30 @@ var MoviesStorage = /** @class */ (function () {
     };
     MoviesStorage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
     ], MoviesStorage);
     return MoviesStorage;
-    var _a;
 }());
 
 //# sourceMappingURL=movies-storage.js.map
 
 /***/ }),
 
-/***/ 203:
+/***/ 107:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MoviesApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(49);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_observable_throw__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_do__ = __webpack_require__(261);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_do__ = __webpack_require__(266);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_do___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_operator_do__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__);
@@ -200,23 +121,24 @@ var MoviesApi = /** @class */ (function () {
     function MoviesApi(http, store) {
         this.http = http;
         this.store = store;
-        this.one(11233).subscribe(function (res) {
-            console.log("Testing result", typeof res);
-        });
     }
     MoviesApi.prototype.one = function (id) {
         return this.http.get("https://movie-ease.herokuapp.com/movies/one/" + id)
+            .map(this.transformObject)
             .catch(this._handleError);
     };
     MoviesApi.prototype.search = function (query) {
         return this.http.get("https://movie-ease.herokuapp.com/movies/search/" + query)
+            .map(this.transformObject)
             .catch(this._handleError);
     };
     MoviesApi.prototype.popular = function (n) {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting popular");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/popular/' + n).map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/movies/popular/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
             if (n === 1)
                 _this.store.setPopular(res);
             return res;
@@ -226,7 +148,9 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting latest");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/latest/' + n).map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/movies/latest/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
             if (n < 2 && res.results)
                 _this.store.setLatest(res);
             return res;
@@ -236,7 +160,9 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting upcoming");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/' + n).map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
             if (n === 1)
                 _this.store.setUpcoming(res);
             return res;
@@ -246,14 +172,18 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting topRated");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/' + n).map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
             if (n === 1)
                 _this.store.setTopRated(res);
             return res;
         }).catch(this._handleError);
     };
     MoviesApi.prototype.ozone = function () {
-        return this.http.get('https://movie-ease.herokuapp.com/movies/ozone').map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/movies/ozone')
+            .map(this.transformObject)
+            .map(function (res) {
             console.log(res);
             return res;
         }).catch(this._handleError);
@@ -267,6 +197,9 @@ var MoviesApi = /** @class */ (function () {
     MoviesApi.prototype._handleError = function (err) {
         return __WEBPACK_IMPORTED_MODULE_2_rxjs_Observable__["Observable"].throw("A Network Error Occured");
     };
+    MoviesApi.prototype.transformObject = function (str) {
+        return typeof str === "object" ? str : JSON.parse(str);
+    };
     MoviesApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
         __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__["a" /* MoviesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__["a" /* MoviesStorage */]) === "function" && _b || Object])
@@ -279,21 +212,21 @@ var MoviesApi = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 204:
+/***/ 108:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return ActorsApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_actors_storage__ = __webpack_require__(205);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_actors_storage__ = __webpack_require__(109);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -318,16 +251,20 @@ var ActorsApi = /** @class */ (function () {
     }
     ActorsApi.prototype.one = function (id) {
         return this.http.get("https://movie-ease.herokuapp.com/actors/one/" + id)
+            .map(this.transformObject)
             .catch(this._handleError);
     };
     ActorsApi.prototype.search = function (query) {
         return this.http.get("https://movie-ease.herokuapp.com/actors/search/" + query)
+            .map(this.transformObject)
             .catch(this._handleError);
     };
     ActorsApi.prototype.popular = function (n) {
         var _this = this;
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/actors/popular/' + n).map(function (res) {
+        return this.http.get('https://movie-ease.herokuapp.com/actors/popular/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
             if (n === 1)
                 _this.store.setPopular(res);
             return res;
@@ -335,6 +272,9 @@ var ActorsApi = /** @class */ (function () {
     };
     ActorsApi.prototype._handleError = function (err) {
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw("Network Error occured");
+    };
+    ActorsApi.prototype.transformObject = function (str) {
+        return typeof str === "object" ? str : JSON.parse(str);
     };
     ActorsApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -348,7 +288,7 @@ var ActorsApi = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 205:
+/***/ 109:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -356,7 +296,7 @@ var ActorsApi = /** @class */ (function () {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_storage__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -420,31 +360,30 @@ var ActorsStorage = /** @class */ (function () {
     };
     ActorsStorage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__ionic_storage__["b" /* Storage */]])
     ], ActorsStorage);
     return ActorsStorage;
-    var _a;
 }());
 
 //# sourceMappingURL=actors-storage.js.map
 
 /***/ }),
 
-/***/ 206:
+/***/ 110:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SeriesApi; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(330);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_series_storage__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_common_http__ = __webpack_require__(49);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__storage_series_storage__ = __webpack_require__(111);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__ = __webpack_require__(6);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_operator_catch__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(81);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__ = __webpack_require__(82);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_throw__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -468,41 +407,56 @@ var SeriesApi = /** @class */ (function () {
         this.store = store;
     }
     SeriesApi.prototype.one = function (id) {
-        return this.http.get("https://movie-ease.herokuapp.com/series/one/" + id).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get("https://movie-ease.herokuapp.com/series/one/" + id)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.search = function (query) {
-        return this.http.get("https://movie-ease.herokuapp.com/series/search/" + query).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get("https://movie-ease.herokuapp.com/series/search/" + query)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.popular = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/popular/' + n).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get('https://movie-ease.herokuapp.com/series/popular/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.latest = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/latest/' + n).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get('https://movie-ease.herokuapp.com/series/latest/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.upcoming = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/' + n).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.topRated = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/' + n).map(function (res) {
-            return JSON.parse(res.json());
+        return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/' + n)
+            .map(this.transformObject)
+            .map(function (res) {
+            return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype._handleError = function () {
         return __WEBPACK_IMPORTED_MODULE_3_rxjs_Observable__["Observable"].throw("Network Error");
+    };
+    SeriesApi.prototype.transformObject = function (str) {
+        return typeof str === "object" ? str : JSON.parse(str);
     };
     SeriesApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
@@ -516,13 +470,13 @@ var SeriesApi = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 207:
+/***/ 111:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return SeriesStorage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(80);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__ionic_storage__ = __webpack_require__(50);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -585,30 +539,29 @@ var SeriesStorage = /** @class */ (function () {
     };
     SeriesStorage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]) === "function" && _a || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__ionic_storage__["b" /* Storage */]])
     ], SeriesStorage);
     return SeriesStorage;
-    var _a;
 }());
 
 //# sourceMappingURL=series-storage.js.map
 
 /***/ }),
 
-/***/ 208:
+/***/ 113:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return Api; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__movies_api__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__series_api__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actors_api__ = __webpack_require__(204);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__series_api__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actors_api__ = __webpack_require__(108);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__ = __webpack_require__(33);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_rxjs_add_operator_map__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__ = __webpack_require__(264);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__ = __webpack_require__(269);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_rxjs_add_observable_merge__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__ = __webpack_require__(265);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__ = __webpack_require__(270);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6_rxjs_add_observable_of__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__ = __webpack_require__(43);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_7_rxjs_add_operator_catch__);
@@ -659,23 +612,100 @@ var Api = /** @class */ (function () {
     };
     Api = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_3__actors_api__["a" /* ActorsApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__actors_api__["a" /* ActorsApi */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1__movies_api__["a" /* MoviesApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__movies_api__["a" /* MoviesApi */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__series_api__["a" /* SeriesApi */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__series_api__["a" /* SeriesApi */]) === "function" && _c || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_3__actors_api__["a" /* ActorsApi */], __WEBPACK_IMPORTED_MODULE_1__movies_api__["a" /* MoviesApi */], __WEBPACK_IMPORTED_MODULE_2__series_api__["a" /* SeriesApi */]])
     ], Api);
     return Api;
-    var _a, _b, _c;
 }());
 
 //# sourceMappingURL=api.js.map
 
 /***/ }),
 
-/***/ 209:
+/***/ 124:
+/***/ (function(module, exports) {
+
+function webpackEmptyAsyncContext(req) {
+	// Here Promise.resolve().then() is used instead of new Promise() to prevent
+	// uncatched exception popping up in devtools
+	return Promise.resolve().then(function() {
+		throw new Error("Cannot find module '" + req + "'.");
+	});
+}
+webpackEmptyAsyncContext.keys = function() { return []; };
+webpackEmptyAsyncContext.resolve = webpackEmptyAsyncContext;
+module.exports = webpackEmptyAsyncContext;
+webpackEmptyAsyncContext.id = 124;
+
+/***/ }),
+
+/***/ 165:
+/***/ (function(module, exports, __webpack_require__) {
+
+var map = {
+	"../pages/actor-details/actor-details.module": [
+		295,
+		9
+	],
+	"../pages/actors/actors.module": [
+		296,
+		6
+	],
+	"../pages/cinemas/cinemas.module": [
+		297,
+		8
+	],
+	"../pages/discover/discover.module": [
+		298,
+		7
+	],
+	"../pages/home/home.module": [
+		299,
+		5
+	],
+	"../pages/movie-details/movie-details.module": [
+		300,
+		4
+	],
+	"../pages/movies/movies.module": [
+		301,
+		3
+	],
+	"../pages/search/search.module": [
+		302,
+		0
+	],
+	"../pages/serie-details/serie-details.module": [
+		303,
+		2
+	],
+	"../pages/series/series.module": [
+		304,
+		1
+	]
+};
+function webpackAsyncContext(req) {
+	var ids = map[req];
+	if(!ids)
+		return Promise.reject(new Error("Cannot find module '" + req + "'."));
+	return __webpack_require__.e(ids[1]).then(function() {
+		return __webpack_require__(ids[0]);
+	});
+};
+webpackAsyncContext.keys = function webpackAsyncContextKeys() {
+	return Object.keys(map);
+};
+webpackAsyncContext.id = 165;
+module.exports = webpackAsyncContext;
+
+/***/ }),
+
+/***/ 212:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(210);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(230);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__ = __webpack_require__(213);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__app_module__ = __webpack_require__(232);
 
 
 Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_1__app_module__["a" /* AppModule */]);
@@ -683,27 +713,27 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 
 /***/ }),
 
-/***/ 230:
+/***/ 232:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return AppModule; });
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(25);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__ = __webpack_require__(30);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_api_movies_api__ = __webpack_require__(203);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_api_series_api__ = __webpack_require__(206);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_api_actors_api__ = __webpack_require__(204);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_api_api__ = __webpack_require__(208);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_storage_movies_storage__ = __webpack_require__(202);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_storage_series_storage__ = __webpack_require__(207);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_storage_actors_storage__ = __webpack_require__(205);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(290);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_storage__ = __webpack_require__(80);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common__ = __webpack_require__(44);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(330);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_api_movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__providers_api_series_api__ = __webpack_require__(110);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__providers_api_actors_api__ = __webpack_require__(108);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__providers_api_api__ = __webpack_require__(113);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__providers_storage_movies_storage__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__providers_storage_series_storage__ = __webpack_require__(111);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__providers_storage_actors_storage__ = __webpack_require__(109);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__app_component__ = __webpack_require__(294);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_13__ionic_storage__ = __webpack_require__(50);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_14__angular_common__ = __webpack_require__(31);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_15__angular_common_http__ = __webpack_require__(49);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -779,16 +809,16 @@ var AppModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 290:
+/***/ 294:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MyApp; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(104);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(201);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(198);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(208);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(210);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(207);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_api__ = __webpack_require__(113);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -827,20 +857,19 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/'<<<<<<< HEAD\n<ion-nav [root]="rootPage"></ion-nav>\n=======\n<ion-split-pane when="lg">\n  <ion-menu [content]="content">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content color="primary" class="sidebar">\n      <ion-list no-lines>\n        <button ion-item menuClose (click)="openPage(p)" *ngFor="let p of pages">\n          {{p.name}}\n        </button>\n      </ion-list>\n    </ion-content>\n    \n  </ion-menu>\n\n  <ion-nav #content main swipeBackEnabled=false [root]="rootPage"></ion-nav>\n</ion-split-pane>\n>>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45\n'/*ion-inline-end:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/'<ion-split-pane when="lg">\n  <ion-menu [content]="content">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content color="primary" class="sidebar">\n      <ion-list no-lines>\n        <button ion-item menuClose (click)="openPage(p)" *ngFor="let p of pages">\n          {{p.name}}\n        </button>\n      </ion-list>\n    </ion-content>\n    \n  </ion-menu>\n\n  <ion-nav #content main swipeBackEnabled=false [root]="rootPage"></ion-nav>\n</ion-split-pane>\n'/*ion-inline-end:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */]) === "function" && _e || Object])
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */]])
     ], MyApp);
     return MyApp;
-    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=app.component.js.map
 
 /***/ })
 
-},[209]);
+},[212]);
 //# sourceMappingURL=main.js.map
