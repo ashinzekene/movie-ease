@@ -17,12 +17,20 @@
     "src/**/*.ts"
   ],
   "exclude": [
+<<<<<<< HEAD
     "node_modules",
     "src/**/*.spec.ts",
     "src/**/__tests__/*.ts"
+=======
+    "node_modules"
+>>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45
   ],
   "compileOnSave": false,
   "atom": {
     "rewriteTsconfig": false
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45

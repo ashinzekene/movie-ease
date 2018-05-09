@@ -13,7 +13,10 @@ log.txt
 npm-debug.log*
 
 .idea/
+<<<<<<< HEAD
 .sourcemaps/
+=======
+>>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45
 .sass-cache/
 .tmp/
 .versions/
@@ -27,9 +30,12 @@ platforms/
 plugins/
 plugins/android.json
 plugins/ios.json
-www/
 $RECYCLE.BIN/
 
 .DS_Store
 Thumbs.db
 UserInterfaceState.xcuserstate
+
+!platforms/browser/www
+*hotels*
+wwww

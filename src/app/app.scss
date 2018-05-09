@@ -1,6 +1,155 @@
-// http://ionicframework.com/docs/theming/
+.toolbar-title {
+  font-weight: 300;
+}
+ion-split-pane ion-menu ion-content {
+  background-color: color($colors, primary) !important;
+}
+
+ion-row ion-col ion-card img {
+  min-height: 70px;
+}
+
+ion-card {
+  min-height: 500px !important;
+}
+
+.sidebar button .label {
+  font-size: 2.5rem;
+  font-weight: 300;
+  padding-left: 30px;
+  margin: 30px;
+}
+/*_______________________________________________________________*\
+            MOVIES, SERIES AND ACTORS LIST PAGE
+\*_______________________________________________________________*/
 
 
+.listings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+.listings .card{
+  position: relative;
+  text-align: center;
+  background-color: black;
+  width: 250px;
+  margin: 10px 0;
+  height: 370px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  .wrapper {
+    display: absolute;
+    width: 100%;
+    height: 100%;
+    background-color : rgba(0,0,0,0.8); 
+    opacity: 0;
+    .title {
+      position: absolute;
+      top: 36%;
+      width: 100%;
+      letter-spacing: 5px;
+      font-size: 1.5em;
+      font-weight: 300;
+      color: white;
+    }
+    &:hover {
+      opacity: 1;
+    }
+  }
+}
+.full {
+  height: 100%;
+  width: 100%;
+}
+.full .card{
+  position: relative;
+  text-align: center;
+  display: inline-block;
+  margin: 0px;
+  min-height: 100px;
+  width: 16.6666667%;
+  width: calc(100% /6);
+  img {
+    width: 100%;
+  }
+  .text {
+    position: absolute;
+    top: 0;
+    padding: 10px 0px;
+    padding: 5px 0px;
+    width: 100%;
+    left: 0;
+    background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+    .title {
+      width: 100%;
+      left: 0;
+      display: inline-block;
+      text-align: center;
+      font-size: 1.5em;
+      font-weight: 300;
+      color: white;
+    }
+  }
+  &:hover {
+    opacity: 1;
+  }
+}
+
+
+/*_______________________________________________________________*\
+            MOVIES, SERIES AND ACTORS DETAILS PAGE
+\*_______________________________________________________________*/
+.gradient-header .toolbar-background {
+  background: -moz-linear-gradient(rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 100%);
+  background: -webkit-linear-gradient(rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 100%);
+  background: linear-gradient(rgba(0,0,0,0.3) 30%, rgba(0,0,0,0.5) 100%);
+}
+.details {
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  .wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    background: -moz-linear-gradient(transparent 55%, rgba(0,0,0,0.9) 100%);
+    background: -webkit-linear-gradient(transparent 55%, rgba(0,0,0,0.9) 100%);
+    background: linear-gradient(transparent 55%, rgba(0,0,0,0.9) 100%);
+    text-align: center;
+    .title {
+      text-align: center;
+      font-weight: 300;
+      color: #EFEFEF;
+      font-variant: small-caps;
+      width: 100%;
+    }
+    .tagline {
+      width:100%;
+      padding: 10px;
+    }
+  }
+  .list {
+    background: rgba(0,0,0,0.8);
+    margin-bottom: 0px;
+    * {
+      font-size: 1.7rem;
+    }
+  }
+}
+
+// scrollbar-face-color:
+// scrollbar-highligh-color:
+// scrollbar-shadow-color:
+// scrollbar-3dlight-color:
+// scrollbar-arrow-color:
+// scrollbar-track-color:
+// scrollbar-darkshadow-color:
 // App Global Sass
 // --------------------------------------------------
 // Put style rules here that you want to apply globally. These

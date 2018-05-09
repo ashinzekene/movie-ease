@@ -34,11 +34,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
+  primary:    #8500d8,
+  secondary:  #02a500,
   danger:     #f53d3d,
   light:      #f4f4f4,
-  dark:       #222
+  dark:      #222222,
+  half-transparent: rgba(0,0,0,0.4),
+  transparent: rgba(0,0,0,0.0)
 );
 
 
@@ -72,11 +74,23 @@ $colors: (
 
 @import "ionic.theme.default";
 
+$split-pane-side-max-width: 300px;
+$split-pane-side-min-width: 200px;
+$list-background-color: color($colors, primary);
+$card-md-background-color: color($colors, light);
+$list-text-color:#fff;
+$menu-md-background:color($colors, primary);
+$toolbar-md-background:color($colors, primary);
+
+$toolbar-md-active-color: #fff;
+
+$segment-button-md-border-bottom-color: color($colors, primary);
+
 
 // Ionicons
 // --------------------------------------------------
 // The premium icon font for Ionic. For more info, please see:
-// http://ionicframework.com/docs/ionicons/
+// http://ionicframework.com/docs/v2/ionicons/
 
 @import "ionic.ionicons";
 
@@ -84,5 +98,5 @@ $colors: (
 // Fonts
 // --------------------------------------------------
 
-@import "roboto";
+//@import "roboto";
 @import "noto-sans";

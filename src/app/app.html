@@ -1,1 +1,24 @@
+<<<<<<< HEAD
 <ion-nav [root]="rootPage"></ion-nav>
+=======
+<ion-split-pane when="lg">
+  <ion-menu [content]="content">
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+
+    <ion-content color="primary" class="sidebar">
+      <ion-list no-lines>
+        <button ion-item menuClose (click)="openPage(p)" *ngFor="let p of pages">
+          {{p.name}}
+        </button>
+      </ion-list>
+    </ion-content>
+    
+  </ion-menu>
+
+  <ion-nav #content main swipeBackEnabled=false [root]="rootPage"></ion-nav>
+</ion-split-pane>
+>>>>>>> 51baf99698d7c5c0486158bc8b215786f7effd45

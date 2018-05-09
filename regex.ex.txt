@@ -1,0 +1,8 @@
+ Daily: 12:40pm 3:00pm  7:30pm 10:00pm Daily: 3:50pm 6:10pm  
+Daily: 12:40pm 3:00pm  7:30pm 10:00pm Daily: 3:50pm 6:10pm  
+ Sat: 5:30pm 7:30pm Sun: 5:10pm 7:30pm Mon - Thu: 2:50pm 5:10pm 7:30pm
+ Fri - Sun: 2:00pm 4:30pm 7:00pm  9:30pm 10:20pm Mon - Thu: 2:00pm 4:30pm 7:00pm  9:30pm Daily: 8:35pm 
+ Daily: 12:00pm 1:50pm 3:40pm
+Fri - Sun: 12:30pm 9:50pm Mon - Thu: 12:50pm 9:50pm
+
+^( *[A-Z]{2,}| *[A-Za-z]{3} - [A-Za-z]{3}):+
