@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ActorsApi } from '../../providers/api/actors-api';
-import { ActorsStorage } from '../../providers/storage/actors-storage';
 
 @IonicPage({
   segment: "actors/:id",
@@ -16,7 +15,7 @@ export class ActorDetails {
   public actorDetail = "info";
   public obj = {}
   public loader;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _api: ActorsApi, private _storage: ActorsStorage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _api: ActorsApi) {
     if(this.navParams.data.data) {
       this.data = this.navParams.data.data
     }

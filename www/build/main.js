@@ -123,12 +123,12 @@ var MoviesApi = /** @class */ (function () {
         this.store = store;
     }
     MoviesApi.prototype.one = function (id) {
-        return this.http.get("https://movie-ease.herokuapp.com/movies/one/" + id)
+        return this.http.get("https://movie-ease.herokuapp.com/api/movies/one/" + id)
             .map(this.transformObject)
             .catch(this._handleError);
     };
     MoviesApi.prototype.search = function (query) {
-        return this.http.get("https://movie-ease.herokuapp.com/movies/search/" + query)
+        return this.http.get("https://movie-ease.herokuapp.com/api/movies/search/" + query)
             .map(this.transformObject)
             .catch(this._handleError);
     };
@@ -136,7 +136,7 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting popular");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/popular/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/movies/popular/' + n)
             .map(this.transformObject)
             .map(function (res) {
             if (n === 1)
@@ -148,7 +148,7 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting latest");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/latest/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/movies/latest/' + n)
             .map(this.transformObject)
             .map(function (res) {
             if (n < 2 && res.results)
@@ -160,7 +160,7 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting upcoming");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/movies/upcoming/' + n)
             .map(this.transformObject)
             .map(function (res) {
             if (n === 1)
@@ -172,7 +172,7 @@ var MoviesApi = /** @class */ (function () {
         var _this = this;
         if (n === void 0) { n = 1; }
         console.log("Getting topRated");
-        return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/movies/top-rated/' + n)
             .map(this.transformObject)
             .map(function (res) {
             if (n === 1)
@@ -181,7 +181,7 @@ var MoviesApi = /** @class */ (function () {
         }).catch(this._handleError);
     };
     MoviesApi.prototype.ozone = function () {
-        return this.http.get('https://movie-ease.herokuapp.com/movies/ozone')
+        return this.http.get('https://movie-ease.herokuapp.com/api/movies/ozone')
             .map(this.transformObject)
             .map(function (res) {
             console.log(res);
@@ -202,9 +202,10 @@ var MoviesApi = /** @class */ (function () {
     };
     MoviesApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__["a" /* MoviesStorage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__["a" /* MoviesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__storage_movies_storage__["a" /* MoviesStorage */]) === "function" && _b || Object])
     ], MoviesApi);
     return MoviesApi;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=movies-api.js.map
@@ -249,19 +250,19 @@ var ActorsApi = /** @class */ (function () {
         this.store = store;
     }
     ActorsApi.prototype.one = function (id) {
-        return this.http.get("https://movie-ease.herokuapp.com/actors/one/" + id)
+        return this.http.get("https://movie-ease.herokuapp.com/api/actors/one/" + id)
             .map(this.transformObject)
             .catch(this._handleError);
     };
     ActorsApi.prototype.search = function (query) {
-        return this.http.get("https://movie-ease.herokuapp.com/actors/search/" + query)
+        return this.http.get("https://movie-ease.herokuapp.com/api/actors/search/" + query)
             .map(this.transformObject)
             .catch(this._handleError);
     };
     ActorsApi.prototype.popular = function (n) {
         var _this = this;
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/actors/popular/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/actors/popular/' + n)
             .map(this.transformObject)
             .map(function (res) {
             if (n === 1)
@@ -277,9 +278,10 @@ var ActorsApi = /** @class */ (function () {
     };
     ActorsApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__storage_actors_storage__["a" /* ActorsStorage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__storage_actors_storage__["a" /* ActorsStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__storage_actors_storage__["a" /* ActorsStorage */]) === "function" && _b || Object])
     ], ActorsApi);
     return ActorsApi;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=actors-api.js.map
@@ -405,14 +407,14 @@ var SeriesApi = /** @class */ (function () {
         this.store = store;
     }
     SeriesApi.prototype.one = function (id) {
-        return this.http.get("https://movie-ease.herokuapp.com/series/one/" + id)
+        return this.http.get("https://movie-ease.herokuapp.com/api/series/one/" + id)
             .map(this.transformObject)
             .map(function (res) {
             return res;
         }).catch(this._handleError);
     };
     SeriesApi.prototype.search = function (query) {
-        return this.http.get("https://movie-ease.herokuapp.com/series/search/" + query)
+        return this.http.get("https://movie-ease.herokuapp.com/api/series/search/" + query)
             .map(this.transformObject)
             .map(function (res) {
             return res;
@@ -420,7 +422,7 @@ var SeriesApi = /** @class */ (function () {
     };
     SeriesApi.prototype.popular = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/popular/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/series/popular/' + n)
             .map(this.transformObject)
             .map(function (res) {
             return res;
@@ -428,7 +430,7 @@ var SeriesApi = /** @class */ (function () {
     };
     SeriesApi.prototype.latest = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/latest/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/series/latest/' + n)
             .map(this.transformObject)
             .map(function (res) {
             return res;
@@ -436,7 +438,7 @@ var SeriesApi = /** @class */ (function () {
     };
     SeriesApi.prototype.upcoming = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/series/upcoming/' + n)
             .map(this.transformObject)
             .map(function (res) {
             return res;
@@ -444,7 +446,7 @@ var SeriesApi = /** @class */ (function () {
     };
     SeriesApi.prototype.topRated = function (n) {
         if (n === void 0) { n = 1; }
-        return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/' + n)
+        return this.http.get('https://movie-ease.herokuapp.com/api/series/top-rated/' + n)
             .map(this.transformObject)
             .map(function (res) {
             return res;
@@ -458,9 +460,10 @@ var SeriesApi = /** @class */ (function () {
     };
     SeriesApi = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["A" /* Injectable */])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */], __WEBPACK_IMPORTED_MODULE_2__storage_series_storage__["a" /* SeriesStorage */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1__angular_common_http__["a" /* HttpClient */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__storage_series_storage__["a" /* SeriesStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__storage_series_storage__["a" /* SeriesStorage */]) === "function" && _b || Object])
     ], SeriesApi);
     return SeriesApi;
+    var _a, _b;
 }());
 
 //# sourceMappingURL=series-api.js.map
@@ -854,14 +857,15 @@ var MyApp = /** @class */ (function () {
     };
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]),
-        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */])
+        __metadata("design:type", typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* Nav */]) === "function" && _a || Object)
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({template:/*ion-inline-start:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/'<ion-split-pane when="lg">\n  <ion-menu [content]="content">\n    <ion-header>\n      <ion-toolbar>\n        <ion-title>Menu</ion-title>\n      </ion-toolbar>\n    </ion-header>\n\n    <ion-content color="primary" class="sidebar">\n      <ion-list no-lines>\n        <button ion-item menuClose (click)="openPage(p)" *ngFor="let p of pages">\n          {{p.name}}\n        </button>\n      </ion-list>\n    </ion-content>\n    \n  </ion-menu>\n\n  <ion-nav #content main swipeBackEnabled=false [root]="rootPage"></ion-nav>\n</ion-split-pane>\n'/*ion-inline-end:"/home/ekene/code/personal-projects/new-movie-ease/src/app/app.html"*/
         }),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */], __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */]])
+        __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* Platform */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__providers_api_api__["a" /* Api */]) === "function" && _e || Object])
     ], MyApp);
     return MyApp;
+    var _a, _b, _c, _d, _e;
 }());
 
 //# sourceMappingURL=app.component.js.map

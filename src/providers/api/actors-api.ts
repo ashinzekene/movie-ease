@@ -12,17 +12,17 @@ export class ActorsApi {
   constructor(public http: HttpClient, public store: ActorsStorage) {
   }
   one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/actors/one/${id}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/actors/one/${id}`)
       .map(this.transformObject)
       .catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/actors/search/${query}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/actors/search/${query}`)
       .map(this.transformObject)
       .catch(this._handleError)
   }
   popular(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/actors/popular/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/actors/popular/'+n)
       .map(this.transformObject)
       .map((res)=> {
       if(n === 1) this.store.setPopular(res);

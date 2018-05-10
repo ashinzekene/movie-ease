@@ -4,8 +4,6 @@ import { MoviesStorage } from '../../providers/storage/movies-storage'
 import { MoviesApi } from "../../providers/api/movies-api";
 import 'rxjs/add/operator/toPromise'
 
-declare var window;
-
 @IonicPage()
 @Component({
   selector: 'page-home',

@@ -13,42 +13,42 @@ export class SeriesApi {
   constructor(public http: HttpClient, public store: SeriesStorage) {}
   
   one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/series/one/${id}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/series/one/${id}`)
     .map(this.transformObject)
     .map((res)=> {
       return res
     }).catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/series/search/${query}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/series/search/${query}`)
     .map(this.transformObject)
     .map((res)=> {
       return res
     }).catch(this._handleError)
   }
   popular(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/popular/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/series/popular/'+n)
     .map(this.transformObject)
     .map((res)=> {
       return res
     }).catch(this._handleError)
   }
   latest(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/latest/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/series/latest/'+n)
     .map(this.transformObject)
     .map((res)=> {
       return res
     }).catch(this._handleError)
   }
   upcoming(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/upcoming/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/series/upcoming/'+n)
     .map(this.transformObject)
     .map((res)=> {
       return res
     }).catch(this._handleError)
   }
   topRated(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/series/top-rated/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/series/top-rated/'+n)
     .map(this.transformObject)
     .map((res)=> {
       return res

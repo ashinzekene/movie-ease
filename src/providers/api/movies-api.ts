@@ -14,18 +14,18 @@ export class MoviesApi {
   constructor(public http: HttpClient, public store: MoviesStorage) {}
 
   one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/movies/one/${id}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/movies/one/${id}`)
     .map(this.transformObject)    
     .catch(this._handleError)
   }
   search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/movies/search/${query}`)
+    return this.http.get(`https://movie-ease.herokuapp.com/api/movies/search/${query}`)
     .map(this.transformObject)    
     .catch(this._handleError)
   }
   popular(n=1) {
     console.log("Getting popular")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/popular/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/movies/popular/'+n)
     .map(this.transformObject)
     .map(res => {
       if(n === 1) this.store.setPopular(res)
@@ -34,7 +34,7 @@ export class MoviesApi {
   }
   latest(n=1) {
     console.log("Getting latest")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/latest/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/movies/latest/'+n)
     .map(this.transformObject)
     .map((res: any)=> {
       if(n < 2 && res.results) this.store.setLatest(res)
@@ -43,7 +43,7 @@ export class MoviesApi {
   }
   upcoming(n=1) {
     console.log("Getting upcoming")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/upcoming/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/movies/upcoming/'+n)
     .map(this.transformObject)
     .map((res)=> {
       if(n === 1) this.store.setUpcoming(res)
@@ -53,7 +53,7 @@ export class MoviesApi {
   
   topRated(n=1) {
     console.log("Getting topRated")
-    return this.http.get('https://movie-ease.herokuapp.com/movies/top-rated/'+n)
+    return this.http.get('https://movie-ease.herokuapp.com/api/movies/top-rated/'+n)
     .map(this.transformObject)
     .map((res)=> {
       if(n === 1) this.store.setTopRated(res)
@@ -61,7 +61,7 @@ export class MoviesApi {
     }).catch(this._handleError)
   }
   ozone() {
-    return this.http.get('https://movie-ease.herokuapp.com/movies/ozone')
+    return this.http.get('https://movie-ease.herokuapp.com/api/movies/ozone')
     .map(this.transformObject)
     .map(res => {
       console.log(res)

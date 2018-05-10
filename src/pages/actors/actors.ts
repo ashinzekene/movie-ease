@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { ActorsStorage } from "../../providers/storage/actors-storage";
 import { ActorsApi } from "../../providers/api/actors-api";
 import 'rxjs/add/operator/toPromise';
@@ -13,7 +13,7 @@ export class Actors {
   public popular;
   public isOffline: Boolean = true
   private _pageNo: number = 1;
-  constructor(private navCtrl: NavController, private navParams: NavParams, private toastCtrl: ToastController, private api:ActorsApi, private store: ActorsStorage) {
+  constructor(private navCtrl: NavController, private toastCtrl: ToastController, private api:ActorsApi, private store: ActorsStorage) {
     this.getPopular()
   }
   goToDetailsPage(actor) {
