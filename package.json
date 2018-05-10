@@ -7,7 +7,6 @@
   "scripts": {
     "start": "node app.js",
     "clean": "ionic-app-scripts clean",
-    "postinstall": "ionic build --prod --minifyjs --minifycss --optimizejs",
     "build": "ionic-app-scripts build",
     "lint": "ionic-app-scripts lint",
     "ionic:build": "ionic-app-scripts build",
