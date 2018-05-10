@@ -27,12 +27,14 @@ app.use((req, res, next) => {
 app.get('/', function(req, res){
   res.status(200).sendFile(path.join(__dirname, "www", "index.html" ))
 })
-app.use('/movies', moviesRoute)
-app.use('/actors', actorsRoute)
-app.use('/series', seriesRoute)
-app.use('/bot', botRoute)
-app.use('/a2r', appendResponseRoute)
-app.use('/images', imagesRoute)
+
+app.use(express.static('www'))
+app.use('/api/movies', moviesRoute)
+app.use('/api/actors', actorsRoute)
+app.use('/api/series', seriesRoute)
+app.use('/api/bot', botRoute)
+app.use('/api/a2r', appendResponseRoute)
+app.use('/api/images', imagesRoute)
 
 module.exports = app.listen(port, function(err) {
   if(err) console.log(err)

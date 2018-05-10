@@ -1,1 +1,223 @@
-webpackJsonp([4],{266:function(n,l,u){"use strict";function t(n){return a._19(0,[(n()(),a.Z(0,0,null,null,9,"ion-col",[["class","col"],["col-12",""],["col-lg-4",""],["col-md-6",""]],null,null,null,null,null)),a.Y(1,16384,null,0,v.a,[],null,null),(n()(),a._18(-1,null,["\n      "])),(n()(),a.Z(3,0,null,null,5,"ion-card",[],null,[[null,"click"]],function(n,l,u){var t=!0;if("click"===l){t=!1!==n.component.goToDetailsPage(n.context.$implicit)&&t}return t},null,null)),a.Y(4,16384,null,0,k.a,[Y.a,a.j,a.z],null,null),(n()(),a._18(-1,null,["\n        "])),(n()(),a.Z(6,0,null,null,0,"img",[],[[8,"src",4],[8,"alt",0]],null,null,null,null)),(n()(),a._18(-1,null,["\n        "])),(n()(),a._18(-1,null,["\n      "])),(n()(),a._18(-1,null,["\n    "]))],null,function(n,l){n(l,6,0,"https://image.tmdb.org/t/p/w500"+l.context.$implicit.poster_path,l.context.$implicit.title)})}function o(n){return a._19(0,[(n()(),a.Z(0,0,null,null,32,"ion-header",[],null,null,null,null,null)),a.Y(1,16384,null,0,j.a,[Y.a,a.j,a.z,[2,Z.a]],null,null),(n()(),a._18(-1,null,["\n  "])),(n()(),a.Z(3,0,null,null,28,"ion-navbar",[["class","toolbar"]],[[8,"hidden",0],[2,"statusbar-padding",null]],null,null,y.b,y.a)),a.Y(4,49152,null,0,T.a,[C.a,[2,Z.a],[2,I.a],Y.a,a.j,a.z],null,null),(n()(),a._18(-1,3,["\n    "])),(n()(),a.Z(6,0,null,0,8,"button",[["icon-only",""],["ion-button",""],["menuToggle",""]],[[8,"hidden",0]],[[null,"click"]],function(n,l,u){var t=!0;if("click"===l){t=!1!==a._11(n,8).toggle()&&t}return t},z.b,z.a)),a.Y(7,1097728,[[1,4]],0,x.a,[[8,""],Y.a,a.j,a.z],null,null),a.Y(8,1064960,null,0,P.a,[w.a,[2,Z.a],[2,x.a],[2,T.a]],{menuToggle:[0,"menuToggle"]},null),a.Y(9,16384,null,1,S.a,[Y.a,a.j,a.z,[2,N.a],[2,T.a]],null,null),a._16(603979776,1,{_buttons:1}),(n()(),a._18(-1,0,["\n      "])),(n()(),a.Z(12,0,null,0,1,"ion-icon",[["name","menu"],["role","img"]],[[2,"hide",null]],null,null,null,null)),a.Y(13,147456,null,0,F.a,[Y.a,a.j,a.z],{name:[0,"name"]},null),(n()(),a._18(-1,0,["\n    "])),(n()(),a._18(-1,3,["\n    "])),(n()(),a.Z(16,0,null,3,2,"ion-title",[],null,null,null,M.b,M.a)),a.Y(17,49152,null,0,O.a,[Y.a,a.j,a.z,[2,N.a],[2,T.a]],null,null),(n()(),a._18(-1,0,["MOVIES"])),(n()(),a._18(-1,3,["\n    "])),(n()(),a.Z(20,0,null,2,10,"ion-buttons",[["end",""]],null,[[null,"click"]],function(n,l,u){var t=!0;if("click"===l){t=!1!==n.component.search()&&t}return t},null,null)),a.Y(21,16384,null,1,S.a,[Y.a,a.j,a.z,[2,N.a],[2,T.a]],null,null),a._16(603979776,2,{_buttons:1}),(n()(),a._18(-1,null,["\n      "])),(n()(),a.Z(24,0,null,null,5,"button",[["icon-only",""],["ion-button",""]],null,null,null,z.b,z.a)),a.Y(25,1097728,[[2,4]],0,x.a,[[8,""],Y.a,a.j,a.z],null,null),(n()(),a._18(-1,0,["\n        "])),(n()(),a.Z(27,0,null,0,1,"ion-icon",[["name","search"],["role","img"]],[[2,"hide",null]],null,null,null,null)),a.Y(28,147456,null,0,F.a,[Y.a,a.j,a.z],{name:[0,"name"]},null),(n()(),a._18(-1,0,["\n      "])),(n()(),a._18(-1,null,["\n    "])),(n()(),a._18(-1,3,["\n  "])),(n()(),a._18(-1,null,["\n"])),(n()(),a._18(-1,null,["\n\n"])),(n()(),a.Z(34,0,null,null,16,"ion-content",[],[[2,"statusbar-padding",null],[2,"has-refresher",null]],null,null,R.b,R.a)),a.Y(35,4374528,null,0,U.a,[Y.a,q.a,A.a,a.j,a.z,C.a,H.a,a.u,[2,Z.a],[2,I.a]],null,null),(n()(),a._18(-1,1,["\n  "])),(n()(),a.Z(37,0,null,1,5,"ion-row",[["class","row"]],null,null,null,null,null)),a.Y(38,16384,null,0,D.a,[],null,null),(n()(),a._18(-1,null,["\n    "])),(n()(),a.U(16777216,null,null,1,null,t)),a.Y(41,802816,null,0,G.h,[a.I,a.F,a.p],{ngForOf:[0,"ngForOf"]},null),(n()(),a._18(-1,null,["\n  "])),(n()(),a._18(-1,1,["\n  "])),(n()(),a.Z(44,0,null,1,5,"ion-infinite-scroll",[],null,[[null,"ionInfinite"]],function(n,l,u){var t=!0;if("ionInfinite"===l){t=!1!==n.component.doInfinite(u)&&t}return t},null,null)),a.Y(45,1196032,null,0,L.a,[U.a,a.u,a.j,A.a],null,{ionInfinite:"ionInfinite"}),(n()(),a._18(-1,null,["\n    "])),(n()(),a.Z(47,0,null,null,1,"ion-infinite-scroll-content",[["loadingSpinner","bubbles"],["loadingText","Getting more movies... Hold on"]],[[1,"state",0]],null,null,X.b,X.a)),a.Y(48,114688,null,0,$.a,[L.a,Y.a],{loadingSpinner:[0,"loadingSpinner"],loadingText:[1,"loadingText"]},null),(n()(),a._18(-1,null,["\n  "])),(n()(),a._18(-1,1,["\n"])),(n()(),a._18(-1,null,["\n"]))],function(n,l){var u=l.component;n(l,8,0,"");n(l,13,0,"menu");n(l,28,0,"search");n(l,41,0,u.upcoming);n(l,48,0,"bubbles","Getting more movies... Hold on")},function(n,l){n(l,3,0,a._11(l,4)._hidden,a._11(l,4)._sbPadding);n(l,6,0,a._11(l,8).isHidden);n(l,12,0,a._11(l,13)._hidden);n(l,27,0,a._11(l,28)._hidden);n(l,34,0,a._11(l,35).statusbarPadding,a._11(l,35)._hasRefresher);n(l,47,0,a._11(l,48).inf.state)})}Object.defineProperty(l,"__esModule",{value:!0});var a=u(0),e=(u(3),u(127),u(84)),i=u(83),s=(u(271),function(){function n(n,l,u,t,o){this.toastCtrl=n,this.navCtrl=l,this.navParams=u,this.api=t,this.store=o,this._pageNo=2,this.getUpcoming()}return n.prototype.goToDetailsPage=function(n){this.navCtrl.push("MovieDetails",{id:n.id,data:n})},n.prototype.search=function(){this.navCtrl.push("Search",{type:"movies"})},n.prototype.getTopRated=function(){var n=this;this.store.getTopRated().then(function(l){n.topRated=l.results}),this.api.topRated(this._pageNo).subscribe(function(l){l.results&&(n.topRated=l.results)})},n.prototype.getPopular=function(){var n=this;console.log("getting popular"),this.store.getPopular().then(function(l){n.popular=l.results}),this.api.popular(this._pageNo).subscribe(function(l){l.results&&(n.popular=l.results)})},n.prototype.getLatest=function(){var n=this;this.api.latest(this._pageNo).subscribe(function(l){l.results&&(n.latest=l.results)})},n.prototype.getUpcoming=function(){var n=this;this.api.upcoming().subscribe(function(l){console.log("recieved upcoming"),n.store.setLatest(l),n.upcoming=l.results},function(l){n.loadOffline()})},n.prototype.loadOffline=function(n){var l=this;this.presentToast(n||"You are currently offline, serving you cached content"),this.store.getUpcoming().then(function(n){n.results[0]?(l.presentToast("You are currently offline, serving you cached content"),l.upcoming=n.results):l.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")})},n.prototype.doInfinite=function(n){var l=this;console.log("async operation started"),this.api.upcoming(this._pageNo).toPromise().then(function(u){u.results&&(l.upcoming=l.upcoming.concat(u.results),l._pageNo++,n.complete(),console.log("async operation ended"))}).catch(function(n){l.presentToast("Can't fetch you more movies. There seems to be something wrong with the network 😥📵")})},n.prototype.presentToast=function(n){this.toastCtrl.create({position:"bottom",duration:4e3,message:n}).present()},n}()),c=function(){return function(){}}(),r=u(203),p=u(204),g=u(205),d=u(206),_=u(207),f=u(208),b=u(209),h=u(210),m=u(211),v=u(131),k=u(130),Y=u(1),j=u(80),Z=u(5),y=u(270),T=u(33),C=u(8),I=u(19),z=u(44),x=u(20),P=u(133),w=u(22),S=u(134),N=u(34),F=u(43),M=u(213),O=u(56),R=u(212),U=u(21),q=u(4),A=u(9),H=u(24),D=u(132),G=u(12),L=u(81),X=u(272),$=u(129),B=u(87),V=u(11),E=a.X({encapsulation:2,styles:[],data:{}}),J=a.V("page-movies",s,function(n){return a._19(0,[(n()(),a.Z(0,0,null,null,1,"page-movies",[],null,null,null,o,E)),a.Y(1,49152,null,0,s,[B.a,I.a,V.a,e.a,i.a],null,null)],null,null)},{},{},[]),W=u(18),K=u(128),Q=u(37);u.d(l,"MoviesModuleNgFactory",function(){return nn});var nn=a.W(c,[],function(n){return a._7([a._8(512,a.i,a.S,[[8,[r.a,p.a,g.a,d.a,_.a,f.a,b.a,h.a,m.a,J]],[3,a.i],a.s]),a._8(4608,G.k,G.j,[a.r,[2,G.s]]),a._8(4608,W.k,W.k,[]),a._8(4608,W.c,W.c,[]),a._8(512,G.b,G.b,[]),a._8(512,W.j,W.j,[]),a._8(512,W.d,W.d,[]),a._8(512,W.i,W.i,[]),a._8(512,K.a,K.a,[]),a._8(512,K.b,K.b,[]),a._8(512,c,c,[]),a._8(256,Q.a,s,[])])})},270:function(n,l,u){"use strict";function t(n){return o._19(0,[(n()(),o.Z(0,0,null,null,1,"div",[["class","toolbar-background"]],null,null,null,null,null)),o.Y(1,278528,null,0,a.g,[o.p,o.q,o.j,o.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(n()(),o.Z(2,0,null,null,8,"button",[["class","back-button"],["ion-button","bar-button"]],[[8,"hidden",0]],[[null,"click"]],function(n,l,u){var t=!0;if("click"===l){t=!1!==n.component.backButtonClick(u)&&t}return t},e.b,e.a)),o.Y(3,278528,null,0,a.g,[o.p,o.q,o.j,o.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),o.Y(4,1097728,null,0,i.a,[[8,"bar-button"],s.a,o.j,o.z],null,null),(n()(),o.Z(5,0,null,0,2,"ion-icon",[["class","back-button-icon"],["role","img"]],[[2,"hide",null]],null,null,null,null)),o.Y(6,278528,null,0,a.g,[o.p,o.q,o.j,o.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),o.Y(7,147456,null,0,c.a,[s.a,o.j,o.z],{name:[0,"name"]},null),(n()(),o.Z(8,0,null,0,2,"span",[["class","back-button-text"]],null,null,null,null,null)),o.Y(9,278528,null,0,a.g,[o.p,o.q,o.j,o.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),(n()(),o._18(10,null,["",""])),o._10(null,0),o._10(null,1),o._10(null,2),(n()(),o.Z(14,0,null,null,2,"div",[["class","toolbar-content"]],null,null,null,null,null)),o.Y(15,278528,null,0,a.g,[o.p,o.q,o.j,o.A],{klass:[0,"klass"],ngClass:[1,"ngClass"]},null),o._10(null,3)],function(n,l){var u=l.component;n(l,1,0,"toolbar-background","toolbar-background-"+u._mode);n(l,3,0,"back-button","back-button-"+u._mode);n(l,6,0,"back-button-icon","back-button-icon-"+u._mode);n(l,7,0,u._bbIcon);n(l,9,0,"back-button-text","back-button-text-"+u._mode);n(l,15,0,"toolbar-content","toolbar-content-"+u._mode)},function(n,l){var u=l.component;n(l,2,0,u._hideBb);n(l,5,0,o._11(l,7)._hidden);n(l,10,0,u._backText)})}u.d(l,"a",function(){return r}),l.b=t;var o=u(0),a=u(12),e=u(44),i=u(20),s=u(1),c=u(43),r=(u(5),u(19),o.X({encapsulation:2,styles:[],data:{}}))},271:function(n,l){},272:function(n,l,u){"use strict";function t(n){return e._19(0,[(n()(),e.Z(0,0,null,null,2,"div",[["class","infinite-loading-spinner"]],null,null,null,null,null)),(n()(),e.Z(1,0,null,null,1,"ion-spinner",[],[[2,"spinner-paused",null]],null,null,i.b,i.a)),e.Y(2,114688,null,0,s.a,[c.a,e.j,e.z],{name:[0,"name"]},null)],function(n,l){n(l,2,0,l.component.loadingSpinner)},function(n,l){n(l,1,0,e._11(l,2)._paused)})}function o(n){return e._19(0,[(n()(),e.Z(0,0,null,null,0,"div",[["class","infinite-loading-text"]],[[8,"innerHTML",1]],null,null,null,null))],null,function(n,l){n(l,0,0,l.component.loadingText)})}function a(n){return e._19(0,[(n()(),e.Z(0,0,null,null,4,"div",[["class","infinite-loading"]],null,null,null,null,null)),(n()(),e.U(16777216,null,null,1,null,t)),e.Y(2,16384,null,0,r.i,[e.I,e.F],{ngIf:[0,"ngIf"]},null),(n()(),e.U(16777216,null,null,1,null,o)),e.Y(4,16384,null,0,r.i,[e.I,e.F],{ngIf:[0,"ngIf"]},null)],function(n,l){var u=l.component;n(l,2,0,u.loadingSpinner);n(l,4,0,u.loadingText)},null)}u.d(l,"a",function(){return p}),l.b=a;var e=u(0),i=u(214),s=u(58),c=u(1),r=u(12),p=e.X({encapsulation:2,styles:[],data:{}})}});
+webpackJsonp([4],{
+
+/***/ 300:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "MovieDetailsModule", function() { return MovieDetailsModule; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__movie_details__ = __webpack_require__(313);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+
+
+
+var MovieDetailsModule = /** @class */ (function () {
+    function MovieDetailsModule() {
+    }
+    MovieDetailsModule = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["I" /* NgModule */])({
+            declarations: [
+                __WEBPACK_IMPORTED_MODULE_2__movie_details__["a" /* MovieDetails */],
+            ],
+            imports: [
+                __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* IonicPageModule */].forChild(__WEBPACK_IMPORTED_MODULE_2__movie_details__["a" /* MovieDetails */]),
+            ],
+            exports: [
+                __WEBPACK_IMPORTED_MODULE_2__movie_details__["a" /* MovieDetails */]
+            ]
+        })
+    ], MovieDetailsModule);
+    return MovieDetailsModule;
+}());
+
+//# sourceMappingURL=movie-details.module.js.map
+
+/***/ }),
+
+/***/ 306:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieGenres; });
+var MovieGenres = [
+    {
+        "id": 28,
+        "name": "Action"
+    },
+    {
+        "id": 12,
+        "name": "Adventure"
+    },
+    {
+        "id": 16,
+        "name": "Animation"
+    },
+    {
+        "id": 35,
+        "name": "Comedy"
+    },
+    {
+        "id": 80,
+        "name": "Crime"
+    },
+    {
+        "id": 99,
+        "name": "Documentary"
+    },
+    {
+        "id": 18,
+        "name": "Drama"
+    },
+    {
+        "id": 10751,
+        "name": "Family"
+    },
+    {
+        "id": 14,
+        "name": "Fantasy"
+    },
+    {
+        "id": 36,
+        "name": "History"
+    },
+    {
+        "id": 27,
+        "name": "Horror"
+    },
+    {
+        "id": 10402,
+        "name": "Music"
+    },
+    {
+        "id": 9648,
+        "name": "Mystery"
+    },
+    {
+        "id": 10749,
+        "name": "Romance"
+    },
+    {
+        "id": 878,
+        "name": "Science Fiction"
+    },
+    {
+        "id": 10770,
+        "name": "TV Movie"
+    },
+    {
+        "id": 53,
+        "name": "Thriller"
+    },
+    {
+        "id": 10752,
+        "name": "War"
+    },
+    {
+        "id": 37,
+        "name": "Western"
+    }
+];
+//# sourceMappingURL=genres.js.map
+
+/***/ }),
+
+/***/ 313:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return MovieDetails; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_ionic_angular__ = __webpack_require__(105);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__ = __webpack_require__(106);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__providers_api_movies_api__ = __webpack_require__(107);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__providers_data_genres__ = __webpack_require__(306);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+
+
+
+
+var MovieDetails = /** @class */ (function () {
+    function MovieDetails(navCtrl, sanitizer, navParams, _store, _api) {
+        var _this = this;
+        this.navCtrl = navCtrl;
+        this.sanitizer = sanitizer;
+        this.navParams = navParams;
+        this._store = _store;
+        this._api = _api;
+        this.data = {};
+        this.movieDetail = 'info';
+        this._genres = __WEBPACK_IMPORTED_MODULE_5__providers_data_genres__["a" /* MovieGenres */];
+        this.shouldPlayTrailer = false;
+        this.iconName = 'play';
+        if (this.navParams.data.data) {
+            this.data = this.navParams.data.data;
+            this.data.backdrop_path = this.navParams.data.data.poster_path;
+        }
+        this._api.one(this.navParams.data.id).subscribe(function (res) {
+            _this.data = res;
+            console.log("Result is", res);
+            if (!res.backdrop_path) {
+                _this.data.backdrop_path = res.poster_path;
+            }
+            _this.movieUrl = _this.sanitizer.bypassSecurityTrustResourceUrl('https://www.youtube.com/embed/' + res.videos.results[0].key);
+        });
+    }
+    MovieDetails.prototype.getGenre = function (id) {
+        this._genres.find(function (genre) {
+            return genre.id === id;
+        });
+    };
+    MovieDetails.prototype.toggleTrailer = function () {
+        this.shouldPlayTrailer = !this.shouldPlayTrailer;
+        this.iconName = this.shouldPlayTrailer ? "close" : "play";
+    };
+    MovieDetails.prototype.navActor = function (actor) {
+        this.navCtrl.push("ActorDetails", { data: actor, id: actor.id });
+    };
+    MovieDetails.prototype.navMovie = function (movie) {
+        this.navCtrl.push("MovieDetails", { data: movie, id: movie.id });
+    };
+    MovieDetails.prototype.ionViewDidLoad = function () {
+        console.log('ionViewDidLoad MovieDetails');
+    };
+    MovieDetails.prototype.ionViewWillEnter = function () {
+    };
+    MovieDetails.prototype.playTrailer = function () {
+        console.log("Will play ", this.data.videos.results[0].key);
+    };
+    MovieDetails.prototype.save = function () {
+        //add ability to save film for viewing later
+    };
+    MovieDetails = __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
+            selector: 'page-movie-details',template:/*ion-inline-start:"/home/ekene/code/personal-projects/new-movie-ease/src/pages/movie-details/movie-details.html"*/'<ion-header>\n\n  <ion-navbar class="gradient-header">\n    <ion-title>{{ data.title }}</ion-title>\n  </ion-navbar>\n\n</ion-header>\n<ion-content class="details" [ngStyle]="{\'background-image\': \'url(https://image.tmdb.org/t/p/w780\' + data.backdrop_path + \')\' }">\n  <iframe *ngIf="shouldPlayTrailer" id="ytplayer" type="text/html" allowfullscreen [src]="movieUrl" frameborder="0"></iframe>\n    <div class="wrapper">\n      <h3 style="font-weight: 300" ion-text color="light" text-center class="tagline">\n        {{ data.tagline }}\n      </h3>\n      <button (click)="toggleTrailer()" ion-fab color="primary"><ion-icon [name]="iconName"></ion-icon></button>\n    </div>\n\n    <ion-toolbar no-border>\n      <ion-segment [(ngModel)]="movieDetail">\n        <ion-segment-button value="reviews">\n          Reviews\n        </ion-segment-button>\n        <ion-segment-button value="info">\n          Info\n        </ion-segment-button>\n        <ion-segment-button value="cast">\n          Cast\n        </ion-segment-button>\n        <ion-segment-button value="similar">\n          Similar\n        </ion-segment-button>\n      </ion-segment>\n    </ion-toolbar>\n\n    <div [ngSwitch]="movieDetail">\n      <ion-item text-wrap>\n        <ion-chip *ngFor="let genre of data.genres">\n          <ion-icon name="information-circle"></ion-icon>\n          <ion-label color="light">{{ genre.name }}</ion-label>\n        </ion-chip>\n      </ion-item>\n      <ion-list *ngSwitchCase="\'info\'">\n        <ion-item text-wrap>Release Date: {{ data.release_date }}</ion-item>\n        <ion-item text-wrap>Status: {{ data.status }}</ion-item>\n        <ion-item text-wrap>Overview: {{ data.overview }}</ion-item>\n        <ion-item text-wrap>Revenue: {{ data.revenue }}</ion-item>\n        <ion-item text-wrap>Popularity: {{ data.popularity }}</ion-item>\n        <ion-item text-wrap>Vote Average: {{ data.vote_average }}</ion-item>\n      </ion-list>\n\n      <ion-list *ngSwitchCase="\'reviews\'">\n        <ion-item *ngIf="!data.reviews.total_results"><h3>No Reviews available yet</h3></ion-item>\n        <ion-item *ngFor="let review of data.reviews?.results">\n          <h2>{{ review.author }}</h2>\n          <p ion-text color="light" text-wrap>{{ review.content }}</p>\n        </ion-item>\n      </ion-list>\n\n      <ion-list *ngSwitchCase="\'similar\'">\n        <ion-item text-wrap (click)="navMovie(similar)" *ngFor="let similar of data.similar?.results" >\n          <ion-thumbnail item-left>\n            <img src="https://image.tmdb.org/t/p/w92{{similar.poster_path}}">\n          </ion-thumbnail>\n          <h2>{{ similar.title }}</h2>\n          <p ion-text color="light">Release Date {{ similar.release_date }}</p>\n          \n        </ion-item>\n      </ion-list>\n\n      <ion-list *ngSwitchCase="\'cast\'">\n        <ion-item *ngFor="let cast of data.credits?.cast" (click)="navActor(cast)">\n          <ion-avatar item-left>\n            <img src="https://image.tmdb.org/t/p/w92{{cast.profile_path}}">\n          </ion-avatar>\n          <h2>{{ cast.name }}</h2>\n          <p ion-text color="light">Acted as {{ cast.character }}</p>\n        </ion-item>\n        \n      </ion-list>\n    </div>\n</ion-content>\n'/*ion-inline-end:"/home/ekene/code/personal-projects/new-movie-ease/src/pages/movie-details/movie-details.html"*/,
+        }),
+        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2_ionic_angular__["g" /* NavController */], __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["c" /* DomSanitizer */], __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["h" /* NavParams */], __WEBPACK_IMPORTED_MODULE_3__providers_storage_movies_storage__["a" /* MoviesStorage */], __WEBPACK_IMPORTED_MODULE_4__providers_api_movies_api__["a" /* MoviesApi */]])
+    ], MovieDetails);
+    return MovieDetails;
+}());
+
+//# sourceMappingURL=movie-details.js.map
+
+/***/ })
+
+});
+//# sourceMappingURL=4.js.map
