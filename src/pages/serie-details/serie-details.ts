@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { SeriesApi } from "../../providers/api/series-api";
-import { SeriesStorage } from "../../providers/storage/series-storage";
 import { MovieGenres } from "../../providers/data/genres";
 
 @IonicPage({
@@ -16,7 +15,7 @@ export class SerieDetails {
   public data = {};
   public serieDetail = "info";
   private _genres = MovieGenres;
-  constructor(public navCtrl: NavController, public navParams: NavParams, private _api: SeriesApi, private _storage: SeriesStorage) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private _api: SeriesApi) {
     if(this.navParams.data.data) {
       this.data = this.navParams.data.data
     }
