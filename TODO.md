@@ -1,5 +1,7 @@
 ## TODO
 
+- Handle server error
+- Trending. There is a trending API
 - Service worker // cache file is too large
 - Show toast when offline and nothing in cache❗✅
 - Reduce requests during search ✅

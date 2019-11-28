@@ -7,77 +7,59 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
+import { APIResponse } from "../../models/APIResponse";
+import { Movie } from '../../models/movie';
 
 @Injectable()
 export class MoviesApi {
-
+  url = "http://localhost:4000/api/movies/"//"https://movie-ease.herokuapp.com/api/movies/";
+  
   constructor(public http: HttpClient, public store: MoviesStorage) {}
-
-  one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/api/movies/one/${id}`)
-    .map(this.transformObject)    
-    .catch(this._handleError)
-  }
-  search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/api/movies/search/${query}`)
-    .map(this.transformObject)    
-    .catch(this._handleError)
-  }
-  popular(n=1) {
-    console.log("Getting popular")
-    return this.http.get('https://movie-ease.herokuapp.com/api/movies/popular/'+n)
-    .map(this.transformObject)
-    .map(res => {
-      if(n === 1) this.store.setPopular(res)
-      return res
-    }).catch(this._handleError)
-  }
-  latest(n=1) {
-    console.log("Getting latest")
-    return this.http.get('https://movie-ease.herokuapp.com/api/movies/latest/'+n)
-    .map(this.transformObject)
-    .map((res: any)=> {
-      if(n < 2 && res.results) this.store.setLatest(res)
-      return res
-    }).catch(this._handleError)
-  }
-  upcoming(n=1) {
-    console.log("Getting upcoming")
-    return this.http.get('https://movie-ease.herokuapp.com/api/movies/upcoming/'+n)
-    .map(this.transformObject)
-    .map((res)=> {
-      if(n === 1) this.store.setUpcoming(res)
-      return res
-    }).catch(this._handleError)
+  
+  one(id): Observable<Movie> {
+    return this.http.get<Movie>(`${this.url}one/${id}`)
+    .catch(this.handleError)
   }
   
-  topRated(n=1) {
-    console.log("Getting topRated")
-    return this.http.get('https://movie-ease.herokuapp.com/api/movies/top-rated/'+n)
-    .map(this.transformObject)
-    .map((res)=> {
-      if(n === 1) this.store.setTopRated(res)
-      return res
-    }).catch(this._handleError)
+  search(query): Observable<APIResponse<Movie>> {
+    return this.http.get<APIResponse<Movie>>(`${this.url}search/${query}`)
+    .catch(this.handleError)
   }
-  ozone() {
-    return this.http.get('https://movie-ease.herokuapp.com/api/movies/ozone')
-    .map(this.transformObject)
+
+  popular(n=1): Observable<APIResponse<Movie>> {
+    return this.http.get<APIResponse<Movie>>(`${this.url}popular/${n}`)
     .map(res => {
-      console.log(res)
+      if(n === 1) this.store.setPopular(res.results)
       return res
-    }).catch(this._handleError)
+    }).catch(this.handleError)
   }
-  getAll() {
-    this.topRated(1).subscribe(dat=>console.log(dat));
-    this.latest(1).subscribe(dat=>console.log(dat));
-    this.upcoming(1).subscribe(dat=>console.log(dat));
-    this.popular(1).subscribe(dat=>console.log(dat));
+
+  latest(n=1): Observable<APIResponse<Movie>> {
+    return this.http.get<APIResponse<Movie>>(`${this.url}latest/${n}`)
+    .map(res => {
+      if(n < 2 && res.results) this.store.setLatest(res.results)
+      return res
+    }).catch(this.handleError)
   }
-  private _handleError(err) {
+
+  upcoming(n=1): Observable<APIResponse<Movie>> {
+    return this.http.get<APIResponse<Movie>>(`${this.url}upcoming/${n}`)
+    .map(res => {
+      if(n === 1) this.store.setUpcoming(res.results)
+      return res
+    }).catch(this.handleError)
+  }
+
+  topRated(n=1): Observable<APIResponse<Movie>> {
+    return this.http.get<APIResponse<Movie>>(`${this.url}top-rated/${n}`)
+    .map(res => {
+      if(n === 1) this.store.setTopRated(res.results)
+      return res
+    }).catch(this.handleError)
+  }
+
+  private handleError() {
     return Observable.throw("A Network Error Occured")
   }
-  private transformObject(str) {
-    return typeof str === "object" ? str : JSON.parse(str) 
-  }
+  
 }

@@ -1,50 +1,21 @@
-import { Injectable } from '@angular/core';
-import 'rxjs/add/operator/map';
-import { Storage } from "@ionic/storage";
+import { Injectable } from "@angular/core";
+import "rxjs/add/operator/map";
+import { Actor } from "../../models/Actor";
 
 @Injectable()
 export class ActorsStorage {
-
-  constructor(public store: Storage) {
-    console.log('Hello ActorsStorage Provider');
-  }
-  setUpcoming(res) {
-    return this.store.set("upcomingActors", res)
-  }
-  getUpcoming() {
-    return this.store.get("upcomingActors").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
-  }
-  
-  setLatest(res) {
-    return this.store.set("latestActors", res)
-  }
-  getLatest() {
-    return this.store.get("latestActors").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
-  }
-  
-  setPopular(res) {
-    return this.store.set("popularActors", res)
-  }
-  getPopular() {
-    return this.store.get("popularActors").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
+  constructor() {
+    console.log("Hello ActorsStorage Provider");
   }
 
-  setTopRated(res) {
-    return this.store.set("topRatedActors", res)
+  setPopular(res: Actor[]) {
+    return window.localStorage.setItem("popularActors", JSON.stringify(res));
   }
-  getTopRated() {
-    return this.store.get("topRatedActors").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
+  
+  getPopular(): Promise<Actor[]> {
+    const popularActors = window.localStorage.getItem("popularActors");
+    if (!popularActors) return Promise.resolve([])
+    return Promise.resolve(JSON.parse(popularActors));
   }
+
 }

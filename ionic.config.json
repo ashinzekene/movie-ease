@@ -1,10 +1,5 @@
 {
-  "name": "new",
-  "app_id": "",
-  "type": "ionic-angular",
-  "integrations": {
-    "cordova": {
-      "enabled": false
-    }
-  }
+  "name": "movie-ease",
+  "integrations": {},
+  "type": "ionic-angular"
 }

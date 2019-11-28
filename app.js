@@ -1,44 +1,34 @@
-const express = require('express')
-const path = require("path")
-const http = require("http")
-const bodyParser = require("body-parser")
 require('dotenv').config()
-const app = express()
-const cors = require('cors')
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
 
-const server = http.createServer(app)
+const moviesRouter = require('./routes/new-movies')
+const actorsRouter = require('./routes/new-actors')
+const seriesRouter = require('./routes/new-series')
+const imagesRouter = require('./routes/images-route')
 
-const moviesRoute = require('./routes/new-movies')
-const actorsRoute = require('./routes/new-actors')
-const seriesRoute = require('./routes/new-series')
-const imagesRoute = require('./routes/images-route')
-const botRoute = require('./routes/bot-route')
-const appendResponseRoute = require('./routes/append-response-route')
-const port = process.env.PORT || 5400
+const app = express();
 
-// app.use(cors({ origin: ["https://http://ashinzekene.github.io/movie-ease-bot"], credentials: ["https://http://ashinzekene.github.io/movie-ease-bot"] }))
-app.use(bodyParser.urlencoded({extended: false}))
-app.use(bodyParser.json())
-app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", [ "https://http://ashinzekene.github.io/movie-ease-bot"])
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-  next()
-})
-app.get('/', function(req, res){
-  res.status(200).sendFile(path.join(__dirname, "www", "index.html" ))
-})
+app.use(logger('dev'));
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
+app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(express.static('www'))
-app.use('/api/movies', moviesRoute)
-app.use('/api/actors', actorsRoute)
-app.use('/api/series', seriesRoute)
-app.use('/api/bot', botRoute)
-app.use('/api/a2r', appendResponseRoute)
-app.use('/api/images', imagesRoute)
+app.use('/api/movies', moviesRouter)
+app.use('/api/actors', actorsRouter)
+app.use('/api/series', seriesRouter)
+app.use('/api/images', imagesRouter)
 
-module.exports = app.listen(port, function(err) {
-  if(err) console.log(err)
-  console.log('It is happening at port ', port)
+app.use('/', express.static('www'))
+app.get('*', (req, res) => {
+  res.sendFile('./www/index.html')
 })
 
-require("./routes/bot")
+app.all("*", (err, req, res, next) => {
+  res.status(500).send("An error occurred")
+})
+
+module.exports = app;

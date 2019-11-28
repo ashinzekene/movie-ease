@@ -1,31 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { MoviesApi } from "./movies-api";
-import { SeriesApi } from "./series-api";
-import { ActorsApi } from "./actors-api";
-
-import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/merge';
-import 'rxjs/add/observable/of';
-import 'rxjs/add/operator/catch';
-/*
-  Generated class for the Api provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
+import { ActorsApi } from './actors-api';
+import { MoviesApi } from './movies-api';
+import { SeriesApi } from './series-api';
+import { APIResponse } from '../../models/APIResponse';
+import { Movie } from '../../models/movie';
+import { Serie } from '../../models/Serie';
+import { Actor } from '../../models/Actor';
+
 @Injectable()
 export class Api {
-  public moviesObservable: Observable<[any]>;
-  public seriesObservable: Observable<[any]>;
-  public actorsObservable: Observable<[any]>;
+
+  public moviesObservable: Observable<APIResponse<Movie>>;
+  public seriesObservable: Observable<APIResponse<Serie>>;
+  public actorsObservable: Observable<APIResponse<Actor>>;
+
+  constructor(public http: HttpClient, public actors: ActorsApi, public movies: MoviesApi, public series: SeriesApi) {
+    console.log('Hello ApiProvider Provider');
+  }
   
-  constructor(public actors: ActorsApi, public movies: MoviesApi, public series: SeriesApi) {
-  }
-  getAll() {
-    
-  }
-  search(text, types) {
+  search(text, types): Observable<APIResponse<any>> {
     if (types === 'movies') {
       this.moviesObservable = this.movies.search(text)
       return this.movies.search(text)
@@ -39,8 +35,5 @@ export class Api {
       return this.series.search(text)
     }
   }
-  // computeResult(arr) {
-  //   let res = Observable.merge(this.moviesObservable, this.actorsObservable, this. seriesObservable)
-  // }
-  
+
 }

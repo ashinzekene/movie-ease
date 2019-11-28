@@ -1,49 +1,50 @@
-import { Injectable } from '@angular/core';
-import { Storage } from "@ionic/storage";
+import { Injectable } from "@angular/core";
+import { Serie } from "../../models/Serie";
 
 @Injectable()
 export class SeriesStorage {
 
-  constructor(public store: Storage) {
-    console.log('Hello SeriesStorage Provider');
-  }
-  setUpcoming(res) {
-    return this.store.set("upcomingSeries", res)
-  }
-  getUpcoming() {
-    return this.store.get("upcomingSeries").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
-  }
-  
-  setLatest(res) {
-    return this.store.set("latestSeries", res)
-  }
-  getLatest() {
-    return this.store.get("latestSeries").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
+  constructor() {
+    console.log("Hello SeriesStorage Provider");
   }
 
-  setPopular(res) {
-    return this.store.set("popularSeries", res)
-  }
-  getPopular() {
-    return this.store.get("popularSeries").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
+  setUpcoming(res : Serie[]) {
+    return window.localStorage.setItem("upcomingSeries", JSON.stringify(res));
   }
 
-  setTopRated(res) {
-    return this.store.set("topRatedSeries", res)
+  getUpcoming(): Promise<Serie[]> {
+    const upcomingSeries = window.localStorage.getItem("upcomingSeries");
+    if (!upcomingSeries) return Promise.resolve([]);
+    return Promise.resolve(JSON.parse(upcomingSeries));
   }
-  getTopRated() {
-    return this.store.get("topRatedSeries").then(res => {
-      if(!res) return {results: []};
-      else return JSON.parse(res)
-    })
+
+  setLatest(res : Serie[]) {
+    return window.localStorage.setItem("latestSeries", JSON.stringify(res));
+  }
+
+  getLatest(): Promise<Serie[]> {
+    const latestSeries = window.localStorage.getItem("latestSeries");
+    if (!latestSeries) return Promise.resolve([]);
+    return Promise.resolve(JSON.parse(latestSeries));
+  }
+
+  setPopular(res : Serie[]) {
+    return window.localStorage.setItem("popularSeries", JSON.stringify(res));
+  }
+
+  getPopular(): Promise<Serie[]> {
+    const popularSeries = window.localStorage.getItem("popularSeries");
+    if (!popularSeries) return Promise.resolve([]);
+    return Promise.resolve(JSON.parse(popularSeries));
+  }
+
+  setTopRated(res : Serie[]) {
+    return window.localStorage.setItem("topRatedSeries", JSON.stringify(res));
+  }
+
+  getTopRated(): Promise<Serie[]> {
+    const topRatedSeries = window.localStorage.getItem("topRatedSeries");
+    if (!topRatedSeries) return Promise.resolve([]);
+    return Promise.resolve(JSON.parse(topRatedSeries));
   }
 }

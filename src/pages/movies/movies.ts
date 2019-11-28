@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angu
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
 import 'rxjs/add/operator/toPromise'
+import { Movie } from '../../models/movie';
 
 @IonicPage()
 @Component({
@@ -10,9 +11,9 @@ import 'rxjs/add/operator/toPromise'
   templateUrl: 'movies.html',
 })
 export class Movies {
-  private popular;
-  private topRated;
-  private latest;
+  private popular: Movie[];
+  private topRated: Movie[];
+  private latest: Movie[];
   private upcoming
   private _pageNo: number = 2;
   constructor(private toastCtrl: ToastController, private navCtrl: NavController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {
@@ -27,49 +28,53 @@ export class Movies {
   }
   getTopRated(){
     this.store.getTopRated().then(res=> {
-      this.topRated = res.results;
+      this.topRated = res;
     })
+
     this.api.topRated(this._pageNo).subscribe(res => {
       if(res.results) this.topRated = res.results;
     });
   }
+
   getPopular(){
     console.log("getting popular")
     this.store.getPopular().then(res=> {
-      this.popular = res.results;
+      this.popular = res;
     })
     this.api.popular(this._pageNo).subscribe(res => {
       if(res.results) this.popular = res.results;
     });
   }
+
   getLatest(){
-    // this.store.getLatest().then(res=> {
-    //   this.latest = res.results;
-    // })
+    this.store.getLatest().then(res=> {
+      this.latest = res;
+    })
     this.api.latest(this._pageNo).subscribe(res => {
       if(res.results) this.latest = res.results;
     });
   }
+
   getUpcoming(){
     this.api.upcoming().subscribe(res => {
-      console.log("recieved upcoming")
-      this.store.setLatest(res)
       this.upcoming = res.results;
     }, err=> {
       this.loadOffline()
     });
   }
+
   loadOffline(msg?) {
     this.presentToast(msg || "You are currently offline, serving you cached content")    
     this.store.getUpcoming().then(res=> {
-      if (!res.results[0]) {
+      if (!res[0]) {
         this.presentToast("You are offline and there's nothing in the cache. Guess we'd just have to be looking at ourselves")
       } else {
         this.presentToast("You are currently offline, serving you cached content")
-        this.upcoming = res.results
+        this.upcoming = res
       }
     })
   }
+
   doInfinite(e) {
     console.log("async operation started")
     this.api.upcoming(this._pageNo).toPromise().then( res => {
