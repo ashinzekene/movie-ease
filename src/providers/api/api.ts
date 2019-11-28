@@ -6,7 +6,7 @@ import { ActorsApi } from './actors-api';
 import { MoviesApi } from './movies-api';
 import { SeriesApi } from './series-api';
 import { APIResponse } from '../../models/APIResponse';
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/Movie';
 import { Serie } from '../../models/Serie';
 import { Actor } from '../../models/Actor';
 
