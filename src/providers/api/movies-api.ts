@@ -8,7 +8,7 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 
 import { APIResponse } from "../../models/APIResponse";
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/Movie';
 
 @Injectable()
 export class MoviesApi {
