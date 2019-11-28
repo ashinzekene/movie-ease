@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import "rxjs/add/operator/map";
-import { Movie } from "../../models/movie";
+import { Movie } from "../../models/Movie";
 
 @Injectable()
 export class MoviesStorage {

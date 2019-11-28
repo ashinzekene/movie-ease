@@ -3,7 +3,7 @@ import { IonicPage, ToastController,  NavController, Content } from 'ionic-angul
 import { MoviesStorage } from '../../providers/storage/movies-storage'
 import { MoviesApi } from "../../providers/api/movies-api";
 import 'rxjs/add/operator/toPromise'
-import { Movie } from '../../models/movie';
+import { Movie } from '../../models/Movie';
 
 @IonicPage()
 @Component({

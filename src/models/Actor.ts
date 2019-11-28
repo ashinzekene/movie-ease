@@ -1,5 +1,5 @@
 import { Serie } from "./Serie";
-import { Movie } from "./movie";
+import { Movie } from "./Movie";
 import { Image } from "./AppendToResponse";
 
 export interface Actor {
