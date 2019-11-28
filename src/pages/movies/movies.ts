@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, ToastController } from 'ionic-angular';
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MoviesStorage } from "../../providers/storage/movies-storage";
 import 'rxjs/add/operator/toPromise'
@@ -11,12 +11,9 @@ import { Movie } from '../../models/movie';
   templateUrl: 'movies.html',
 })
 export class Movies {
-  private popular: Movie[];
-  private topRated: Movie[];
-  private latest: Movie[];
-  private upcoming
+  private upcoming: Movie[]
   private _pageNo: number = 2;
-  constructor(private toastCtrl: ToastController, private navCtrl: NavController, private navParams: NavParams, private api: MoviesApi, private store: MoviesStorage) {
+  constructor(private toastCtrl: ToastController, private navCtrl: NavController, private api: MoviesApi, private store: MoviesStorage) {
     this.getUpcoming()
   }
 
@@ -26,34 +23,34 @@ export class Movies {
   search() {
     this.navCtrl.push("Search", {type: "movies"})
   }
-  getTopRated(){
-    this.store.getTopRated().then(res=> {
-      this.topRated = res;
-    })
+  // getTopRated(){
+  //   this.store.getTopRated().then(res=> {
+  //     this.topRated = res;
+  //   })
 
-    this.api.topRated(this._pageNo).subscribe(res => {
-      if(res.results) this.topRated = res.results;
-    });
-  }
+  //   this.api.topRated(this._pageNo).subscribe(res => {
+  //     if(res.results) this.topRated = res.results;
+  //   });
+  // }
 
-  getPopular(){
-    console.log("getting popular")
-    this.store.getPopular().then(res=> {
-      this.popular = res;
-    })
-    this.api.popular(this._pageNo).subscribe(res => {
-      if(res.results) this.popular = res.results;
-    });
-  }
+  // getPopular(){
+  //   console.log("getting popular")
+  //   this.store.getPopular().then(res=> {
+  //     this.popular = res;
+  //   })
+  //   this.api.popular(this._pageNo).subscribe(res => {
+  //     if(res.results) this.popular = res.results;
+  //   });
+  // }
 
-  getLatest(){
-    this.store.getLatest().then(res=> {
-      this.latest = res;
-    })
-    this.api.latest(this._pageNo).subscribe(res => {
-      if(res.results) this.latest = res.results;
-    });
-  }
+  // getLatest(){
+  //   this.store.getLatest().then(res=> {
+  //     this.latest = res;
+  //   })
+  //   this.api.latest(this._pageNo).subscribe(res => {
+  //     if(res.results) this.latest = res.results;
+  //   });
+  // }
 
   getUpcoming(){
     this.api.upcoming().subscribe(res => {
@@ -84,7 +81,7 @@ export class Movies {
         e.complete()
         console.log("async operation ended")
       }
-    }).catch(err => {
+    }).catch(() => {
       this.presentToast("Can't fetch you more movies. There seems to be something wrong with the network 😥📵")
     })
   }

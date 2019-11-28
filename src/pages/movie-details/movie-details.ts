@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DomSanitizer, SafeResourceUrl  } from '@angular/platform-browser';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { MoviesStorage } from "../../providers/storage/movies-storage";
 import { MoviesApi } from "../../providers/api/movies-api";
 import { MovieGenres } from "../../providers/data/genres";
 
@@ -18,10 +17,10 @@ export class MovieDetails {
   public movieDetail = 'info'
   private _genres = MovieGenres
   private shouldPlayTrailer:boolean = false
-  private movieUrl: SafeResourceUrl
-  private iconName: string = 'play';
+  movieUrl: SafeResourceUrl
+  iconName: string = 'play';
 
-  constructor(public navCtrl: NavController, private sanitizer: DomSanitizer, public navParams: NavParams, private _store: MoviesStorage, private _api: MoviesApi) {
+  constructor(public navCtrl: NavController, private sanitizer: DomSanitizer, public navParams: NavParams, private _api: MoviesApi) {
     if(this.navParams.data.data) {
       this.data = this.navParams.data.data
       this.data.backdrop_path = this.navParams.data.data.poster_path
