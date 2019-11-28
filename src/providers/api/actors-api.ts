@@ -5,35 +5,37 @@ import { Observable } from "rxjs/Observable";
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
+import { Actor } from '../../models/Actor';
+import { APIResponse } from '../../models/APIResponse';
 
 @Injectable()
 export class ActorsApi {
 
-  constructor(public http: HttpClient, public store: ActorsStorage) {
-  }
-  one(id) {
-    return this.http.get(`https://movie-ease.herokuapp.com/api/actors/one/${id}`)
-      .map(this.transformObject)
+  url = "http://localhost:4000/api/actors/"//"https://movie-ease.herokuapp.com/api/actors/";
+  
+  constructor(public http: HttpClient, public store: ActorsStorage) {}
+
+  
+  one(id): Observable<Actor> {
+    return this.http.get<Actor>(`${this.url}one/${id}`)
       .catch(this._handleError)
   }
-  search(query) {
-    return this.http.get(`https://movie-ease.herokuapp.com/api/actors/search/${query}`)
-      .map(this.transformObject)
+  
+  search(query): Observable<APIResponse<Actor>> {
+    return this.http.get<APIResponse<Actor>>(`${this.url}search/${query}`)
       .catch(this._handleError)
   }
-  popular(n=1) {
-    return this.http.get('https://movie-ease.herokuapp.com/api/actors/popular/'+n)
-      .map(this.transformObject)
-      .map((res)=> {
-      if(n === 1) this.store.setPopular(res);
+  
+  popular(n=1): Observable<APIResponse<Actor>> {
+    return this.http.get<APIResponse<Actor>>(`${this.url}popular/${n}`)
+      .map(res => {
+      if(n === 1) this.store.setPopular(res.results);
       return res
     }).catch(this._handleError)
   }
-  
-  private _handleError(err) {
+
+  private _handleError() {
     return Observable.throw("Network Error occured")
   }
-  private transformObject(str) {
-    return typeof str === "object" ? str : JSON.parse(str) 
-  }
+
 }

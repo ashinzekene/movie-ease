@@ -11,14 +11,14 @@ router.get('*', function(req, res, next) {
 router.get('/', function(req, res, next) {
   res.status(200).json({result: 'You requested for actors'})
 })
-router.get('/one/:id', function(req, res, next) {
-  actors.one(req.params.id).then(result => res.status(200).json(result))
+router.get('/one/:id', function(req, res) {
+  actors.one(req.params.id).then(result => res.status(200).json(JSON.parse(result)))
 })
 router.get('/popular/:page', function(req, res) {
-  actors.popular(req.params.page).then(result => res.status(200).json(result))
+  actors.popular(req.params.page).then(result => res.status(200).json(JSON.parse(result)))
 })
 router.get('/search/:query', function(req, res) {
-  actors.search(req.params.query).then(result => res.status(200).json(result))
+  actors.search(req.params.query).then(result => res.status(200).json(JSON.parse(result)))
 })
 
 
